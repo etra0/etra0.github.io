@@ -5,21 +5,21 @@
     
     
     
-    <link>etra0.github.io/</link>
+    <link>https://etra0.github.io/</link>
     <description>Recent content on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Mar 2020 12:00:00 -0400</lastBuildDate>
     
-	<atom:link href="etra0.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://etra0.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
-      <link>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</link>
+      <link>https://etra0.github.io/posts/2020-03-23-hacking-the-beginning/</link>
       <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</guid>
+      <guid>https://etra0.github.io/posts/2020-03-23-hacking-the-beginning/</guid>
       <description>
         
           
@@ -37,10 +37,10 @@ Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas
     
     <item>
       <title>Crowdsourcing y Opensource: Ayudando a la comunidad sansana</title>
-      <link>etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</link>
+      <link>https://etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</link>
       <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</guid>
+      <guid>https://etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</guid>
       <description>
         
           
@@ -58,10 +58,10 @@ Dado que uno como alumno, siempre quiere saber en qué posición de la carrera s
     
     <item>
       <title>Datacampfire Datathon</title>
-      <link>etra0.github.io/posts/2018-06-13-datacamp/</link>
+      <link>https://etra0.github.io/posts/2018-06-13-datacamp/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-06-13-datacamp/</guid>
+      <guid>https://etra0.github.io/posts/2018-06-13-datacamp/</guid>
       <description>
         
           
@@ -79,10 +79,10 @@ El equipo se llamaba DMCTeam, y estaba compuesto por dos Data Scientist y yo, un
     
     <item>
       <title>Real programmers use VIM</title>
-      <link>etra0.github.io/posts/2018-06-13-vim/</link>
+      <link>https://etra0.github.io/posts/2018-06-13-vim/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-06-13-vim/</guid>
+      <guid>https://etra0.github.io/posts/2018-06-13-vim/</guid>
       <description>
         
           
@@ -100,10 +100,10 @@ Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me 
     
     <item>
       <title>Altair y otras hierbas</title>
-      <link>etra0.github.io/posts/2018-05-21-altair/</link>
+      <link>https://etra0.github.io/posts/2018-05-21-altair/</link>
       <pubDate>Mon, 21 May 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-05-21-altair/</guid>
+      <guid>https://etra0.github.io/posts/2018-05-21-altair/</guid>
       <description>
         
           
@@ -121,10 +121,10 @@ How it works En resumen (bien en resumen), Altair es un wrapper de vega-lite, qu
     
     <item>
       <title>Pequeño experimento D3js Nº 2</title>
-      <link>etra0.github.io/posts/2018-03-05-d3v2/</link>
+      <link>https://etra0.github.io/posts/2018-03-05-d3v2/</link>
       <pubDate>Mon, 05 Mar 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-03-05-d3v2/</guid>
+      <guid>https://etra0.github.io/posts/2018-03-05-d3v2/</guid>
       <description>
         
           
@@ -141,10 +141,10 @@ How it works En resumen (bien en resumen), Altair es un wrapper de vega-lite, qu
     
     <item>
       <title>Generando datos con figuras</title>
-      <link>etra0.github.io/posts/2018-02-14-valentin/</link>
+      <link>https://etra0.github.io/posts/2018-02-14-valentin/</link>
       <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2018-02-14-valentin/</guid>
+      <guid>https://etra0.github.io/posts/2018-02-14-valentin/</guid>
       <description>
         
           
@@ -162,10 +162,10 @@ Implementación import numpy as np import matplotlib.pyplot as plt from scipy.mi
     
     <item>
       <title>Los hábitos de programación de un estudiante cualquiera</title>
-      <link>etra0.github.io/posts/2017-12-24-habitos-programacion/</link>
+      <link>https://etra0.github.io/posts/2017-12-24-habitos-programacion/</link>
       <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-12-24-habitos-programacion/</guid>
+      <guid>https://etra0.github.io/posts/2017-12-24-habitos-programacion/</guid>
       <description>
         
           
@@ -184,10 +184,10 @@ La forma en que se trabajó la data está documentada en el repositorio; para tr
     
     <item>
       <title>Pequeño análisis descriptivo de los géneros en la USM</title>
-      <link>etra0.github.io/posts/2017-11-04-descripcion-usm/</link>
+      <link>https://etra0.github.io/posts/2017-11-04-descripcion-usm/</link>
       <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-11-04-descripcion-usm/</guid>
+      <guid>https://etra0.github.io/posts/2017-11-04-descripcion-usm/</guid>
       <description>
         
           
@@ -205,10 +205,10 @@ El ocio Como el ocio es infinito, y siempre hay tiempo para perder el tiempo, de
     
     <item>
       <title>Explorando mi Facebook</title>
-      <link>etra0.github.io/posts/2017-10-01-analisis-facebook/</link>
+      <link>https://etra0.github.io/posts/2017-10-01-analisis-facebook/</link>
       <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-10-01-analisis-facebook/</guid>
+      <guid>https://etra0.github.io/posts/2017-10-01-analisis-facebook/</guid>
       <description>
         
           
@@ -227,10 +227,10 @@ El amor Quería ver qué tan amoroso anduve los años ya pasados contando la can
     
     <item>
       <title>La previa a GOT</title>
-      <link>etra0.github.io/posts/2017-07-07-la-previa-a-got/</link>
+      <link>https://etra0.github.io/posts/2017-07-07-la-previa-a-got/</link>
       <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-07-07-la-previa-a-got/</guid>
+      <guid>https://etra0.github.io/posts/2017-07-07-la-previa-a-got/</guid>
       <description>
         
           
@@ -249,10 +249,10 @@ Para responderme esta pregunta, lo primero que hice fue buscar el tiempo en pant
     
     <item>
       <title>Mi pequeño Bot</title>
-      <link>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</link>
+      <link>https://etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</link>
       <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <guid>https://etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</guid>
       <description>
         
           
@@ -270,10 +270,10 @@ Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido que l
     
     <item>
       <title>Explorando las mejores series según IMDB</title>
-      <link>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <link>https://etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <guid>https://etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
       <description>
         
           
@@ -291,10 +291,10 @@ Obviamente, hablando desde una perspectiva de programador, lo primero que hice e
     
     <item>
       <title>Motos en Chile</title>
-      <link>etra0.github.io/posts/2017-06-05-motos-en-chile/</link>
+      <link>https://etra0.github.io/posts/2017-06-05-motos-en-chile/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>etra0.github.io/posts/2017-06-05-motos-en-chile/</guid>
+      <guid>https://etra0.github.io/posts/2017-06-05-motos-en-chile/</guid>
       <description>
         
           
