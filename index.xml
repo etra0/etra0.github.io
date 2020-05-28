@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/</link>
+    <description>Recent content on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2020 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
+      <link>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</link>
+      <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&amp;hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
+Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Crowdsourcing y Opensource: Ayudando a la comunidad sansana</title>
+      <link>etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</link>
+      <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Dentro de mi universidad, existe un sistema de gestión académica llamado SIGA, el cual posee una interfaz bastante&amp;hellip; obsoleta por así decirlo, si bien hace la pega, hay muchas cosas que se podrían hacer mejor. Una de ellas, es el avance académico, ya que al solicitarlo, se entrega una lista con los ramos aprobados y sus notas, pero no hay manera rápida de visualizar el avance.
+Dado que uno como alumno, siempre quiere saber en qué posición de la carrera se encuentra, y dándome cuenta que año tras año pensaba qué ramos puedo tomar para progresar mejor (porque, por lo menos para mí, la malla es solo una referencia) con el fin de no sufrir en el intento, decidí crear una Malla Interactiva que me facilite este trabajo.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Datacampfire Datathon</title>
+      <link>etra0.github.io/posts/2018-06-13-datacamp/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-06-13-datacamp/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Datacampfire hace poco hizo una Hackathon para crear visualizaciones sobre los gastos fiscales, otorgando los datos de éstos (ergo, Datathon). Junto a unos amigos, decidimos participar en ésta, ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.
+El equipo se llamaba DMCTeam, y estaba compuesto por dos Data Scientist y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con ganas de haberle dedicado muchísimo más tiempo.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Real programmers use VIM</title>
+      <link>etra0.github.io/posts/2018-06-13-vim/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-06-13-vim/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
+Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Altair y otras hierbas</title>
+      <link>etra0.github.io/posts/2018-05-21-altair/</link>
+      <pubDate>Mon, 21 May 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-05-21-altair/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Motivación Hace un tiempo atrás, había escuchado de la herramienta Altair, una nueva librería para python enfocada en la creación de visualizaciones. Para ese entonces, no puse mucha atención ya que estaba feliz mejorando mis habilidades de matplotlib, pero luego de que un compañero de trabajo me dijo que debería probarla, decidí darle una oportunidad.
+How it works En resumen (bien en resumen), Altair es un wrapper de vega-lite, quien a su vez es un wrapper de vega, gramática diseñada para generar visualizaciones a través de json.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Pequeño experimento D3js Nº 2</title>
+      <link>etra0.github.io/posts/2018-03-05-d3v2/</link>
+      <pubDate>Mon, 05 Mar 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-03-05-d3v2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Usando el código escrito previamente (source), se exportó la matriz a formato JSON e hice el dibujo con D3js para que estuviese animado. Bonito el resultado. Al hacer click, se cambia el colorscheme.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Generando datos con figuras</title>
+      <link>etra0.github.io/posts/2018-02-14-valentin/</link>
+      <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-02-14-valentin/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
+Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp;amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Los hábitos de programación de un estudiante cualquiera</title>
+      <link>etra0.github.io/posts/2017-12-24-habitos-programacion/</link>
+      <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-12-24-habitos-programacion/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Habiendo finalizado el semestre (bueno, casi (el 29 termina (oh god~))), se me ocurrió hacer una mini exploración a los datos almacenados en mi usuario de GitHub. La principal pregunta que surgió es ¿En qué momento soy más productivo?
+Preámbulo La API de GitHub es bastante amigable, debido a esto, no hubo dificultad alguna en la obtención de los datos.
+La forma en que se trabajó la data está documentada en el repositorio; para trabajar se ocupó jupyter notebook.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Pequeño análisis descriptivo de los géneros en la USM</title>
+      <link>etra0.github.io/posts/2017-11-04-descripcion-usm/</link>
+      <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-11-04-descripcion-usm/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Por esas curiosidades de la vida (o benditas coincidencias), en un correo me llegó quizás más información de la que necesitaba acerca de un test de inglés en ese entonces. Al curosear, descubrí que era un archivo donde estaban contenidos los alumnos matriculados en el período 2016-1.
+El ocio Como el ocio es infinito, y siempre hay tiempo para perder el tiempo, decidí hacer un pequeño análisis descriptivo respecto a los géneros en la USM.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explorando mi Facebook</title>
+      <link>etra0.github.io/posts/2017-10-01-analisis-facebook/</link>
+      <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-10-01-analisis-facebook/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Durante las vacaciones de invierno (es decir, durante el paro), me dediqué a hacer un pequeño script que me permitía descargar mis estados de facebook. Luego, intenté buscar qué cosas analizar que podrían ser interesante y llegué a algunas ideas.
+Todo el código que se utilizó se encuentra en mi GitHub. Source
+El amor Quería ver qué tan amoroso anduve los años ya pasados contando la cantidad de corazones que colocaba en cada estado
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>La previa a GOT</title>
+      <link>etra0.github.io/posts/2017-07-07-la-previa-a-got/</link>
+      <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-07-07-la-previa-a-got/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Update Hice un post actualizado en reddit que alcanzó a la frontpage (nuevo logro 😃)
+Me motivo a escribir esta entrada sabiendo que queda poco para el estreno mundial de Game Of Thrones. Hace un tiempito atrás, cuando ya estaba viendo la serie por segunda vez, me preguntaba si es que realmente existía un protagonista dentro de esta serie.
+Para responderme esta pregunta, lo primero que hice fue buscar el tiempo en pantalla de cada personaje.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mi pequeño Bot</title>
+      <link>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</link>
+      <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que WhatsApp no tiene API) el cuál actualmente puede otorgar la minuta ó el clima en Valparaíso. El mini proyecto ya llegó a una versión &amp;ldquo;estable&amp;rdquo;, y se encuentra en mi GitHub.
+Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido que la gente lo utilice.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explorando las mejores series según IMDB</title>
+      <link>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechazé verla porque dije &amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
+Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Motos en Chile</title>
+      <link>etra0.github.io/posts/2017-06-05-motos-en-chile/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-05-motos-en-chile/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar si existe alguna relación entre la cilindrada de estos vehículos y el precio.
+La información fue sacada de la página para cotizar el permiso de circulación de los vehículos chilenos.
+Se puede notar, que existe una tendencia casi lineal respecto al precio, pero lo que más me llamó la atención, fue el outlier, que era una Ducati que cuesta 54 millones de pesos chilenos (el modelo se llama Ducati Superleggera, 2017): Lo último que hice, fue sacar un promedio de CC y promedio de precio por marca, y curiosamente, las grandes 4 (Kawasaki, Honda, Suzuki y Yamaha) estaban casi al centro, separando a las baratelis con las más caritas, lo cual puede ser principalmente a dos razones:
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

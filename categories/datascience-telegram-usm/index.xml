@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datascience telegram usm on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/datascience-telegram-usm/</link>
+    <description>Recent content in datascience telegram usm on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Jun 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/datascience-telegram-usm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mi pequeño Bot</title>
+      <link>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</link>
+      <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que WhatsApp no tiene API) el cuál actualmente puede otorgar la minuta ó el clima en Valparaíso. El mini proyecto ya llegó a una versión &amp;ldquo;estable&amp;rdquo;, y se encuentra en mi GitHub.
+Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido que la gente lo utilice.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Explorando las mejores series según IMDB :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechazé verla porque dije &amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
+Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/" />
+
+
+
+
+
+<link rel="stylesheet" href="etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="etra0.github.io/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Explorando las mejores series según IMDB"/>
+<meta name="twitter:description" content="Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechazé verla porque dije &ldquo;Debe ser la típica serie acerca de drogas&rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
+Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows."/>
+
+
+
+<meta property="og:title" content="Explorando las mejores series según IMDB" />
+<meta property="og:description" content="Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechazé verla porque dije &ldquo;Debe ser la típica serie acerca de drogas&rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
+Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/" />
+<meta property="article:published_time" content="2017-06-05T12:00:00-04:00" />
+<meta property="article:modified_time" content="2017-06-05T12:00:00-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/">Explorando las mejores series según IMDB</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2017-06-05
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>Hace mucho tiempo atrás, me habían recomendado
+<a href="http://www.imdb.com/title/tt0903747/">Breaking Bad</a>, y yo para variar,
+rechazé verla porque dije <em>&ldquo;Debe ser la típica serie acerca de drogas&rdquo;</em>, y,
+cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores
+series de la TV, decidí explorar qué otro tipo de maravillas me había
+estado perdiendo por ser <strong>prejuicioso</strong>.</p>
+<p>Obviamente, hablando desde una perspectiva de programador, lo primero
+que hice es programar un parser de <a href="http://www.imdb.com">IMDb</a>, específicamente
+de la página donde están los top <em>n</em> shows.</p>
+<p>El primer resultado que obtuve, debido a que no apliqué ningún filtro, fueron
+de series qué jamás había escuchado (probablemente caían dentro de la categoría
+de documental).</p>
+<p>Lo primero que hice obviamente, es inicializar el entorno</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> scipy.interpolate <span style="color:#f92672">import</span> spline
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib
+<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+<span style="color:#75715e"># Ideal para mostrar información más bonita :)</span>
+
+dataset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data2.csv&#34;</span>, encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;utf8&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;;&#34;</span>)
+</code></pre></div><p>Por ahí había escuchado de <code>pandas</code> cuando era mechón, y como todo novato,
+con mucho temor lo dejé en el olvido. Como ahora me picó el bicho
+de la <code>data visualization</code>, aprendí a ocuparlo, y realmente es muy amigable.</p>
+<p>Lo siguiente fue agrupar por <em>score</em>, debido a que el objetivo final
+es ver la concentración de <strong>capítulos buenos</strong> de cada serie:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;score&#34;</span>])<span style="color:#f92672">.</span>count()
+<span style="color:#66d9ef">del</span> df[<span style="color:#e6db74">&#39;name_chapter&#39;</span>]
+df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;count&#34;</span>]
+
+<span style="color:#75715e"># Además, debemos normalizar para que se pueda comparar con mayor facilidad</span>
+df[<span style="color:#e6db74">&#34;distribution&#34;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;count&#39;</span>] <span style="color:#f92672">/</span> dataset<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#34;show&#34;</span>)<span style="color:#f92672">.</span>count()[<span style="color:#e6db74">&#39;chapter&#39;</span>]
+</code></pre></div><p>Luego, por cosas <em>&ldquo;pythonescas&rdquo;</em>, debemos rellenar las notas que faltan
+en la escala del 0 al 10 con cantidad
+0 para plotear el área bien</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_index <span style="color:#f92672">=</span> [(show, score) <span style="color:#66d9ef">for</span> show <span style="color:#f92672">in</span> shows <span style="color:#66d9ef">for</span> score <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.1</span>)]
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reindex(new_index, fill_value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</code></pre></div><p>Finalmente, incluímos unos <code>colormaps</code> para que quede más bonito, y se plotea:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># obtenemos todos los shows</span>
+shows <span style="color:#f92672">=</span> list(set(map(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>], df<span style="color:#f92672">.</span>index)))
+
+<span style="color:#75715e"># colormaps!</span>
+cmap <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;Set1&#39;</span>)
+colors <span style="color:#f92672">=</span> [cmap(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, len(shows))]
+colors <span style="color:#f92672">=</span> zip(shows, colors)
+colors <span style="color:#f92672">=</span> dict(colors)
+
+plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.figsize&#39;</span>] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">10</span>)
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+ax_1 <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+<span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> shows:
+    <span style="color:#75715e"># Se ordenan por score</span>
+    show <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[key]<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>sort_values(by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;score&#34;</span>)
+
+    <span style="color:#75715e"># smoothing the curve because reasons</span>
+    x_smooth <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(show<span style="color:#f92672">.</span>min()[<span style="color:#e6db74">&#39;score&#39;</span>], show<span style="color:#f92672">.</span>max()[<span style="color:#e6db74">&#39;score&#39;</span>], <span style="color:#ae81ff">500</span>)
+    y_smooth <span style="color:#f92672">=</span> spline(show[<span style="color:#e6db74">&#39;score&#39;</span>], show[<span style="color:#e6db74">&#39;distribution&#39;</span>], x_smooth)
+
+    <span style="color:#75715e"># al hacer el smooth de la curva, se generan valores negativos, lo que</span>
+    <span style="color:#75715e"># es claramente erróneo.</span>
+    y_smooth <span style="color:#f92672">=</span> [y <span style="color:#66d9ef">if</span> y <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> y_smooth]
+    ax_1<span style="color:#f92672">.</span>plot(x_smooth, y_smooth, label<span style="color:#f92672">=</span>key, color<span style="color:#f92672">=</span>colors[key])
+    ax_1<span style="color:#f92672">.</span>fill_between(x_smooth, y_smooth, color<span style="color:#f92672">=</span>colors[key], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+
+</code></pre></div><p>Finalmente, al ejecutar todo, se obtiene el plot:
+
+  <img src="/blog//assets/images/imdb/top_tv_all.png"  class="center"  />
+
+</p>
+<p>Luego, al revisar la lista de los top 5 shows, (<code>['Breaking Bad', 'Planet Earth II', 'Game of Thrones', 'Planet Earth', 'Band of Brothers']</code>),
+quedo extrañado al ver <code>Planet Earth</code> I y II, jamás en la vida había escuchado
+de ellas. Revisándolas, parecían como un documental acerca de la tierra, así
+que se me ocurrió crear un filtro más: tomar en cuenta sólo las series
+con <strong>más</strong> de una temporada, a ver si se obtenía un resultado con series
+de más <em>renombre</em>.</p>
+<h2 id="series-con-más-de-una-temporada">Series con más de una temporada</h2>
+<p>Lo único que tuve que cambiar para obtener esta información, fue el parser, ya
+que desde ahí filtré las series con solo una temporada, y se obtuvo un resultado
+mucho más interesante:</p>
+
+  <img src="/blog//assets/images/imdb/plot.png"  class="center"  />
+
+
+<p>Se puede apreciar que las series con más concentración en las notas altas
+son <em>Rick and Morty</em>, <em>Game of Thrones</em> y <em>Breaking Bad</em>.</p>
+<p>Aguante <code>python</code>, y aguante la data visualization.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="etra0.github.io/assets/main.js"></script>
+<script src="etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

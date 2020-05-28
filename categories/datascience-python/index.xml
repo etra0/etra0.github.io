@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datascience python on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/datascience-python/</link>
+    <description>Recent content in datascience python on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Nov 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/datascience-python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pequeño análisis descriptivo de los géneros en la USM</title>
+      <link>etra0.github.io/posts/2017-11-04-descripcion-usm/</link>
+      <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-11-04-descripcion-usm/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Por esas curiosidades de la vida (o benditas coincidencias), en un correo me llegó quizás más información de la que necesitaba acerca de un test de inglés en ese entonces. Al curosear, descubrí que era un archivo donde estaban contenidos los alumnos matriculados en el período 2016-1.
+El ocio Como el ocio es infinito, y siempre hay tiempo para perder el tiempo, decidí hacer un pequeño análisis descriptivo respecto a los géneros en la USM.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Real programmers use VIM :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
+Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="etra0.github.io/posts/2018-06-13-vim/" />
+
+
+
+
+
+<link rel="stylesheet" href="etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="etra0.github.io/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Real programmers use VIM"/>
+<meta name="twitter:description" content="Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
+Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!"/>
+
+
+
+<meta property="og:title" content="Real programmers use VIM" />
+<meta property="og:description" content="Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
+Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="etra0.github.io/posts/2018-06-13-vim/" />
+<meta property="article:published_time" content="2018-06-13T12:00:00-04:00" />
+<meta property="article:modified_time" content="2018-06-13T12:00:00-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="etra0.github.io/posts/2018-06-13-vim/">Real programmers use VIM</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2018-06-13
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p><img src="https://imgs.xkcd.com/comics/real_programmers.png" alt="Real Programmers"></p>
+<p>Hace aproximadamente <strong>dos años</strong> atrás, era un usuario frecuente de Sublime Text,
+me encantaba el tema Monokai, y aún más la velocidad con que abría archivos.
+Era bonito, eficiente, minimal, satisfacía todas mis necesidades como <code>newbie</code>
+en el mundo de la programación, pero todo cambió cuando conocí VIM.</p>
+<h3 id="backstory">Backstory</h3>
+<p>Debo confesar que primero partí con EMACS, y como todo <em>hackerman</em>, me creía
+bacán por abrir un editor desde la terminal, porque, mientras más avanzaba
+en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!).
+Luego, al navegar por las turbias aguas del internet, descubrí la eterna
+discusión de VIM vs EMACS (ó EMACS vs VIM, para no ofender a nadie), así que
+empecé a mirar para el lado, y abrí VIM por primera vez.</p>
+<h3 id="no-supe-como-salir">No supe como salir</h3>
+<p>Una vez abierto VIM, quería empezar a escribir, y para mi sorpresa, tenía
+un comportamiento raro, no hacía lo que yo quería, me sentía asustado, con <em>miedo</em>,
+quería escapar, salir; pero no podía. La única solución, <a href="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/">fue cortar la luz de mi casa.</a></p>
+<h3 id="la-puerta-al-infierno-cielo">La puerta al <del>infierno</del> cielo</h3>
+<p>Obvio que VIM no se comportaría como yo quería, porque no se comporta
+como un editor de texto normal, <a href="https://guide.freecodecamp.org/vim/modes/">ya que tiene distintos <strong>modos</strong>.</a>
+La verdad, es que me produjo curiosidad, ganas de explorarlo, de conocerlo, adentrarme más en
+esta belleza de software, y eso hice, y después de dos años, puedo decir,
+<em>que aún no sé como salir de VIM</em>.</p>
+<p>No pretendo enseñar VIM, pero si te animas, ¡bacán!, hay millones de tutoriales,
+para linux está el <code>vimtutor</code>, <a href="https://vim-adventures.com/">e incluso un juego que te enseña lo básico</a>;
+el objetivo de esta nota es explicar el por qué aún lo ocupo, y por qué soy <em>purista</em>.</p>
+<h2 id="no-más-mouse">No más mouse</h2>
+<p>En lo personal, no soy muy amigo de los Drag &amp; Drop, por eso me gusta
+estar metido en la shell, revisar lo más posible desde ella, editar videos,
+editar imágenes, programar, have all the fun! y VIM es especialmente genial por esto.
+Es un editor que lo único que necesita es una terminal!, eso quiere decir
+que puedes correrlo de forma remota sin ningún problema por <code>ssh</code>, o incluso
+editar desde una tostadora.</p>
+<h2 id="fast-navigation">Fast navigation</h2>
+<p>Una vez aprendida la diferencia entre los distintos modos, y el flujo
+especial de VIM, puedes hacer cosas bastantes interesantes. Una de las más básicas
+es la navegación rápida. Usando los Relative Numbers y <code>hjkl</code>, ¡puedes ir diréctamente
+a la linea que deseas sin alejar la mano del teclado (ni apretar mil veces las flechitas)!</p>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/fast_navigation.mp4">
+    </video>
+</div>
+
+<h2 id="fast-edition">Fast edition</h2>
+<p>VIM tiene ciertas características bastante interesantes, una de ellas, <a href="http://vimdoc.sourceforge.net/htmldoc/motion.html">es el
+tratamiento de las palabras como <em>objetos</em></a>, que,
+en resumen, es tratar cada palabra como un objeto independiente, permitiendo
+una manipulación bastante rápida. Por ejemplo, es muy fácil eliminar una palabra,
+reemplazarla, eliminar 2, navegar entre ellas, etc.</p>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/fast_edit.mp4">
+    </video>
+</div>
+
+<p>Los brackets, paréntesis, comillas también son objetos, y se pueden usar en la edición, para, por ejemplo,
+borrar todo lo que hay dentro de estos.
+Además, con la ayuda de los plugins de tpope (<a href="https://github.com/tpope/vim-surround">VIM-surround</a> &amp; <a href="https://github.com/tpope/vim-repeat">VIM-repeat</a>),
+puedes envolver palabras con mucha facilidad, si por ejemplo, deseas pasar una lista de <code>int</code> a <code>str</code></p>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/fast_edit2.mp4">
+    </video>
+</div>
+
+<h2 id="the-fun-is-just-starting">The fun is just starting</h2>
+<p>Hay muchas cosas dentro de este magnífico software que probablemente se me olvidarán mencionar,
+pero son útiles día a día. Algunas de ellas son las macros, la habilidad de crear comandos
+a partir de keystrokes, los buffers o incluso el autocompletado. VIM es una magnífica herramienta
+que más que acelerar un flujo de trabajo, lo hace más cómodo, más entretenido.</p>
+<h4 id="ejemplo-de-macro">Ejemplo de macro</h4>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/macro.mp4">
+    </video>
+</div>
+
+<h4 id="ejemplo-de-autocompletado">Ejemplo de autocompletado</h4>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/autocomplete.mp4">
+    </video>
+</div>
+
+<h2 id="la-mejor-inversión-ever">La mejor inversión ever</h2>
+<p>Créanme, VIM tiene una curva de aprendizaje logarítmica, cuesta mucho comenzar
+a tomar impulso. Después de dos años programando de forma seguida, aún sigo
+aprendiendo de sus <em>gimmicks</em> y trucos secretos, pero lejos, ha sido una muy
+buena inversión de mi tiempo. Cuando entré a trabajar intenté ocupar algún
+editor que me ayude en entornos más grandes, pero siempre terminé volviendo a VIM,
+por su fluidez, interfaz limpia, y sus maravillas propias. <strong>VIM sirve
+para entornos profesionales.</strong>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/vim/fast.mp4">
+    </video>
+</div>
+</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="etra0.github.io/assets/main.js"></script>
+<script src="etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

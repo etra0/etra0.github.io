@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript dataviz usm on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/javascript-dataviz-usm/</link>
+    <description>Recent content in javascript dataviz usm on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Feb 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/javascript-dataviz-usm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generando datos con figuras</title>
+      <link>etra0.github.io/posts/2018-02-14-valentin/</link>
+      <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-02-14-valentin/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
+Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp;amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

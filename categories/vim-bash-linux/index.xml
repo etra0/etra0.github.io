@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim bash linux on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/vim-bash-linux/</link>
+    <description>Recent content in vim bash linux on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/vim-bash-linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Real programmers use VIM</title>
+      <link>etra0.github.io/posts/2018-06-13-vim/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2018-06-13-vim/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
+Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

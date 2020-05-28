@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datascience on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/datascience/</link>
+    <description>Recent content in datascience on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Dec 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/datascience/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Los hábitos de programación de un estudiante cualquiera</title>
+      <link>etra0.github.io/posts/2017-12-24-habitos-programacion/</link>
+      <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-12-24-habitos-programacion/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Habiendo finalizado el semestre (bueno, casi (el 29 termina (oh god~))), se me ocurrió hacer una mini exploración a los datos almacenados en mi usuario de GitHub. La principal pregunta que surgió es ¿En qué momento soy más productivo?
+Preámbulo La API de GitHub es bastante amigable, debido a esto, no hubo dificultad alguna en la obtención de los datos.
+La forma en que se trabajó la data está documentada en el repositorio; para trabajar se ocupó jupyter notebook.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>La previa a GOT</title>
+      <link>etra0.github.io/posts/2017-07-07-la-previa-a-got/</link>
+      <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-07-07-la-previa-a-got/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Update Hice un post actualizado en reddit que alcanzó a la frontpage (nuevo logro 😃)
+Me motivo a escribir esta entrada sabiendo que queda poco para el estreno mundial de Game Of Thrones. Hace un tiempito atrás, cuando ya estaba viendo la serie por segunda vez, me preguntaba si es que realmente existía un protagonista dentro de esta serie.
+Para responderme esta pregunta, lo primero que hice fue buscar el tiempo en pantalla de cada personaje.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explorando las mejores series según IMDB</title>
+      <link>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechazé verla porque dije &amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
+Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Motos en Chile</title>
+      <link>etra0.github.io/posts/2017-06-05-motos-en-chile/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-06-05-motos-en-chile/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar si existe alguna relación entre la cilindrada de estos vehículos y el precio.
+La información fue sacada de la página para cotizar el permiso de circulación de los vehículos chilenos.
+Se puede notar, que existe una tendencia casi lineal respecto al precio, pero lo que más me llamó la atención, fue el outlier, que era una Ducati que cuesta 54 millones de pesos chilenos (el modelo se llama Ducati Superleggera, 2017): Lo último que hice, fue sacar un promedio de CC y promedio de precio por marca, y curiosamente, las grandes 4 (Kawasaki, Honda, Suzuki y Yamaha) estaban casi al centro, separando a las baratelis con las más caritas, lo cual puede ser principalmente a dos razones:
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

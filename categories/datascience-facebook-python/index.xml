@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datascience facebook python on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/datascience-facebook-python/</link>
+    <description>Recent content in datascience facebook python on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Oct 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/datascience-facebook-python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Explorando mi Facebook</title>
+      <link>etra0.github.io/posts/2017-10-01-analisis-facebook/</link>
+      <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2017-10-01-analisis-facebook/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Durante las vacaciones de invierno (es decir, durante el paro), me dediqué a hacer un pequeño script que me permitía descargar mis estados de facebook. Luego, intenté buscar qué cosas analizar que podrían ser interesante y llegué a algunas ideas.
+Todo el código que se utilizó se encuentra en mi GitHub. Source
+El amor Quería ver qué tan amoroso anduve los años ya pasados contando la cantidad de corazones que colocaba en cada estado
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&amp;hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
+Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="etra0.github.io/posts/2020-03-23-hacking-the-beginning/" />
+
+
+
+
+
+<link rel="stylesheet" href="etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="etra0.github.io/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Game Hacking: the beginning. El hermoso mundo del Reverse Engineering"/>
+<meta name="twitter:description" content="Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
+Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando."/>
+
+
+
+<meta property="og:title" content="Game Hacking: the beginning. El hermoso mundo del Reverse Engineering" />
+<meta property="og:description" content="Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
+Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="etra0.github.io/posts/2020-03-23-hacking-the-beginning/" />
+<meta property="article:published_time" content="2020-03-23T12:00:00-04:00" />
+<meta property="article:modified_time" content="2020-03-23T12:00:00-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="etra0.github.io/posts/2020-03-23-hacking-the-beginning/">Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-03-23
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h1 id="prólogo">Prólogo</h1>
+<h2 id="casi-hacker">Casi Hacker</h2>
+<p>Al momento de hablar de hacking, casi todo el mundo se imagina el clásico
+<em>hacking ético</em>, intentando vulnerar redes, sus <em>MITM</em>, típico que salta
+<em>Kali Linux</em>, <em>claves de facebook</em>, etc&hellip; Esa es la primera imagen que se le
+viene a la gente, un hacking, que en verdad, a mi poco y nada me
+interesaba.</p>
+<p>Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas
+en algún motor como google, abunda el contenido donde se enseña a usar
+este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin
+encontrar lo que siempre estuve buscando.</p>
+<h2 id="bajo-nivel-c-y-otras-drogas">Bajo nivel, C, y otras drogas</h2>
+<p>Mi primera experiencia en la programación, fue cuando estaba en 4to medio y
+la Pontificia Universidad Católica de Valparaíso hizo un curso para estudiantes
+de programación. Allí enseñaron C, y uff, a pesar de lo mucho que me costó
+entender los punteros, fue un lenguaje que amé desde el minuto 0. Molestaba
+frecuentemente a los tutores, llegaba a la casa a seguir aprendiendo, típico,
+hice la calculadora básica, lo recuerdo con mucho afecto.</p>
+<p>¿Por qué importa esto? porque C es un lenguaje de bajo nivel, y es lo que
+más me llamaba la atención, manejo de memoria, punteros, arreglos <em>pelados</em>,
+etc.</p>
+<p>Desde ese entonces, siempre quise profundizar mis conocimientos en esta área,
+aprender más cosas sobre como funciona un computador a nivel <em>&ldquo;puro&rdquo;</em>,
+aprender Assembly, aprender sobre procesos, etc. y nunca lo hice, hasta que
+un día de forma aleatoria, me metí a <strong>Cheat Engine</strong>, y me di cuenta
+de lo realmente poderosa que es esta herramienta.</p>
+<h1 id="game-hacking-alto-nivel">Game Hacking, Alto nivel</h1>
+<h2 id="cheat-engine">Cheat Engine</h2>
+
+  <img src="/blog//assets/images/hacking_beginning/cheat_engine.png"  class="center"  />
+
+
+<p>Cuando chico, obvio que me encantaba jugar, pero rara vez completaba los juegos
+(mi <em>backlog</em> es un poco&hellip; grande). Además de jugar, me gustaba mucho
+usar claves jaja, pero no siempre todos los juegos tenían de éstas o no había
+una que hacía lo que yo quisiese, y por esas búsquedas de Google me encontré
+con el famoso Cheat Engine, que en ese entonces, no tenía ni idea como realmente
+funcionaba, simplemente ocupaba su <em>feature</em> más básica, escanear valores
+y modificarlos.</p>
+<p>Así fue como conocí Cheat Engine, pero después de harto tiempo dejé de usarlo
+porque jugaba más que nada cosas online. Fast forward algunos años, decidí
+instalarlo de nuevo, porque, <em>why not?</em>, y ahí fue cuando me di cuenta de
+lo que me perdí cuando era chico.</p>
+<h2 id="intro-to-reverse-engineering-memory--assembly">Intro to reverse engineering: Memory &amp; Assembly</h2>
+<p>Cheat Engine, en resumen, es un manipulador de memoria. Con su <em>scanner</em>,
+puedes ir descartando resultados que no corresponden al valor que tu buscabas,
+para finalmente encontrar lo que quieres y modificarlo, dinero, vidas, etc.
+Pero CE daba mucho más que eso, también sirve como <strong>debugger</strong>, y más interesante
+aún, inyectar código en runtime a un proceso externo, y ahí fue cuando todo escaló.</p>
+
+  <img src="/blog//assets/images/hacking_beginning/memory_view.jpeg"  class="center"  />
+
+
+<p>¡Sorpresa! puedes ver el código del proceso cargado en memoria, manipularlo
+como quieras, también tienes acceso a la parte de datos, al stack, ¡a todo el
+espacio reservado por el juego! Las posibilidades son infinitas, puedes
+modificar mecánicas, valores, agregar condiciones nuevas, etc. El límite es
+el cielo.</p>
+<p><style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/hacking_beginning/DASH_720.mp4">
+    </video>
+</div>
+
+<div style="text-align: center;">
+<em>Mi primer Cheat para The Witcher 1</em>
+</div>
+</p>
+<p>Fue ahí entonces cuando decidí inmediatamente, comenzar a aprender Assembly,
+uno de los lenguajes más temidos por los programadores en general.</p>
+<p>Gasté horas y horas, leyendo, investigando, aprendiendo sobre la arquitectura
+actual de procesadores, los registros, convenciones, y fue todo muy mágico.
+<strong>Re-descubrí el amor por la informática, me volví a enamorar, cual niño chico
+con juguete nuevo.</strong></p>
+<p>Definitivamente, abrí muchas puertas del conocimiento, el área que tanto
+me interesaba pero nunca le pude dedicar tiempo, al fin estaba al alcance de mi
+mano, un área bastante niche, que, sin dudas, me hace muy feliz.</p>
+<p>Gasté mucho tiempo, en distintos juegos, haciendo pequeñas modificaciones
+para hacerlo más entretenido (hacer al personaje más fuerte, chiquitito,
+hacerlo volar, etc), pero sin duda una de las cosas que más me ha entretenido
+hasta ahora, es hacer <em>freecam</em>, o en el fondo, desvincular al personaje
+de la cámara, para poder explorar el mundo que los rodea</p>
+<p><style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/hacking_beginning/botw.mp4">
+    </video>
+</div>
+
+<div style="text-align: center;">
+<em>Freecam</em> para Zelda: Breath of the Wild
+</div>
+</p>
+<p>Cheat Engine sin lugar a dudas es una herramienta muy poderosa, pero el hambre
+por el conocimiento no terminó allí.</p>
+<h1 id="game-hacking-bajo-nivel">Game Hacking, Bajo nivel</h1>
+<p>Es obvio, que si existe un software que actualmente cumple una función,
+tu también puedes hacerlo manualmente, i.e. <em>Reinventar la rueda</em>. No siempre
+es práctico, a nivel laboral es un gesto que generalmente hay que evitar,
+pero para aprender, ésta es una excelente instancia.</p>
+<h2 id="aprendiendo-sobre-la-winapi-y-los-procesos">Aprendiendo sobre la WinAPI, y los procesos.</h2>
+<p>Una vez ya habiendo experimentado bastante con Cheat Engine, era hora
+de dar el siguiente paso: hacer algo completamente desde 0. Es un desafío
+gigantezco, ya que implica quitar esa gran capa de abstracción que se encargaba
+de muchas cosas que ocurrían por debajo e implementarlas nuevamente, entendiendo
+qué hace cada componente.</p>
+<p>Para esto, fue necesario aprender sobre la API de Windows, como funcionan
+los procesos, y como se trabaja con memoria a nivel de sistema operativo.
+Para esto, habían dos caminos: hacerlo de manera interna o externa. Básicamente,
+la diferencia es que al hacerlo de manera interna, se debe inyectar un DLL
+y el espacio de memoria se compartiría con el proceso, en cambio, de manera
+externa, los espacios de memoria son distintos, por lo tanto es necesario
+solicitar permisos para acceder y/o modificar la memoria de un proceso ajeno.</p>
+<p>Decidí irme por el externo, ya que, es la forma más fácil de compartir binarios,
+sin necesidad de tener que modificar los ejecutables originales de los juegos
+objetivos.</p>
+<h3 id="asm-inline-compilador-open-source-e-inyección">ASM inline, compilador open-source e inyección.</h3>
+<p>Por primera vez en mi vida, aprendí que existe el Assembly Inline, es decir,
+que una función se puede compilar en <em>Naked Assembly</em> dentro de C/C++, y,
+sorprendentemente, el compilador <a href="http://mingw-w64.org/doku.php">mingw-64</a>
+tiene mejor soporte que el compilador de Windows mismo, ya que permite
+compilar ASM inline para 64 bits.</p>
+<p>Habiendo notado la existencia de ASM inline, y habiendo entendido como
+jugar con la API de Windows, era hora de la entretención: Crear un proyecto
+donde se inyecte código para que funcione como yo quiera.</p>
+<h1 id="primer-proyecto-bajo-nivel-yakuza-0-freecam">Primer proyecto bajo nivel: Yakuza 0 freecam</h1>
+<p>Después de muchas semanas de investigación, era hora de poner a prueba todo
+el conocimiento adquirido. El objetivo era ahora: <strong>Escribir un programa
+en C++ que permita manipular la cámara del juego independientemente</strong>,
+sin necesidades de un proceso externo como Cheat Engine.</p>
+<p>De todas formas, para concretar este objetivo, se utilizó Cheat Engine igual
+debido a que es un excelente debugger, permitía ver si los cambios que
+estaba haciendo a la memoria correspondían a lo que deseaba, y podía
+revertirlos modificando la memoria manualmente de ser necesario.</p>
+<p>Finalmente, luego de muchas pruebas y error, y <strong>demasiados segfaults</strong>,
+logré mi objetivo: inyecté una función escrita en <em>asm inline</em> al proceso
+del juego, que me permitía correr una rutina propia para obtener los valores
+que yo quería.</p>
+<p>El funcionamiento es bastante simple:</p>
+<ol>
+<li>Reservo un bloque de memoria en el proceso externo</li>
+<li>Cargo la función escrita en <em>Assembly</em> en ese bloque</li>
+<li>Busco un segmento de código donde se trabaje con la cámara, y le inyecto
+la desviación a mi código escrito</li>
+<li>El código escrito manualmente escribe la dirección actual de la cámara
+en el bloque asignado, para facilitar el acceso</li>
+<li>Mi proceso guarda esa dirección para consultarla frecuentemente</li>
+<li>El proceso originalmente sale de mi inyección, pero entrará cada vez
+que pase por esa parte del código</li>
+</ol>
+<p>Con esto, básicamente me aseguro de obtener siempre el puntero correcto
+de la cámara ya que es el mismo que está ocupando el juego, y así, puedo
+manipular la cámara a gusto.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">__declspec</span>(<span style="color:#66d9ef">naked</span>) <span style="color:#66d9ef">void</span> shellcode()
+{
+    <span style="color:#75715e">// rax -&gt; jmpBackAddress
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// rax+8 -&gt; camera pointer location
+</span><span style="color:#75715e"></span>     __asm__ <span style="color:#66d9ef">volatile</span> (
+         <span style="color:#e6db74">&#34;.intel_syntax noprefix;&#34;</span>
+         <span style="color:#e6db74">&#34;lea r11,[rip+0x200];&#34;</span>
+         <span style="color:#e6db74">&#34;push rbx;&#34;</span>
+         <span style="color:#e6db74">&#34;mov rbx,rcx;&#34;</span>
+         <span style="color:#e6db74">&#34;mov [r11+8],rbx;&#34;</span>
+         <span style="color:#e6db74">&#34;pop rbx;&#34;</span>
+         <span style="color:#e6db74">&#34;movaps xmm1,[rcx+0x00000320];&#34;</span>
+         <span style="color:#e6db74">&#34;jmp [r11];&#34;</span>
+         <span style="color:#e6db74">&#34;nop;nop;nop;nop;&#34;</span> <span style="color:#75715e">// ending function signature
+</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;.att_syntax;&#34;</span>
+     );
+
+}
+
+<span style="color:#66d9ef">void</span> Camera<span style="color:#f92672">::</span>resolve_camera_pointers() {
+
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_func <span style="color:#f92672">=</span> (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)shellcode;
+    <span style="color:#66d9ef">int</span> f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// calc the size of the function
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	    <span style="color:#f92672">*</span>((UINT32 <span style="color:#f92672">*</span>)(<span style="color:#f92672">&amp;</span>((<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)p_func)[f_size])) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0x90909090</span>;
+	    <span style="color:#f92672">++</span>f_size);
+
+    <span style="color:#75715e">// try allocate near module
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+    <span style="color:#66d9ef">int</span> instruction_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; p_shellcode <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">++</span>)
+        p_shellcode <span style="color:#f92672">=</span> VirtualAllocEx(process,
+	(BYTE<span style="color:#f92672">*</span>)(moduleAddress <span style="color:#f92672">-</span> (<span style="color:#ae81ff">0x1000</span> <span style="color:#f92672">*</span> i)),
+	f_size,
+	MEM_RESERVE <span style="color:#f92672">|</span> MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+
+    <span style="color:#75715e">// absolute jmp
+</span><span style="color:#75715e"></span>    uintptr_t moduleInjectionAddress <span style="color:#f92672">=</span> (moduleAddress <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>jumpOffset);
+    uintptr_t jmpBackAddress <span style="color:#f92672">=</span> moduleInjectionAddress <span style="color:#f92672">+</span> instruction_size;
+
+    <span style="color:#75715e">// inject the shellcode
+</span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode, (LPCVOID)shellcode, f_size,
+	    <span style="color:#66d9ef">nullptr</span>);
+
+    <span style="color:#75715e">// 0x207 -&gt; jmp back address
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 0x207 + 0x8 -&gt; camera address
+</span><span style="color:#75715e"></span>  
+    <span style="color:#75715e">// inject the jmp 
+</span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span>, <span style="color:#f92672">&amp;</span>jmpBackAddress, <span style="color:#ae81ff">8</span>,
+	    <span style="color:#66d9ef">nullptr</span>);
+  
+    <span style="color:#75715e">// read the camera pointer
+</span><span style="color:#75715e"></span>    pCamera <span style="color:#f92672">=</span> (uintptr_t)(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x8</span>);
+    
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pCamera &#34;</span> <span style="color:#f92672">&lt;&lt;</span> pCamera;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; Assigned address &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>hex <span style="color:#f92672">&lt;&lt;</span> p_shellcode <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+
+    <span style="color:#75715e">// this function hooks with the process the jump.
+</span><span style="color:#75715e"></span>    hookFunction(process, moduleInjectionAddress, (uintptr_t)p_shellcode,
+	    instruction_size);
+}
+</code></pre></div><p>Ya contento con lo logrado, grabé un video para demostrar su
+funcionamiento, y lo subí a la comunidad del juego, con una super buena
+recepción (Al menos en reacciones jaja).</p>
+<p><style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+    <video width="100%" autoplay loop>
+	    <source src="/blog//assets/images/hacking_beginning/yakuza.mp4">
+    </video>
+</div>
+
+<div style="text-align: center;">
+<em>Freecam</em> para Yakuza 0 en C++
+</div>
+</p>
+<p>
+  <img src="/blog//assets/images/hacking_beginning/discord.jpg"  class="center"  />
+
+
+<div style="text-align: center;">
+Reacciones en Discord
+</div>
+</p>
+<h1 id="conclusión-de-qué-me-sirve-el-game-hacking">Conclusión: ¿De qué me sirve el Game Hacking?</h1>
+<p>La gente podría pensar, que perdí todo este tiempo ya que solo lo hice para
+&ldquo;hackear un juego&rdquo;, pero en verdad, el conocimiento adquirido va mucho más allá.
+Todo lo que leí, me enseñó la importancia de los memory overflows, de el checkeo
+de la memoria de los procesos, de como funciona el stack, aprendí ASM x86_64,
+sobre la API de Windows, en fin, muchos tópicos que se pueden extrapolar fácilmente
+a seguridad/funcionamiento del sistema operativo, y qué mejor que hacerlo
+con algo que me encanta: Jugar.</p>
+<p>Me he entretenido mucho aprendiendo sobre esta área, espero seguir explorándola,
+y atraer a más gente sobre este mundo, ya que no hay mucha gente que sabe de esto,
+y es una parte interesante del hacking.</p>
+<h2 id="algunas-fuentes-de-conocimiento">Algunas fuentes de conocimiento</h2>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=XJpNn2GyrNc&amp;list=PLNffuWEygffbbT9Vz-Y1NXQxv2m6mrmHr=">Guía de Stephen Chapman sobre Cheat Engine</a></li>
+<li><a href="https://guidedhacking.com/">Guided Hacking</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/">Memory api DOC</a></li>
+</ol>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="etra0.github.io/assets/main.js"></script>
+<script src="etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

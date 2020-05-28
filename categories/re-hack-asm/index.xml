@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>re hack asm on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>etra0.github.io/categories/re-hack-asm/</link>
+    <description>Recent content in re hack asm on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2020 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="etra0.github.io/categories/re-hack-asm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
+      <link>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</link>
+      <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
+      
+      <guid>etra0.github.io/posts/2020-03-23-hacking-the-beginning/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&amp;hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
+Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Generando datos con figuras :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
+Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp;amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="etra0.github.io/posts/2018-02-14-valentin/" />
+
+
+
+
+
+<link rel="stylesheet" href="etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="etra0.github.io/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Generando datos con figuras"/>
+<meta name="twitter:description" content="Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
+Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy."/>
+
+
+
+<meta property="og:title" content="Generando datos con figuras" />
+<meta property="og:description" content="Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
+Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="etra0.github.io/posts/2018-02-14-valentin/" />
+<meta property="article:published_time" content="2018-02-14T12:00:00-04:00" />
+<meta property="article:modified_time" content="2018-02-14T12:00:00-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="etra0.github.io/posts/2018-02-14-valentin/">Generando datos con figuras</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2018-02-14
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>Dada la famosa festividad del 14 de febrero, curiosamente
+busqué por internet como crear datasets con <em>formas
+predefinidas</em>. Como la búsqueda no fue exitosa, decidí
+implementarla para crear un lindo <code>scatter plot</code> con
+forma de corazón.</p>
+<h2 id="implementación">Implementación</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> scipy.misc <span style="color:#f92672">import</span> imread
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> r2_score
+</code></pre></div><p><code>numpy</code> &amp; <code>matplotlib</code> fueron las herramientas fundamentales,
+y la gracia de <code>imread</code> es que te permite cargar una imagen
+como un <code>numpy.array</code> de inmediato.</p>
+<p>Lo siguiente fue buscar una imagen (en blanco y negro)
+de un corazón lo que pasaría a ser la máscara</p>
+
+  <img src="/blog//assets/images/valentin/orig.png"  class="center"  />
+
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">loaded_image <span style="color:#f92672">=</span> imread(<span style="color:#e6db74">&#39;test.png&#39;</span>)
+</code></pre></div><p>Al ser una imagen en formato <code>PNG</code>, la matríz queda como $$m \times n \times 4$$,
+debido a que este formato tiene los 3 colores RGB y además el canal Alpha.
+Como es una imagen en blanco y negro, sólo necesitamos el canal Alpha que define
+lo negro de la imagen ((0, 0, 0, 1) es negro). Es por esto que se puede reducir la dimensión a sólo
+$$ m \times n $$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">loaded_image <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>squeeze(loaded_image[:, :, <span style="color:#ae81ff">3</span>])
+</code></pre></div><p>Luego, como se tiene la matriz $$ m \times n $$, en el fondo los datos
+serían $$ {(i, j): M_{ij} \neq 0 }$$, y <code>numpy</code> tiene una función que hace
+exáctamente esto:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x, y <span style="color:#f92672">=</span> loaded_image<span style="color:#f92672">.</span>nonzero()
+
+<span style="color:#75715e"># se plotea la primera imagen</span>
+plt<span style="color:#f92672">.</span>scatter(x, y)
+plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#34;prev.png&#34;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</code></pre></div>
+  <img src="/blog//assets/images/valentin/prev.png"  class="center"  />
+
+
+<p>Ya se tiene un primer resultado. Obviamente, quiero que el corazón esté
+en vertical, por lo tanto se transpone la matriz y luego se hace un <em>flip</em>
+en el eje horizontal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">loaded_image <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>flip(np<span style="color:#f92672">.</span>transpose(loaded_image), <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>Finalmente, para generar una imagen más <em>atractiva</em>, se reduce la densidad
+de los datos generando una <em>máscara de valores a tomar (usando las bondades
+de numpy)</em>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mask <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(len(x), int(len(x)<span style="color:#f92672">*</span><span style="color:#ae81ff">0.02</span>))
+
+X <span style="color:#f92672">=</span> x[mask]
+Y <span style="color:#f92672">=</span> y[mask]
+
+plt<span style="color:#f92672">.</span>clf() <span style="color:#75715e"># se limpia la figura</span>
+plt<span style="color:#f92672">.</span>scatter(X, Y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#34;prev_final.png&#34;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</code></pre></div><p>La densidad de los datos se reduce al 2%, para finalmente tener
+un resultado así:</p>
+
+  <img src="/blog//assets/images/valentin/prev_final.png"  class="center"  />
+
+
+<p>Luego, haciendo unos ajustes estéticos, se obtiene la figura final</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>
+fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>array((<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4.1</span>))<span style="color:#f92672">*</span>scale)
+
+<span style="color:#75715e"># simplemente se crea una función lineal y = x</span>
+x_ <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(X<span style="color:#f92672">.</span>min(), X<span style="color:#f92672">.</span>max(), Y<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+
+<span style="color:#75715e"># se calcula la correlacion entre la funcion lineal y los valores</span>
+r_value <span style="color:#f92672">=</span> r2_score(Y, x_)
+
+ax<span style="color:#f92672">.</span>scatter(X, Y, s<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>)
+
+ax<span style="color:#f92672">.</span>plot(x_, x_, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># se agrega una flecha simulando la flecha del típico logo de San Valentin</span>
+ax<span style="color:#f92672">.</span>arrow(x_<span style="color:#f92672">.</span>min(), x_<span style="color:#f92672">.</span>min(), x_<span style="color:#f92672">.</span>max() <span style="color:#f92672">-</span> x_<span style="color:#f92672">.</span>min(), x_<span style="color:#f92672">.</span>max() <span style="color:#f92672">-</span> x_<span style="color:#f92672">.</span>min(), head_width<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, head_length<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, fc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;k&#39;</span>, ec<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;k&#39;</span>)
+
+<span style="color:#75715e"># funcion custom para crear titulo: https://gist.github.com/etra0/153a8fc12279c235e99ea3a1d1ed5a29</span>
+set_title(fig, ax, <span style="color:#e6db74">&#34;Feliz San Valentín&#34;</span>, <span style="color:#e6db74">&#34;Desde Matplotlib&#34;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;$r^2$: {0:.2f}&#34;</span><span style="color:#f92672">.</span>format(r_value))
+plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#34;result.png&#34;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>, bbox_inches<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tight&#39;</span>)
+</code></pre></div>
+  <img src="/blog//assets/images/valentin/result.png"  class="center"  />
+
+
+<h2 id="post-data">Post-data</h2>
+<p>Un coeficiente $$ r^2 $$ negativo indica que <strong>el modelo no representa a los
+datos</strong>. Relevant Link: <a href="https://stats.stackexchange.com/questions/12900/when-is-r-squared-negative">When is R squared negative?</a></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="etra0.github.io/assets/main.js"></script>
+<script src="etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
