@@ -9,9 +9,70 @@
     <description>Recent content in Tags on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 14:08:01 -0400</lastBuildDate>
     
 	<atom:link href="https://etra0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>assembly</title>
+      <link>https://etra0.github.io/tags/assembly/</link>
+      <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
+      
+      <guid>https://etra0.github.io/tags/assembly/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>re</title>
+      <link>https://etra0.github.io/tags/re/</link>
+      <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
+      
+      <guid>https://etra0.github.io/tags/re/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://etra0.github.io/tags/rust/</link>
+      <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
+      
+      <guid>https://etra0.github.io/tags/rust/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
   </channel>
 </rss>

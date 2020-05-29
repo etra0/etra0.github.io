@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://etra0.github.io/tags/assembly/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/posts/2020-05-28-photo-mode/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/posts/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/tags/re/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/tags/rust/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://etra0.github.io/tags/</loc>
+    <lastmod>2020-05-28T14:08:01-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://etra0.github.io/categories/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
   </url>
@@ -13,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://etra0.github.io/posts/</loc>
-    <lastmod>2020-03-23T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://etra0.github.io/categories/re-hack-asm/</loc>
-    <lastmod>2020-03-23T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://etra0.github.io/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
   </url>
   
@@ -120,10 +145,6 @@
   <url>
     <loc>https://etra0.github.io/posts/2017-06-05-motos-en-chile/</loc>
     <lastmod>2017-06-05T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://etra0.github.io/tags/</loc>
   </url>
   
 </urlset>

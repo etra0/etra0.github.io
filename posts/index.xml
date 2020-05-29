@@ -9,10 +9,32 @@
     <description>Recent content in Posts on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 14:08:01 -0400</lastBuildDate>
     
 	<atom:link href="https://etra0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creando mi propio Photo Mode para Yakuza Kiwami 2</title>
+      <link>https://etra0.github.io/posts/2020-05-28-photo-mode/</link>
+      <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
+      
+      <guid>https://etra0.github.io/posts/2020-05-28-photo-mode/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://etra0.github.io/assets/images/photomode/kiryu.jpg&#34;/&gt;
+          
+        
+        
+        
+          Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
+Now the Freecam for K2 automatically removes the UI for a proper &amp;quot;photo mode&amp;quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&amp;#39;t remove that).
+As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
+&amp;mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
@@ -22,8 +44,7 @@
       <guid>https://etra0.github.io/posts/2020-03-23-hacking-the-beginning/</guid>
       <description>
         
-          
-          
+          &lt;img src=&#34;https://etra0.github.io/assets/images/hacking_beginning/head.png&#34;/&gt;
           
         
         

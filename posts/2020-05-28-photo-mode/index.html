@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Creando mi propio Photo Mode para Yakuza Kiwami 2 :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
+Now the Freecam for K2 automatically removes the UI for a proper &amp;quot;photo mode&amp;quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&amp;#39;t remove that).
+As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
+&amp;mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://etra0.github.io/posts/2020-05-28-photo-mode/" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274078-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108274078-4');
+</script>
+
+
+
+<link rel="stylesheet" href="https://etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="https://etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://etra0.github.io/img/favicon.png">
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Creando mi propio Photo Mode para Yakuza Kiwami 2"/>
+<meta name="twitter:description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
+Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).
+As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
+&mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
+
+
+
+<meta property="og:title" content="Creando mi propio Photo Mode para Yakuza Kiwami 2" />
+<meta property="og:description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
+Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).
+As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
+&mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etra0.github.io/posts/2020-05-28-photo-mode/" />
+<meta property="article:published_time" content="2020-05-28T14:08:01-04:00" />
+<meta property="article:modified_time" content="2020-05-28T14:08:01-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="https://etra0.github.io/posts/2020-05-28-photo-mode/">Creando mi propio Photo Mode para Yakuza Kiwami 2</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-05-28
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://etra0.github.io/tags/rust/">rust</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/assembly/">assembly</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/re/">re</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="https://etra0.github.io/assets/images/photomode/kiryu.jpg" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <h1 id="resultados">Resultados</h1>
+<p>Para captar tu atención, acá están los resultados de un Photo Mode
+implementado en Rust.</p>
+
+<div style="display:flex;justify-content:center;">
+		
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).<br><br>As always, you can get the latest release @ <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> <a href="https://t.co/Fp1kJBnAt7">pic.twitter.com/Fp1kJBnAt7</a></p>&mdash; Sebastián Aedo (@etra0) <a href="https://twitter.com/etra0/status/1264050436031623169?ref_src=twsrc%5Etfw">May 23, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+</div>
+
+<p>Habiendo terminado el Yakuza 0 <em>(what a great game)</em> y el Yakuza Kiwami
+<em>(not so great tbh)</em>, naturalmente, el siguiente juego era Yakuza Kiwami 2.</p>
+<p>Yakuza Kiwami 2 es conocido por tener un rendimiento no muy bueno, incluso
+un modder por el nombre de <a href="https://cookieplmonster.github.io/2020/01/18/silentpatch-yakuza-kiwami-2/">Silent</a>
+hizo un parche para mejorar el <em>frame pacing</em>, donde se dio cuenta que para
+limitar el framerate usaron un <code>sleep</code> (<code>sleep</code> <strong>nunca</strong> es confiable debido
+a que depende del scheduler de Windows), sin embargo, a pesar de estos
+problemas, el juego se ve increible. Quedé inmediatamente impresionado por los
+gráficos, tiene un <em>look</em> que a mi por lo menos me atrae bastante.</p>
+<p>Lamentablemente, a pesar de sus gráficas impresionante, el juego no trae un
+<em>&ldquo;Photo Mode&rdquo;</em> (en mi opinión, esto debería ser estándar a estas alturas),
+sólo se pueden tomar capturas cuando estás navegando libremente por la ciudad,
+pero esto limita inmediatamente la opción de obtener increíbles capturas
+en batallas por ejemplo, o tener panorámicas de la bella ciudad de Kamurocho.</p>
+<p>Obviamente, como he estado investigando sobre el reverse engineering,
+<em>esto no se podía quedar así</em></p>
+<h2 id="introducing-a-new-_safe_-friend-rust">Introducing a new <em>safe</em> friend: Rust</h2>
+<p>Como ya mencioné, le tengo cierto cariño a los lenguajes compilados, me
+gusta lo eficiente que son, y lo fácil que es manipular la memoria,
+sin embargo, este es un poder un tanto <em>&ldquo;peligroso&rdquo;</em>,
+porque es facil apuntar a cosas que no existen, o hacer aritmética de
+punteros mal.</p>
+<p>Habiendo amado C, y probado C++, me encontré con una nueva alternativa: Rust.</p>
+
+  <figure class="left" >
+    <img src="/assets/images/photomode/hit.jpg"   />
+    
+      <figcaption class="center" >Izquierda: C++, Derecha: Rust</figcaption>
+    
+  </figure>
+
+
+<p>Existen otras alternativas a los lenguajes compilados, C#, Go, Rust, etc.
+todas con sus propios beneficios y defectos, pero Rust me llamaba la atención
+por ser conocido como un <em>safe language</em>, y por eso siempre lo tuve al ojo,
+pero nunca me dediqué a explorarlo, hasta que obviamente, la necesidad de
+programar en lenguajes compilados nació con el aprendizaje de esta área, así
+que <em>ya era buen momento para meterle mano po&rsquo;</em></p>
+<h3 id="primeros-pasos-en-rust-memory-rs">Primeros pasos en Rust: memory-rs</h3>
+<p>Para crear un entorno de trabajo cómodo, lo primero es crear una librería
+que permita facilitar el manejo de memoria en Windows. En este sentido,
+la API es bastante <em>straightforward</em>, se necesita un <code>HANDLE</code> para el proceso,
+y teniendo la dirección de memoria base del módulo (en este caso, del EXE),
+ya es suficiente para comenzar a manipular el proceso. Bajo este esquema,
+lo más natural es crear una estructura que contenga esta información
+como base para no tener que guardarlas en variables cada vez que se vayan
+a utilizar, y además, implementar un par de métodos de cosas que se hacen
+frecuentemente para reducir la redundancia.</p>
+<p>Bajo esta necesidad, el primer paso fue crear la librería <a href="https://github.com/etra0/memory-rs">memory-rs</a>,
+la cual me permite hacer algunas cosas de forma bastante más cómoda:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> process <span style="color:#f92672">=</span> Process::new(<span style="color:#e6db74">&#34;YakuzaKiwami2.exe&#34;</span>)
+	.expect(<span style="color:#e6db74">&#34;El proceso no se pudo abrir&#34;</span>);
+
+<span style="color:#75715e">// autocasteo de variable segun el tamaño
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> x_pos <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">f32</span><span style="color:#f92672">&gt;</span>(addr);
+
+<span style="color:#75715e">// Se puede escribir un array directamente a la memoria
+</span><span style="color:#75715e"></span>process.write_value::<span style="color:#f92672">&lt;</span>[<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">2</span>]<span style="color:#f92672">&gt;</span>(addr, [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>]);
+
+<span style="color:#75715e">// Escribir array of bytes
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> aob: Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> vec<span style="color:#f92672">!</span>[<span style="color:#ae81ff">0xC0</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xEE</span>];
+process.write_aob(addr, <span style="color:#f92672">&amp;</span>aob);
+</code></pre></div><p>Sin embargo, la función más interesante, es la que me permite inyectar <em>shellcodes</em>
+a los procesos, por ejemplo, tengo el siguiente código:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#a6e22e">.data</span>
+
+<span style="color:#a6e22e">PUBLIC</span> get_controller_input
+<span style="color:#a6e22e">PUBLIC</span> get_controller_input_end
+
+<span style="color:#75715e">;; Intercept the controller input</span>
+<span style="color:#a6e22e">get_controller_input</span> PROC
+  <span style="color:#a6e22e">push</span> rax
+  <span style="color:#75715e">; the pointer to the controller structure is stored in the head</span>
+  <span style="color:#75715e">; of the stack, but since we pushed rax and the return address,</span>
+  <span style="color:#75715e">; we need to add 0x8 + 0x8 to the RSP</span>
+  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">10h</span>] 
+  <span style="color:#a6e22e">push</span> rbx
+  <span style="color:#a6e22e">lea</span> rbx,[relpos<span style="color:#f92672">+</span><span style="color:#ae81ff">200h</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11h</span>]
+  <span style="color:#a6e22e">mov</span> [rbx],rax
+relpos:
+  <span style="color:#a6e22e">pop</span> rbx
+  <span style="color:#a6e22e">pop</span> rax
+
+  <span style="color:#75715e">; original code</span>
+  <span style="color:#a6e22e">test</span> eax,eax
+  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">108h</span><span style="color:#f92672">+</span><span style="color:#ae81ff">8h</span>] <span style="color:#75715e">; adjusted stack offset</span>
+  <span style="color:#a6e22e">ret</span>
+get_controller_input_end:<span style="color:#960050;background-color:#1e0010">:</span>
+<span style="color:#a6e22e">get_controller_input</span> ENDP
+</code></pre></div><p>Que intercepta el puntero de la estructura del control (o joystick) y
+lo guarda en <code>pos_injection + 0x200</code>, en Rust puedo facilmente inyectarlo con</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+<span style="color:#66d9ef">extern</span> {
+	<span style="color:#66d9ef">static</span> get_controller_input: <span style="color:#66d9ef">u8</span>;
+	<span style="color:#66d9ef">static</span> get_controller_input_end: <span style="color:#66d9ef">u8</span>;
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+	...
+	<span style="color:#75715e">// guardo la direccion de inyeccion, para despues poder acceder al
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// valor interceptado
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
+		process.inject_shellcode(entry_point, size_origin_addr,
+			<span style="color:#f92672">&amp;</span>get_controller_input <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>,
+			<span style="color:#f92672">&amp;</span>get_controller_input_end <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span>cosnt <span style="color:#66d9ef">u8</span>)
+	};
+
+	<span style="color:#75715e">// guardo el puntero al control
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_controller <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">usize</span><span style="color:#f92672">&gt;</span>(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">200</span>);
+}
+</code></pre></div><p>Y por lo tanto, como se puede notar, esta librería me facilita bastante
+la escritura de scripts en assembly, lo cual se hace con bastante frecuencia.</p>
+<h2 id="mejorando-lo-que-ya-se-tenía-freecam-anteriores">Mejorando lo que ya se tenía: freecam anteriores</h2>
+<p>Para el caso de Yakuza 0 y Yakuza Kiwami, las herramientas de freecam eran
+bastante&hellip; <em>primitivas</em>, ya que el movimiento no era natural, si no
+que se movía en base a los ejes $(X, Y, Z)$, lo cual obviamente no es
+intuitivo ya que depende de como está hecho el mapa y mucha gente se quejaba
+de eso (totalmente entendible).</p>
+<p>Luego de largas jornadas de <em>debugging</em> con el amado Cheat Engine, logré
+encontrar la función global que maneja las cámaras para el caso del
+Yakuza Kiwami 2, con un gran detalle: las estructuras no contenían ni
+Pitch ni Yaw, si no que eran 6 valores: Punto 3D donde se enfoca, y Punto 3D
+a la posición de la cámara (de ahora en adelante, <em>focus</em> y <em>position</em>
+respectivamente).</p>
+<p>¿La solución? back to MAT022.</p>
+<h3 id="_mate-no-sirve-pa-ná-except-some-times-it-does_"><em>Mate no sirve pa ná, except some times it does</em></h3>
+<p>La forma más natural de navegación es con <code>WASD</code> y mouse,
+donde <code>W</code>, <code>S</code> mueven en dirección de donde se mira, y <code>A</code>, <code>D</code> en dirección
+lateral, y obviamente con el mouse se puede cambiar donde se apunta.
+¿El problema? ambos inputs por separado solo entregan coordenadas en dos
+dimensiones, donde <code>W</code> y <code>S</code> entregan un $\Delta x$, <code>A</code> y <code>D</code> un $\Delta y$,
+y el mouse $x \wedge y$.</p>
+<h4 id="coordenadas-esféricas-boyoyoi">Coordenadas esféricas: boyoyoi</h4>
+<p>Como se tienen dos puntos 3D en el espacio (el de <em>Focus</em> y el de <em>Position</em>)
+es fácil imaginar la situación como una esfera, donde la posición de la
+cámara corresponde al centroide, y la posición del Focus corresponde a un
+punto en el cascarón de la esfera. Habiendo aclarado esto, un vector en
+coordenadas esféricas está compuesto de la siguiente manera:</p>
+<p>$$
+(r, \theta, \phi) \in [0, R] \times [0, 2\pi] \times [0, \pi]
+$$</p>
+<p>¿Por qué estamos haciendo esto? Porque en las coordenadas esféricas el
+$\theta$ corresponde a la visión 360º en horizontal, y $\phi$ corresponde
+a la visión en 90º vertical, y con estos valores, podemos mapear las coordenadas
+$x$ e $y$ que se reciben del mouse a la dirección en donde se mira.</p>
+<p>¿Como se hizo al final? Se calculó un vector que llamaremos
+$\overrightarrow{R} = F - P$ y la velocidad de movimiento del mouse
+con un pequeño delta de tiempo ($\Delta x$ e $\Delta y$), definiendo así un
+nuevo $\overrightarrow{R}_n$ tal que:</p>
+<p>$$
+\overrightarrow{R}_n = (r, \theta + \Delta x, \phi + \Delta y)
+$$</p>
+<p>Luego, el vector $\overrightarrow{R}_n$ se cambia a coordenadas cartesianas
+para obtener un nuevo $F$ y $P$ de tal manera que:</p>
+<p>$$
+F_n = P + \overrightarrow{R}_n + \Delta p \cdot \overrightarrow{R} \\<br>
+P_n = P + \Delta p \cdot \overrightarrow{R}
+$$</p>
+<p>donde $\Delta p$ corresponde al movimiento del jugador con <code>WS</code>. Listo,
+con eso tenemos una manera de manipular las coordenadas de forma intuitiva!
+El código se ve algo así como:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calc_new_focus_point</span>(cam_x: <span style="color:#66d9ef">f32</span>, cam_z: <span style="color:#66d9ef">f32</span>,
+		cam_y: <span style="color:#66d9ef">f32</span>, speed_x: <span style="color:#66d9ef">f32</span>, speed_y: <span style="color:#66d9ef">f32</span>) -&gt; (<span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>) {
+
+		<span style="color:#75715e">// use spherical coordinates to add speed
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">let</span> theta <span style="color:#f92672">=</span> cam_z.atan2(cam_x) <span style="color:#f92672">+</span> speed_x;
+
+		<span style="color:#66d9ef">let</span> phi <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt().atan2(cam_y) <span style="color:#f92672">+</span>
+				speed_y;
+
+		<span style="color:#66d9ef">let</span> r <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_y.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt();
+
+		<span style="color:#66d9ef">let</span> r_cam_x <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.cos()<span style="color:#f92672">*</span>phi.sin();
+		<span style="color:#66d9ef">let</span> r_cam_z <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.sin()<span style="color:#f92672">*</span>phi.sin();
+		<span style="color:#66d9ef">let</span> r_cam_y <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>phi.cos();
+
+		(r_cam_x, r_cam_z, r_cam_y)
+}
+
+...
+
+self.f_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> r_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span>
+	dp_sides<span style="color:#f92672">*</span>r_cam_z;
+self.f_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> r_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span>
+	dp_sides<span style="color:#f92672">*</span>r_cam_x;
+self.f_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> r_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span>
+	dp_up<span style="color:#f92672">*</span>r_cam_y;
+
+self.p_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span> dp_sides<span style="color:#f92672">*</span>r_cam_z;
+self.p_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span> dp_sides<span style="color:#f92672">*</span>r_cam_x;
+self.p_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span> dp_up<span style="color:#f92672">*</span>r_cam_y;
+</code></pre></div><p>Cabe destacar que se sumaron unos deltas extras para el movimiento lateral
+y el movimiento en el eje y.</p>
+<h3 id="devuelta-al-código">Devuelta al código</h3>
+<p>Después de haber hecho esa matemagia (quizás es básica, pero hey, I&rsquo;m proud)
+lo único que faltaba era escribir un par de shellcodes para interceptar
+los valores guardados y reescribirlos a la fuerza y así fue como hice
+la primera versión del freecam</p>
+
+<div style="display:flex;justify-content:center;">
+		
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Aaaand the freecam tool for K2 is working as intended! feel free to take a peek at  <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> in releases! <a href="https://twitter.com/hashtag/rustlang?src=hash&amp;ref_src=twsrc%5Etfw">#rustlang</a> <a href="https://twitter.com/hashtag/modding?src=hash&amp;ref_src=twsrc%5Etfw">#modding</a> <a href="https://t.co/Swk6B73H9J">pic.twitter.com/Swk6B73H9J</a></p>&mdash; Sebastián Aedo (@etra0) <a href="https://twitter.com/etra0/status/1258165590101024768?ref_src=twsrc%5Etfw">May 6, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+</div>
+
+<h3 id="de-freecam-a-photo-mode">De Freecam a Photo Mode</h3>
+<p>La historia no termina allí. De seguro es cool poder explorar el mundo
+libremente del personaje, pero las batallas y el <em>ragdoll</em> del juego
+es tan genial que simplemente no me pude detener allí, así que nació  un nuevo
+objetivo: Hacer un &ldquo;Photo Mode&rdquo; real, donde se pueda pausar y explorar la
+escena.</p>
+<p>Comprobar que fuera factible no fue tan complejo, ya que me di cuenta
+que si pausaba el juego (i.e. me iba al menú), podía seguir moviendo la cámara
+y los personajes seguían quietos, lo cual me motivó a seguir ese approach.</p>
+<p>Luego de largas jornadas de búsqueda en Cheat Engine, encontré la variable
+que pausaba el juego, ¿El problema? si pausaba el mundo, y salía del menú,
+todo tipo de input quedaba bloqueado, por lo tanto no había forma de despausar
+el mundo, a pesar de que yo modoficase esa flag nuevamente.</p>
+<p>Por casualidad, un par de bytes más al lado del <code>pause flag</code>, estaba la flag
+que verificaba si el juego estaba en primer plano, y <strong>por pura suerte</strong>,
+cuando esa flag cambiaba el juego se pausaba y volvía a otorgar control, por
+lo tanto la solución fue forzar esa flag a cambiar por un pequeño delta
+de tiempo para que el juego volviese a forzar la pausa y aceptara input:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">trigger_pause</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, addr: <span style="color:#66d9ef">usize</span>) {
+    <span style="color:#66d9ef">if</span> addr <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x0</span> { <span style="color:#66d9ef">return</span>; }
+    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x1</span>);
+    thread::sleep(Duration::from_millis(<span style="color:#ae81ff">20</span>));
+    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x0</span>);
+}
+</code></pre></div><p>Bastante <em>hacker</em> si me preguntan a mi :P</p>
+<p>Como toque final, había que ocultar la UI del juego, que básicamente
+se reducía a <code>nopear</code> instrucciones, así que nada tan complejo.</p>
+<h3 id="retoques-finales">Retoques finales</h3>
+
+  <figure class="left" >
+    <img src="https://steamuserimages-a.akamaihd.net/ugc/955220058231602619/503EF938C39517AF21E35B833978D70AD0075775/"   />
+    
+      <figcaption class="center" >Imagen que sale al inicio del juego</figcaption>
+    
+  </figure>
+
+
+<p>Finalmente, como <em>A real Yakuza use a Gamepad</em>, evidentemente el juego
+estaba diseñado para ser jugado con un control, por lo tanto,
+era un poco molestoso estar obligado a ocupar el teclado para usar el Photo
+Mode, así que con un poco más de experiencia,
+se me ocurrió la siguiente solución:</p>
+<ol>
+<li>Revisar los <code>DLL</code> que carga el ejecutable; para Windows, el <code>DLL</code> que maneja
+los controles es <code>XINPUT</code></li>
+<li>Obtener todas las llamadas a las funciones <code>GetState</code> de <code>XINPUT</code></li>
+<li>Revisar las estructuras que se modifican durante esas llamadas</li>
+<li>Escribir un sniffer que obtendrá el puntero a la estructura del control</li>
+<li>Leer ese input y manejarlo</li>
+</ol>
+<p>Y pam! obtuve el input del joystick, así que ahora el control es mucho más
+natural!</p>
+<style>
+.video-container {
+    text-align: center;
+
+}
+</style>
+<div class="video-container">
+	<video  width="25%" 
+		 controls  loop>
+		<source src="/assets/images/photomode/joystick.mp4">
+	</video>
+</div>
+
+<h2 id="conclusiones">Conclusiones</h2>
+<p>Definitivamente, este es uno de los hacks más entretenidos que he hecho,
+ya que pude aprender un poco de Rust, mejorar los conocimientos de manejo
+de memoria, y hacer <em>un freecam realmente usable</em>. Además, ahora puedo
+hacer hermosas capturas de un juego que se ve realmente hermoso.</p>
+
+  <img src="/assets/images/photomode/final.jpg"  class="left"  />
+
+
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://etra0.github.io/assets/main.js"></script>
+<script src="https://etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
