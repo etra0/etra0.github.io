@@ -253,9 +253,8 @@ a los procesos, por ejemplo, tengo el siguiente código:</p>
   <span style="color:#75715e">; we need to add 0x8 + 0x8 to the RSP</span>
   <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">10h</span>] 
   <span style="color:#a6e22e">push</span> rbx
-  <span style="color:#a6e22e">lea</span> rbx,[relpos<span style="color:#f92672">+</span><span style="color:#ae81ff">200h</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11h</span>]
+  <span style="color:#a6e22e">lea</span> rbx,[get_controller_input <span style="color:#f92672">+</span> <span style="color:#ae81ff">200h</span>]
   <span style="color:#a6e22e">mov</span> [rbx],rax
-relpos:
   <span style="color:#a6e22e">pop</span> rbx
   <span style="color:#a6e22e">pop</span> rax
 
