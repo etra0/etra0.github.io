@@ -283,7 +283,7 @@ lo guarda en <code>pos_injection + 0x200</code>, en Rust puedo facilmente inyect
 	};
 
 	<span style="color:#75715e">// guardo el puntero al control
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_controller <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">usize</span><span style="color:#f92672">&gt;</span>(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">200</span>);
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_controller <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">usize</span><span style="color:#f92672">&gt;</span>(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x200</span>);
 }
 </code></pre></div><p>Y por lo tanto, como se puede notar, esta librería me facilita bastante
 la escritura de scripts en assembly, lo cual se hace con bastante frecuencia.</p>
