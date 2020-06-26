@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Quién necesita Matplotlib si tenemos el Administrador de Tareas :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="El fin justifica los medios (?) Obviamente mi objetivo no era simplemente dibujar senos en el Administrador de Tareas aunque fue entretenido, si no que este fue el medio para concretar mi fin: Aprender sobre hacking interno inyectando DLLs
+Hacking interno: Sharing the space Como comenté en un blog previo, el hacking externo es entre comillas &amp;ldquo;fácil de concretar&amp;rdquo;, ya que requiere mucho menos boilerplate, y la WinAPI provee las funciones necesarias para leer y modificar la memoria de un proceso externo sin mayor problemas, así que para cosas rápidas a veces es más fácil ir por este camino, pero lo que yo no sabía eran todas las ventajas que se tenían al hacer las cosas de forma interna."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://etra0.github.io/posts/2020-06-26-taskmgr/" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274078-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108274078-4');
+</script>
+
+
+
+<link rel="stylesheet" href="https://etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="https://etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://etra0.github.io/img/favicon.png">
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Quién necesita Matplotlib si tenemos el Administrador de Tareas"/>
+<meta name="twitter:description" content="El fin justifica los medios (?) Obviamente mi objetivo no era simplemente dibujar senos en el Administrador de Tareas aunque fue entretenido, si no que este fue el medio para concretar mi fin: Aprender sobre hacking interno inyectando DLLs
+Hacking interno: Sharing the space Como comenté en un blog previo, el hacking externo es entre comillas &ldquo;fácil de concretar&rdquo;, ya que requiere mucho menos boilerplate, y la WinAPI provee las funciones necesarias para leer y modificar la memoria de un proceso externo sin mayor problemas, así que para cosas rápidas a veces es más fácil ir por este camino, pero lo que yo no sabía eran todas las ventajas que se tenían al hacer las cosas de forma interna."/>
+
+
+
+<meta property="og:title" content="Quién necesita Matplotlib si tenemos el Administrador de Tareas" />
+<meta property="og:description" content="El fin justifica los medios (?) Obviamente mi objetivo no era simplemente dibujar senos en el Administrador de Tareas aunque fue entretenido, si no que este fue el medio para concretar mi fin: Aprender sobre hacking interno inyectando DLLs
+Hacking interno: Sharing the space Como comenté en un blog previo, el hacking externo es entre comillas &ldquo;fácil de concretar&rdquo;, ya que requiere mucho menos boilerplate, y la WinAPI provee las funciones necesarias para leer y modificar la memoria de un proceso externo sin mayor problemas, así que para cosas rápidas a veces es más fácil ir por este camino, pero lo que yo no sabía eran todas las ventajas que se tenían al hacer las cosas de forma interna." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etra0.github.io/posts/2020-06-26-taskmgr/" />
+<meta property="article:published_time" content="2020-06-26T15:40:55-04:00" />
+<meta property="article:modified_time" content="2020-06-26T15:40:55-04:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="https://etra0.github.io/posts/2020-06-26-taskmgr/">Quién necesita Matplotlib si tenemos el Administrador de Tareas</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-26
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://etra0.github.io/tags/rust/">rust</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/assembly/">assembly</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/re/">re</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="https://etra0.github.io/assets/images/taskmgr/out.gif" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <h2 id="el-fin-justifica-los-medios-">El fin justifica los medios (?)</h2>
+<p>Obviamente mi objetivo no era simplemente dibujar senos en el Administrador
+de Tareas <del>aunque fue entretenido</del>, si no que este fue el <em>medio</em> para
+concretar mi fin: <strong>Aprender sobre hacking interno inyectando DLLs</strong></p>
+<h1 id="hacking-interno-sharing-the-space">Hacking interno: Sharing the space</h1>
+<p>Como comenté en un blog previo, el hacking externo es entre comillas
+<em>&ldquo;fácil de concretar&rdquo;</em>, ya que requiere mucho menos boilerplate, y la
+WinAPI provee las funciones necesarias para leer y modificar la memoria
+de un proceso externo sin mayor problemas, así que para cosas rápidas
+a veces es más fácil ir por este camino, pero lo que yo no sabía eran
+todas las ventajas que se tenían al hacer las cosas de forma <em>interna</em>.</p>
+<h2 id="interno-vs-externo">Interno vs Externo</h2>
+<p>¿Cuál es la gracia de hacer las cosas internas vs externas? bueno,
+en verdad es un poco autoexplicativo:</p>
+<ul>
+<li>
+<p><strong>Hacking Externo:</strong> Un proceso externo se encarga de leer y modificar
+la memoria del proceso objetivo a través de las funciones disponibles
+en la librería del sistema operativo (en el caso de WinAPI, principalmente
+<code>ReadProcessMemory</code> y <code>WriteProcessMemory</code>).</p>
+</li>
+<li>
+<p><strong>Hacking Interno:</strong> A través de una librería dinámica (por ejemplo, los
+<code>.dll</code>), se inyecta al proceso objetivo usando las funciones disponibles del
+sistema operativo, para que luego la librería misma se encargue de las
+modificaciones dentro del proceso, <strong>compartiendo el espacio de memoria</strong>.</p>
+</li>
+</ul>
+<p>Como se destacó en <strong>bold</strong>, lo relevante es que se comparte el mismo
+espacio de memoria con el proceso objetivo, lo que trae algunas ventajas como</p>
+<ul>
+<li>Leer/Modificar memoria a través de punteros (ya no es necesario llamadas
+API del sistema operativo, por lo que no hay interrupciones).</li>
+<li>Inyectar funciones propias.</li>
+<li>Ejecutar funciones del proceso objetivo.</li>
+<li>Compartir variables.</li>
+</ul>
+<p>Y muchas más qué aun me falta por explorar, pero con eso ya tenemos bastantes
+ventajas por sobre el hacking externo. Vale destacar que no digo que con
+Hacking Externo no se pueda, más bien se complejiza bastante hacer lo mismo
+cuando convertir todo el procedimiento a hacking interno no es tan complejo.</p>
+<h1 id="parte-uno-la-_aguja_">Parte uno: la <em>aguja</em></h1>
+<p>Algo que se podría considerar como <em>desventaja</em> del Hacking Interno es que
+ahora el todo el proceso consiste en dos piezas de software: el <em>inyector</em> y
+la <em>inyección</em>.</p>
+<p>El <em>inyector</em> se encarga de forzar la carga de nuestra librería dinámica
+(nuestra <em>inyección</em>) en el proceso objetivo, y esto se sigue haciendo
+con llamadas a la API del sistema operativo. Hay varios inyectores disponibles
+en internet, algunos enfocados a saltarse la detección de hacks para juegos,
+y otros más simples; en este caso usaremos uno propio como ejercicio de
+aprendizaje. Este programa es independiente de la inyección ya que el <code>.dll</code>
+en sí tiene su propio <code>entry point</code> que el sistema operativo se encargará de
+ejecutar.</p>
+<p>Usando nuestro ya amado lenguaje, Rust, el <em>inyector</em> quedaría algo así:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inject_dll</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, name: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
+  <span style="color:#66d9ef">use</span> mem::transmute;
+  
+  <span style="color:#66d9ef">let</span> dll_dir <span style="color:#f92672">=</span> CString::new(name).unwrap();
+  <span style="color:#66d9ef">let</span> dll_dir_s <span style="color:#f92672">=</span> dll_dir.as_bytes_with_nul().len();
+
+  <span style="color:#75715e">// Se carga la libreria Kernel32, libreria que contiene LoadLibraryA,
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// quien se encargara finalmente de cargar nuestro DLL.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> s_module_handle <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;Kernel32&#34;</span>).unwrap();
+  <span style="color:#66d9ef">let</span> module_handle <span style="color:#f92672">=</span> GetModuleHandleA(s_module_handle.as_ptr());
+
+  <span style="color:#75715e">// Se obtiene un puntero de la funcion LoadLibraryA
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a_loadlib <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;LoadLibraryA&#34;</span>).unwrap();
+  <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> GetProcAddress(module_handle, a_loadlib.as_ptr());
+
+  <span style="color:#75715e">// Se castea el puntero a una funcion para que se pueda pasar a
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// CreateRemoteThread
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> casted_function: <span style="color:#a6e22e">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span>(LPVOID) -&gt; <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> transmute(result);
+
+  <span style="color:#75715e">// Se asigna espacio en el proceso externo donde se escribira
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// la direccion donde nuestro DLL esta ubicado en el disco
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> addr <span style="color:#f92672">=</span> VirtualAllocEx(
+      process.h_process,
+      ptr::null_mut(),
+      dll_dir_s,
+      MEM_COMMIT,
+      PAGE_READWRITE,
+  ) <span style="color:#66d9ef">as</span> DWORD_PTR;
+
+  <span style="color:#66d9ef">let</span> _dll_dir <span style="color:#f92672">=</span> dll_dir.into_bytes_with_nul();
+  process.write_aob(addr, <span style="color:#f92672">&amp;</span>_dll_dir, <span style="color:#66d9ef">true</span>);
+
+  <span style="color:#75715e">// Se ejecuta un thread en el proceso externo que solo consiste
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// en ejecutar la funcion LoadLibraryA usando la direccion de nuestro
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// DLL como argumento
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> CreateRemoteThread(
+      process.h_process,
+      ptr::null_mut(),
+      <span style="color:#ae81ff">0</span>,
+      Some(casted_function),
+      addr <span style="color:#66d9ef">as</span> LPVOID,
+      <span style="color:#ae81ff">0</span>,
+      ptr::null_mut(),
+  );
+
+  FreeLibrary(module_handle);
+}
+</code></pre></div><p>Leerlo y entenderlo no es tan complejo, y con ese simple segmento de código,
+ya estamos listos para comenzar a escribir nuestro <code>DLL</code>.</p>
+<h1 id="parte-dos-la-_inyección_">Parte dos: la <em>inyección</em></h1>
+<h2 id="cheat-engine-is-a-debugger-too">Cheat Engine is a debugger too</h2>
+<p>Increíblemente, Cheat Engine no es solo útil para juegos. Su habilidad
+para encontrar valores, e instrucciones que los modifican lo hacen un excelente
+debugger para programas en <code>runtime</code>, y como ya he experimentado
+previamente con esta maravillosa herramienta, era tiempo de comenzar a jugar
+con algún objetivo, y en este caso fue el Administrador de Tareas.</p>
+<p>El objetivo de este post no es mostrar el proceso de Cheat Engine, así
+que eso queda como ejercicio para el lector, lo importante a saber
+es que usando Ghidra y Cheat Engine, encontré la función que actualiza
+los valores de la carga de todos los componentes de visualización de
+<code>taskmgr.exe</code>, y también como se calcula el índice de este arreglo,
+con esto ya teníamos suficiente conocimiento para escribir nuestro <code>interceptor</code>.</p>
+<h2 id="linking-is-your-friend">Linking is your friend!</h2>
+<p>Como ahora estamos trabajando con hacking interno, el proceso de <code>linking</code>
+de compilación se vuelve mucho más relevante, ya que estamos en el mismo
+espacio de memoria que el proceso objetivo, por lo tanto
+podemos compartir variables usando las <strong>foreign function interface</strong> (FFI).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; interceptor.asm</span>
+<span style="color:#66d9ef">EXTERN</span> _end: <span style="color:#66d9ef">qword</span>
+<span style="color:#66d9ef">EXTERN</span> my_arr: <span style="color:#66d9ef">qword</span>
+
+<span style="color:#a6e22e">PUBLIC</span> get_values
+
+<span style="color:#a6e22e">.code</span>
+<span style="color:#a6e22e">get_values</span> PROC
+  <span style="color:#a6e22e">lea</span> rax,[my_arr]
+  <span style="color:#75715e">; rdx contiene el indice del arreglo, y rax es el puntero base</span>
+  <span style="color:#75715e">; de nuestro propio arreglo en este caso, luego</span>
+  <span style="color:#75715e">; es reemplazado por el valor correspondiente del arreglo</span>
+  <span style="color:#a6e22e">mov</span> rax,[rax <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>]
+
+  <span style="color:#75715e">; original code</span>
+  <span style="color:#75715e">; pero ahora rax contiene nuestro propio valor</span>
+  <span style="color:#a6e22e">mov</span> [rcx <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>],rax 
+
+  <span style="color:#a6e22e">jmp</span> [_end]
+<span style="color:#a6e22e">get_values</span> ENDP
+
+<span style="color:#a6e22e">END</span>
+</code></pre></div><p>El interceptor en este caso es bastante cortito, pero hay algo que no había
+usado previamente, el keyword <code>EXTERN</code>.</p>
+<p>En el caso del hacking externo, el <code>interceptor</code> se inyectaba en el espacio
+de memoria del objetivo a través de las llamadas de la API del sistema operativo
+como un arreglo de bytes. Ahora no es necesario hacer esto, ya que al compartir
+el espacio de memoria, y Rust al hacer el linking automático del interceptor,
+este queda automáticamente cargado en la memoria del proceso, por lo tanto nos
+ahorramos ese paso.</p>
+<p>Lo interesante es, como ahora está trabajando todo en el mismo espacio de
+memoria (perdonen la redundancia), se pueden compartir variables.
+En este caso, el código en assembly reconoce 2 variables externas
+las cuales llamamos <code>_end</code>, y <code>my_arr</code>, variables que definiremos
+en nuestro código en <code>Rust</code> y <code>cargo</code> se encargará de hacer el linking por
+ti (hasta nunca Makefile).</p>
+<p>Lo entretenido de esto es que ahora será mucho más fácil y directo
+manipular el arreglo y que además, será fácil conseguir la dirección
+de regreso del jump (<code>_end</code>).</p>
+<h2 id="manipulando-las-cosas-desde-rust">Manipulando las cosas desde Rust</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#e6db74">/// Handy macro para exportar las variables facilmente,
+</span><span style="color:#e6db74">/// es equivalente al extern pero para que Rust genere
+</span><span style="color:#e6db74">/// símbolos públicos en vez de leerlos
+</span><span style="color:#e6db74"></span>macro_rules<span style="color:#f92672">!</span> export_var {
+    (<span style="color:#75715e">$($name</span>:<span style="color:#a6e22e">ident</span>: <span style="color:#75715e">$v</span>:<span style="color:#a6e22e">ty</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>:<span style="color:#a6e22e">expr</span>),<span style="color:#f92672">*</span>) <span style="color:#f92672">=&gt;</span> {
+        <span style="color:#75715e">$(#[no_mangle]</span> <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">mut</span> <span style="color:#75715e">$name</span>: <span style="color:#75715e">$v</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>;)<span style="color:#f92672">*</span>
+    }
+}
+
+export_var<span style="color:#f92672">!</span>{
+    _end: <span style="color:#66d9ef">usize</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+    my_arr: [<span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>]
+}
+
+<span style="color:#75715e">// Dirección de la función en assembly para ser inyectada
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
+    <span style="color:#66d9ef">static</span> get_values: <span style="color:#66d9ef">u8</span>;
+}
+
+</code></pre></div><p>Como se puede ver, a diferencia del Photo Mode, aquí también estamos
+exportando variables (con la macro creada) para que en el momento en que
+el compilador haga el <code>linking</code>, le pase esas variables al código en assembly.</p>
+<p>Con esto, será mucho más fácil manipular el arreglo para hacer cosas bonitas,
+como en el caso nuestro, generar una curva sinusoidal (probablemente
+se puede hacer desde assembly puro, pero para qué jaja)</p>
+<p>Sin más preámbulo, el código principal en Rust quedó algo así</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">intercept_input</span>(_: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">DWORD</span> {
+    <span style="color:#66d9ef">use</span> winapi::um;
+    <span style="color:#75715e">// El DLL encargado de generar los graficos para el taskmgr es 
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// chartv.dll
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> _name <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;CHARTV.dll&#34;</span>).unwrap();
+    <span style="color:#66d9ef">let</span> mba <span style="color:#f92672">=</span> um::libloaderapi::GetModuleHandleA(_name.as_ptr()) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>;
+    
+    <span style="color:#75715e">// Offset especifico donde haremos nuestra inyeccion
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> target_addr <span style="color:#f92672">=</span> mba <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x312E</span>;
+
+    <span style="color:#66d9ef">unsafe</span> {
+        <span style="color:#75715e">// actualizamos _end para que nuestro codigo en assembly
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// sepa donde retornar despues de la inyección
+</span><span style="color:#75715e"></span>        _end <span style="color:#f92672">=</span> target_addr <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+
+        <span style="color:#75715e">// inyectamos en nuestro offset la instruccion en assembly,
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// notar que hook_fun ya no necesita obtener los valores
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// de la funcion como arreglo de bytes ya que esta esta
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// en el mismo espacio de memoria
+</span><span style="color:#75715e"></span>        hook_fun(target_addr, <span style="color:#f92672">&amp;</span>get_values <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>, <span style="color:#ae81ff">5</span>);
+    }
+
+    <span style="color:#75715e">// Dirty math para crear la sinusoidal 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
+    <span style="color:#66d9ef">loop</span> {
+            <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span>..my_arr.len() {
+                <span style="color:#66d9ef">let</span> _i <span style="color:#f92672">=</span> (i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">f64</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span><span style="color:#66d9ef">f64</span>;
+                my_arr[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">f64</span><span style="color:#f92672">*</span>(<span style="color:#ae81ff">1</span><span style="color:#66d9ef">f64</span> <span style="color:#f92672">+</span> (t <span style="color:#f92672">+</span> _i).sin())
+            }
+            t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1e-5</span>;
+            <span style="color:#66d9ef">if</span> t <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3.14</span> {
+                t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
+            }
+    }
+    
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#75715e">// Boilerplate que necesita Windows para instanciar nuestro DLL
+</span><span style="color:#75715e"></span><span style="color:#75715e">#[no_mangle]</span>
+<span style="color:#75715e">#[allow(non_snake_case)]</span>
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">DllMain</span>(_: <span style="color:#a6e22e">HINSTANCE</span>, reason: <span style="color:#a6e22e">DWORD</span>, _: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">BOOL</span> {
+    <span style="color:#66d9ef">unsafe</span> {
+        <span style="color:#66d9ef">match</span> reason {
+            winapi::um::winnt::DLL_PROCESS_ATTACH <span style="color:#f92672">=&gt;</span> {
+                winapi::um::processthreadsapi::CreateThread(
+                    ptr::null_mut(),
+                    <span style="color:#ae81ff">0</span>,
+                    Some(intercept_input),
+                    ptr::null_mut(),
+                    <span style="color:#ae81ff">0</span>,
+                    ptr::null_mut(),
+                );
+            }
+            _ <span style="color:#f92672">=&gt;</span> (),
+        };
+    }
+
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">as</span> BOOL;
+}
+</code></pre></div><h1 id="conclusión">Conclusión</h1>
+<p>Existen demasiadas ventajas al hacer hacking interno, tantas que
+probablemente de ahora en adelante me enfoque en hacer este tipo de hacking
+para mis futuros <code>Photo Mode</code> en distintos juegos. Fue un ejercicio entretenido
+para aprender un poco sobre linking, FFI, y los DLL de Windows, y como ha
+sido desde el principio del 2020, usar Rust ha sido un viaje muy entretenido.</p>
+<p>Espero que como lector hayas podido aprender algo, si no, siempre puedes
+dejar un feedback de la escritura del post.</p>
+<p>Adjunto otra función bonita graficada en el Administrador de Tareas también:
+
+  <img src="/assets/images/taskmgr/unknown.png"  class="left"  />
+
+</p>
+<p>Y puedes leer el <a href="https://gist.github.com/etra0/bd2e498a370bb44a2582c78eb15d2af3">código fuente original</a> acá.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://etra0.github.io/assets/main.js"></script>
+<script src="https://etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
