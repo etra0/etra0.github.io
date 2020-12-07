@@ -9,10 +9,30 @@
     <description>Recent content in re on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2020 15:40:55 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 23:19:23 -0300</lastBuildDate>
     
 	<atom:link href="https://etra0.github.io/tags/re/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</title>
+      <link>https://etra0.github.io/posts/2020-12-06-memory-rs-internal/</link>
+      <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
+      
+      <guid>https://etra0.github.io/posts/2020-12-06-memory-rs-internal/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://etra0.github.io/assets/images/memory-rs/cover.png&#34;/&gt;
+          
+        
+        
+        
+          Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
+Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Quién necesita Matplotlib si tenemos el Administrador de Tareas</title>

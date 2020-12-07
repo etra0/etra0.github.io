@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
+Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://etra0.github.io/posts/2020-12-06-memory-rs-internal/" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274078-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108274078-4');
+</script>
+
+
+
+<link rel="stylesheet" href="https://etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="https://etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://etra0.github.io/img/favicon.png">
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode"/>
+<meta name="twitter:description" content="Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
+Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones."/>
+
+
+
+<meta property="og:title" content="memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode" />
+<meta property="og:description" content="Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
+Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etra0.github.io/posts/2020-12-06-memory-rs-internal/" />
+<meta property="article:published_time" content="2020-12-06T23:19:23-03:00" />
+<meta property="article:modified_time" content="2020-12-06T23:19:23-03:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="https://etra0.github.io/posts/2020-12-06-memory-rs-internal/">memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-12-06
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://etra0.github.io/tags/rust/">rust</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/assembly/">assembly</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/re/">re</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="https://etra0.github.io/assets/images/memory-rs/cover.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Habiendo comenzado a experimentar con hacking interno  a través de inyección de
+DLLs, y mientras esperaba la salida del juego <em>Yakuza: Like A Dragon</em>,
+aproveché de comenzar a preparar mi librería <code>memory-rs</code> para por fin comenzar
+a utilizar hacking interno, que por lo general conllevaba más trabajo preparar
+el boilerplate pero al final traía muchos más beneficios.</p>
+<h1 id="evolución-de-_memory-rs_">Evolución de <em>memory-rs</em></h1>
+<p><a href="https://github.com/etra0/memory-rs/commit/d9c9521907bd9bb5ce35447b12a27830e8dbf9d1">A partir del 27 de
+octubre</a>,
+comencé a trabajar casi todos los días en esta librería, porque cada vez me
+fascinaba más las posibles técnicas que se pueden utilizar al estar dentro
+del mismo espacio de memoria que el proceso objetivo, por lo que era necesario
+construir un toolkit para evitar ser redundante en futuras ocasiones.</p>
+<p>El objetivo final de esta librería es facilitar la edición de memoria, que
+sirva para juegos es una consecuencia secundaria, pero en el estado actual,
+ésta permite fácilmente inyectar <code>shellcodes</code> o hacer function detouring,
+técnicas que se usan frecuentemente para expandir APIs privadas o en su
+defecto, a veces para desarrollar malware bastante básico.</p>
+<p>Después de haber experimentado con distintas necesidades de modificación de
+memoria, concluí que era necesario implementar 3 estructuras esenciales que
+facilitan la modificación de software closed source para expandir su
+funcionalidad.</p>
+<h2 id="detour-injection--staticelement">Detour, Injection &amp; StaticElement</h2>
+<p>Estas 3 estructuras son las que defino como esencial para facilitar el game
+modding. Quizás después agregaré más (o quizás elimine alguna), pero por ahora,
+esta separación me ha funcionado bastante bien. Aquí un breve resumen de qué es
+lo que hace cada una:</p>
+<ul>
+<li><strong>Detour</strong>: Estructura que contiene un puntero a una parte original del
+código, un puntero a una función que se va a inyectar y opcionalmente un
+puntero a donde debe volver (en el caso de lo que se inyecte sea un
+shellcode, usualmente se salta de vuelta a donde estaba el código
+originalmente).</li>
+<li><strong>Injection</strong>: Estructura que contiene un puntero a una parte original del
+código, y un vector que contiene los bytes que se sobreescribirán sobre esa
+función original. Ésta estructura es útil cuando se necesitan nopear
+instrucciones o cuando se necesitan cambiar  de <code>jmp</code>s condicionales (<code>ja</code>,
+<code>jb</code>, <code>je</code>, etc) a <code>jmp</code></li>
+<li><strong>StaticElement</strong>: Estructura que contiene un puntero a una dirección
+estática, y un valor, y este se sobreescribe cada vez que se llame a la
+función <code>inject</code>.</li>
+</ul>
+<p>Lo interesante de estas 3 estructuras, es que fueron pensadas usando la
+estrategia
+<a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">RAII</a>,
+por lo que al sacar la inyección, todo queda limpio como si nada hubiese pasado
+(ya sea porque se va fuera del scope o porque se saca el DLL).</p>
+<h2 id="haciendo-todo-update-proof-scan_aob">Haciendo todo update-proof: scan_aob</h2>
+<p>Una de las grandes ventajas de usar hacking interno, es que se tiene acceso
+completo a la memoria del proceso (obviamente, los segmentos que son válidos,
+<em>duh</em>). Previamente, cuando necesitaba modificar algo haciendo todo externo,
+debía solicitar a través de una syscall a Windows que me entregue una copia de
+bytes del espacio de memoria que deseo leer. Ahora, simplemente todo se
+transforma en álgebra de punteros, lo cuál acelera bastante el proceso de
+obtención de datos ya que no hay intermediario.</p>
+<p>Sabiendo esto, ahora era vital implementar una función que hace mucho tiempo
+quería hacer, debido a que me permitirá hacer parches update-proof: <code>scan_aob</code>.
+La gracia de dicha función, es que a partir de un patrón de bytes, te permite
+buscar dentro de segmentos de memoria (usualmente, escaneo el binario del
+ejecutable) y cuando se haga match del patrón, se retorna la dirección.
+Esto es útil porque por ejemplo, cuando se actualiza un juego, los offsets
+suelen cambiar al hacer la recompilación, porque basta que una estructura tenga
+un campo nuevo o que quizás un string sea un par de bytes más largo, y el
+parche ya no funcionará. Esto facilita bastante las cosas y además permite
+compatibilidad entre versiones (La freecam de Yakuza Like A Dragon funciona
+para Steam y para Microsoft Store sin hacer cambio alguno gracias a esto!).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// snip
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> store_pref_detour <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
+	<span style="color:#66d9ef">let</span> (size, func) <span style="color:#f92672">=</span> generate_aob_pattern<span style="color:#f92672">!</span>[
+		<span style="color:#ae81ff">0x8B</span>, <span style="color:#ae81ff">0x41</span>, _, <span style="color:#ae81ff">0x89</span>, _, <span style="color:#ae81ff">0x8B</span>, <span style="color:#ae81ff">0x41</span>, <span style="color:#ae81ff">0x24</span>, <span style="color:#ae81ff">0x41</span>, <span style="color:#ae81ff">0x89</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0xC3</span>
+	];
+	Detour::new_from_aob(
+		(size, func),
+		<span style="color:#75715e">// proc_inf contiene información esencial del proceso
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">&amp;</span>proc_inf,
+        <span style="color:#75715e">// store_preferred_res es el puntero a mi shellcode, el cual está
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// escrito en assembly
+</span><span style="color:#75715e"></span>		auto_cast<span style="color:#f92672">!</span>(store_preferred_res),
+        <span style="color:#75715e">// En este caso el shellcode tiene un return, por lo cual no es
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// necesario inyectar un jmp back
+</span><span style="color:#75715e"></span>		None,
+		<span style="color:#ae81ff">12</span>,
+        <span style="color:#75715e">// La dirección encontrada por el aob_scan no necesita de un offset.
+</span><span style="color:#75715e"></span>		None,
+	)
+	.or(Err(<span style="color:#e6db74">&#34;Couldn&#39;t find store_pref_addr&#34;</span>))<span style="color:#f92672">?</span>
+};
+
+store_pref_detour.inject();
+</code></pre></div><p>Lo genial de esto, es que usando las macros de Rust, podemos generar una
+función lambda que lo único que hace es intentar hacer match cuando el patrón
+se cumple (los <code>_</code> implican que puede haber cualquier byte en ese espacio), por
+lo tanto no hay que parsear strings (I&rsquo;m looking at you, C++ 😉).</p>
+<h1 id="ciertos-usos-de-_memory-rs_">Ciertos usos de <em>memory-rs</em></h1>
+<p>Bacán, te estoy vendiendo mi invento, pero, ¿de qué sirve? bueno, aquí hay
+ciertos ejemplos en los cuales mi librería me ha sido útil para acelerar el
+proceso de creación:</p>
+<h2 id="rtti-dumper">rtti-dumper</h2>
+<p>A veces los procesos contienen información en run-time de los tipos (Run Time
+Type Information, RTTI), y a veces es práctico comenzar a mirar desde ahí para
+hacer ciertas búsqueda de objetos en memoria. Es por esto, que creé un
+<a href="https://github.com/etra0/rtti_dumper"><code>rtti-dumper</code></a>, el cuál básicamente
+intenta encontrar las tablas de funciones virutales de objetos con información
+en run-time. Usando Rust, pude abusar de la <a href="https://doc.rust-lang.org/book/ch16-00-concurrency.html">Fearless
+Concurrency</a> para
+crear algo multi-threaded, y sorprendentemente, el programa logra procesar ~60
+GB/s! Gracias a que todo está en memoria, ésta se puede revisar múltiples veces
+y es extremadamente rápida, y no hay problemas al hacer acceso concurrente ya
+que todo es read-only.</p>
+<p>
+  <img src="/assets/images/memory-rs/speed.png"  class="left"  />
+
+
+<div style="text-align: center;">
+		<em>Dumpeando las VFT de los RTTI contenidos en el Yakuza Kiwami 2, a ~60 GB/s</em>
+</div>
+</p>
+<h2 id="red-dead-redemption-2-patch---range-removal">Red Dead Redemption 2 patch - range removal</h2>
+<p>Red Dead Redemption 2 es un juego con vistas fantásticas, creo que hasta ahora,
+no hay ningún juego que se le compare. Debido a esto, en el servidor de Discord
+que estoy, <a href="https://twitter.com/FransBouma">Frans Bouma</a> había creado una Cheat
+Table para Cheat Engine (nos volvemos a encontrar ♥) donde implementaba el
+range-removal del modo foto del juego (es decir, quitaba la limitación de
+alejamiento de la cámara) y además habilitaba la opción de usar hot-sampling
+(básicamente si la ventana escala, la resolución también lo hace, ideal para
+tomar pantallazos de alta resolución). Debido a esto, aproveché de darle un uso
+a mi librería y pasar estas modificaciones a un parche (DLL) para que esta
+inyección se haga automáticamente ya que el modo fodo lo ocupo bastante, y
+usando la gran librería
+<a href="https://github.com/ThirteenAG/Ultimate-ASI-Loader">Ultimate-ASI-Loader</a>, puedo
+crear un parche que se cargue automáticamente al abrir el juego.</p>
+<p>
+  <img src="/assets/images/memory-rs/RDR2.png"  class="left"  />
+
+
+<div style="text-align: center;">
+		<em>Foto del RDR2 por mí</em>
+</div>
+</p>
+<h2 id="películas-en-el-taskmgrhttpsgithubcometra0taskmgr-video"><a href="https://github.com/etra0/taskmgr-video">Películas en el taskmgr</a></h2>
+<p>Because, why not?</p>
+
+  <img src="https://raw.githubusercontent.com/etra0/taskmgr-video/master/shrek.gif"  class="left"  style="width:100%"  />
+
+
+<h1 id="ventajas-de-hacer-el-photo-mode-del-ylad-con-hacking-interno">Ventajas de hacer el Photo Mode del Y:LAD con hacking interno</h1>
+<p>Para ir cerrando, déjame contarte de un par de ventajas que he obtenido gracias
+al hacer el photo mode del Yakuza: Like A Dragon usando memory-rs con inyección
+interna:</p>
+<h2 id="1-update-proof">1. Update-proof</h2>
+<p>Como ya mencioné previamente, usando la función <code>aob_scan</code>, es mucho más
+probable que el parche sea update-proof debido a que los offsets pueden
+cambiando, dicho y hecho, así fue, el ejecutable ha sido actualizado 2 veces (y
+los offsets han cambiado según mis logs) y el Free-Cam ha funcionado sin ningún
+problema. Si pasase eso con alguna de mis previas freecam, tendría que buscar
+todo de nuevo con Cheat Engine, algo que es bastante consumidor de tiempo.</p>
+<h2 id="2-rust-structs">2. Rust structs</h2>
+<p>Oh boy, cuando se me ocurrió esto, quedé impresionado. Rust implementa un OOP
+bastante único, el cuál básicamente se resume en crear <code>struct</code>s, y estos
+extenderlos a través de implementaciones, y también existen <code>trait</code>s que se
+pueden implementar sobre structs existentes (algo así parecido como a las
+interfaces). ¿Por qué te cuento esto? por lo siguiente. En la memoria del
+juego, logré encontrar los valores esenciales del manejo de la cámara en el
+mismo, y se me ocurrió la brillante idea de castear esta información a un
+<code>struct</code>, y luego extender ese <code>struct</code> con mis métodos para modificarlo, y
+estoy demasiado orgulloso como quedó este approach. Esto se ve algo así:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// El repr(C) nos permite asegurar que el struct se compondrá de forma similar
+</span><span style="color:#75715e">// a como lo hacen los structs de C, con sus respectivos paddings
+</span><span style="color:#75715e"></span><span style="color:#75715e">#[repr(C)]</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">GameCamera</span> {
+    <span style="color:#75715e">// Por lo general siempre se ocupan vectores de tamaño cuatro debido a las
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// facilidades que otorga SSE2.
+</span><span style="color:#75715e"></span>    pos: [<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">4</span>],
+    focus: [<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">4</span>],
+    rot: [<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">4</span>],
+    <span style="color:#75715e">// No conozco los valores que están acá, y se pueden castear como un
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// arreglo más alto, no ocupará más memoria porque esto ya existe ;)
+</span><span style="color:#75715e"></span>    padding_: [<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">0x8</span>],
+    fov: <span style="color:#66d9ef">f32</span>
+}
+
+<span style="color:#75715e">// Esto es lo genial, puedo extender el struct GameCamera desde Rust, y luego
+</span><span style="color:#75715e">// aplicar estos métodos después de castear el puntero a mi struct personalizado,
+</span><span style="color:#75715e">// bastante genial eh?
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span> GameCamera {
+    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">consume_input</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self, input: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Input</span>) {
+        <span style="color:#66d9ef">let</span> r_cam_x <span style="color:#f92672">=</span> self.focus[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> self.pos[<span style="color:#ae81ff">0</span>];
+        <span style="color:#66d9ef">let</span> r_cam_y <span style="color:#f92672">=</span> self.focus[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> self.pos[<span style="color:#ae81ff">1</span>];
+        <span style="color:#66d9ef">let</span> r_cam_z <span style="color:#f92672">=</span> self.focus[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> self.pos[<span style="color:#ae81ff">2</span>];
+
+        <span style="color:#66d9ef">let</span> (r_cam_x, r_cam_z, r_cam_y) <span style="color:#f92672">=</span>
+            Camera::calc_new_focus_point(r_cam_x, r_cam_z, r_cam_y,
+                input.delta_focus.<span style="color:#ae81ff">0</span>, input.delta_focus.<span style="color:#ae81ff">1</span>);
+
+        self.pos[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> r_cam_x<span style="color:#f92672">*</span>input.delta_pos.<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span>
+            input.delta_pos.<span style="color:#ae81ff">0</span><span style="color:#f92672">*</span>r_cam_z;
+        self.pos[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> r_cam_y<span style="color:#f92672">*</span>input.delta_pos.<span style="color:#ae81ff">1</span>;
+
+        self.pos[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> r_cam_z<span style="color:#f92672">*</span>input.delta_pos.<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span>
+            input.delta_pos.<span style="color:#ae81ff">0</span><span style="color:#f92672">*</span>r_cam_x;
+
+        self.focus[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> r_cam_x;
+        self.focus[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> r_cam_y;
+        self.focus[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> self.pos[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> r_cam_z;
+
+        self.fov <span style="color:#f92672">=</span> input.fov;
+    }
+}
+
+<span style="color:#75715e">// También pude implementar el trait Debug de mi propio struct, que en el fondo
+</span><span style="color:#75715e">// imprimía de forma más bonita lo que ya estaba en memoria debido a las mismas
+</span><span style="color:#75715e">// facilidades mencionadas arriba
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span> std::fmt::Debug <span style="color:#66d9ef">for</span> GameCamera {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fmt</span>(<span style="color:#f92672">&amp;</span>self, f: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> std::fmt::Formatter<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;_</span><span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">std</span>::fmt::Result {
+        <span style="color:#66d9ef">let</span> ptr <span style="color:#f92672">=</span> self <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> GameCamera <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>;
+        f.debug_struct(<span style="color:#e6db74">&#34;GameCamera&#34;</span>)
+            .field(<span style="color:#e6db74">&#34;self&#34;</span>, <span style="color:#f92672">&amp;</span>format_args<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:x}&#34;</span>, ptr))
+            .field(<span style="color:#e6db74">&#34;pos&#34;</span>, <span style="color:#f92672">&amp;</span>self.pos)
+            .field(<span style="color:#e6db74">&#34;focus&#34;</span>, <span style="color:#f92672">&amp;</span>self.focus)
+            .field(<span style="color:#e6db74">&#34;rot&#34;</span>, <span style="color:#f92672">&amp;</span>self.rot)
+            .field(<span style="color:#e6db74">&#34;fov&#34;</span>, <span style="color:#f92672">&amp;</span>self.fov)
+            .finish()
+    }
+}
+
+<span style="color:#75715e">// ... snip
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">unsafe</span> {
+    <span style="color:#75715e">// casteamos el puntero a mi struct
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> gc <span style="color:#f92672">=</span> (g_camera_struct <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x80</span>) <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">mut</span> GameCamera;
+    <span style="color:#75715e">// Usamos el método implementado INTERNAMENTE en mi DLL sobre valores que
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// ya estan en memoria dentro del juego
+</span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>gc).consume_input(<span style="color:#f92672">&amp;</span>input);
+
+    <span style="color:#75715e">// Podemos imprimir los valores de la GameCamera usando el trait Debug
+</span><span style="color:#75715e"></span>	println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?}&#34;</span>, <span style="color:#f92672">*</span>gc);
+}
+
+</code></pre></div><p>¿Por qué es posible esto? Bueno, los arreglos en memoria no son nada más que
+valores contiguos en la RAM, y las struct son arreglos contiguos que
+&ldquo;conceptualmente&rdquo; están agrupados, entonces basta con saber el tamaño de estos
+objetos y se pueden castear a cualquier struct que tenga un formato parecido
+(por ejemplo, podría usar <code>u32</code> en vez de <code>f32</code>, ya que tienen el mismo tamaño,
+pero los valores no tendrían sentido 😛). ¿Bastante cool eh?</p>
+<h2 id="3-compatibilidad-con-steam-y-ms-store-version">3. Compatibilidad con Steam y MS Store version</h2>
+<p>Las freecam anteriores solo eran compatibles con la versión de steam (y si esta
+se actualiza, gg), en cambio esta, al usar <code>scan_aob</code>, y patrones seleccionados
+cuidadosamente (por ejemplo los <code>jmp</code> y los <code>call</code> se les removieron los
+offsets), es posible encontrar todas las funciones a modificar
+independientemente de la versión que estés ejecutando.</p>
+<h1 id="finalizando">Finalizando</h1>
+<p>En fin, esta nota fue un vómito bastante rato, en conclusión, no me arrepiento
+de haber comenzado a hacer inyección interna, todo se hace más entretenido, los
+punteros son mucho más divertido de lo que pensaba y la memoria es solo un
+constructo social (heh). Si es que llegaste hasta acá, bacán, si te interesa
+este tópico, siempre me puedes encontrar en discord como etra#1337 o en
+twitter como <a href="https://twitter.com/etra0">etra0</a> (En facebook no soy muy
+activo).</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://etra0.github.io/assets/main.js"></script>
+<script src="https://etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
