@@ -1,160 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://etra0.github.io/tags/assembly/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2020-12-06-memory-rs-internal/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/tags/re/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/tags/rust/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/tags/</loc>
     <lastmod>2020-12-06T23:19:23-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2020-06-26-taskmgr/</loc>
     <lastmod>2020-06-26T15:40:55-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2020-05-28-photo-mode/</loc>
     <lastmod>2020-05-28T14:08:01-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2020-03-23-hacking-the-beginning/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/re-hack-asm/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2018-10-06-crowdsourcing-milestone/</loc>
     <lastmod>2018-10-06T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/js-opensource-crowdsourcing/</loc>
     <lastmod>2018-10-06T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2018-06-13-datacamp/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/javascript-dataviz-python-altair/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2018-06-13-vim/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/vim-bash-linux/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2018-02-14-valentin/</loc>
     <lastmod>2018-02-14T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/javascript-dataviz-usm/</loc>
     <lastmod>2018-02-14T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/datascience/</loc>
     <lastmod>2017-12-24T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-12-24-habitos-programacion/</loc>
     <lastmod>2017-12-24T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/datascience-python/</loc>
     <lastmod>2017-11-04T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-11-04-descripcion-usm/</loc>
     <lastmod>2017-11-04T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/datascience-facebook-python/</loc>
     <lastmod>2017-10-01T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-10-01-analisis-facebook/</loc>
     <lastmod>2017-10-01T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-07-07-la-previa-a-got/</loc>
     <lastmod>2017-07-07T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/categories/datascience-telegram-usm/</loc>
     <lastmod>2017-06-25T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-06-25-mi-pequenno-bot/</loc>
     <lastmod>2017-06-25T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</loc>
     <lastmod>2017-06-05T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://etra0.github.io/posts/2017-06-05-motos-en-chile/</loc>
     <lastmod>2017-06-05T12:00:00-04:00</lastmod>
   </url>
-  
 </urlset>
