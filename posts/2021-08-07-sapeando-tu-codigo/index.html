@@ -164,13 +164,14 @@ dentro de las categorías de los lenguajes que también disfruto. Pero para
 volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así
 surgió <a href="https://github.com/etra0/sapeaob">sapeAOB</a>, (una mezcla entre <em>sapeao'</em> y AOB - Array of Bytes), una
 microlibrería que permite encontrar patrones de bytes escrita en C++17.</p>
-<h1 id="first-and-foremost-modern-c-is-nothing-like-uni-c">First and foremost: Modern C++ is nothing like Uni C++</h1>
+<h1 id="first-and-foremost-modern-c-is-nothing-like-uni-c">First and foremost: Modern C++ is nothing like Uni* C++</h1>
 <p>Primero que todo, es <strong>necesario</strong> sacarse de la cabeza que C++ es <em>&ldquo;C con
 clases&rdquo;</em>. Quizás esto fue cierto hace un tiempo (probablemente en sus inicios),
 pero este lenguaje ha mutado demasiado (para bien o para mal) comparado con C,
 y estoy casi seguro que cualquier persona que siga creyendo tal aseveración,
 al segundo que vea un extracto de C++17 o posterior, se dará cuenta de esto
 también, porque existen <strong>un montón de tecnologías nuevas</strong>.</p>
+<p>* con Uni C++ me refiero al C++ enseñado en la universidad.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">it</span>, std<span style="color:#f92672">::</span>size_t... Indexes<span style="color:#f92672">&gt;</span>
 <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">bool</span>
 compare_(it arr, std<span style="color:#f92672">::</span>index_sequence<span style="color:#f92672">&lt;</span>Indexes...<span style="color:#f92672">&gt;</span>) <span style="color:#66d9ef">noexcept</span> {
@@ -265,11 +266,11 @@ capacidades específicas de tu procesador), pero para leerlo e interpretarlo no
 necesitas ser un real <em>pro</em>, solo necesitas estudiarlo un poco (y para escribir
 shellcodes también).</p>
 <p>El objetivo de SapeAOB es encontrar un patrón de bytes en un arreglo. Los
-binarios pueden ser leídos como un montón de bytes (que a la vez contiene
-las instrucciones necesarias para ser ejecutado). Cuando hacemos modificaciones
-a los binarios, estos en general se hacen a un conjunto de instrucciones
-específicas (por ejemplo, que deje de decrementar la vida del jugador). Estas
-instrucciones se pueden ir moviendo cada vez que compilamos nuevamente el
+binarios pueden ser leídos como un montón de bytes (que a la vez contiene las
+instrucciones necesarias para ser ejecutado). Cuando hacemos modificaciones a
+los binarios, estos en general se hacen a un conjunto de instrucciones
+específicas (por ejemplo, que en vez de que una función sume algo, lo reste).
+Estas instrucciones se pueden ir moviendo cada vez que compilamos nuevamente el
 programa original y por lo tanto, sus offsets varían. Es por esto que es mejor
 usar patrones de bytes (informalmente array of bytes) para encontrar estas
 instrucciones específicas independiente de los futuros cambios que se hagan en
