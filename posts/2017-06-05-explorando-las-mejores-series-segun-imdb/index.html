@@ -158,10 +158,10 @@ de la página donde están los top <em>n</em> shows.</p>
 de series qué jamás había escuchado (probablemente caían dentro de la categoría
 de documental).</p>
 <p>Lo primero que hice obviamente, es inicializar el entorno</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
 <span style="color:#f92672">from</span> scipy.interpolate <span style="color:#f92672">import</span> spline
-<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
 <span style="color:#f92672">import</span> matplotlib
 <span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
 plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
@@ -173,7 +173,7 @@ con mucho temor lo dejé en el olvido. Como ahora me picó el bicho
 de la <code>data visualization</code>, aprendí a ocuparlo, y realmente es muy amigable.</p>
 <p>Lo siguiente fue agrupar por <em>score</em>, debido a que el objetivo final
 es ver la concentración de <strong>capítulos buenos</strong> de cada serie:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;score&#34;</span>])<span style="color:#f92672">.</span>count()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;score&#34;</span>])<span style="color:#f92672">.</span>count()
 <span style="color:#66d9ef">del</span> df[<span style="color:#e6db74">&#39;name_chapter&#39;</span>]
 df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;count&#34;</span>]
 
@@ -182,10 +182,10 @@ df[<span style="color:#e6db74">&#34;distribution&#34;</span>] <span style="color
 </code></pre></div><p>Luego, por cosas <em>&ldquo;pythonescas&rdquo;</em>, debemos rellenar las notas que faltan
 en la escala del 0 al 10 con cantidad
 0 para plotear el área bien</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_index <span style="color:#f92672">=</span> [(show, score) <span style="color:#66d9ef">for</span> show <span style="color:#f92672">in</span> shows <span style="color:#66d9ef">for</span> score <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.1</span>)]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_index <span style="color:#f92672">=</span> [(show, score) <span style="color:#66d9ef">for</span> show <span style="color:#f92672">in</span> shows <span style="color:#66d9ef">for</span> score <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.1</span>)]
 df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reindex(new_index, fill_value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
 </code></pre></div><p>Finalmente, incluímos unos <code>colormaps</code> para que quede más bonito, y se plotea:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># obtenemos todos los shows</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># obtenemos todos los shows</span>
 shows <span style="color:#f92672">=</span> list(set(map(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>], df<span style="color:#f92672">.</span>index)))
 
 <span style="color:#75715e"># colormaps!</span>

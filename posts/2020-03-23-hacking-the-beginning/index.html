@@ -313,7 +313,7 @@ que pase por esa parte del código</li>
 <p>Con esto, básicamente me aseguro de obtener siempre el puntero correcto
 de la cámara ya que es el mismo que está ocupando el juego, y así, puedo
 manipular la cámara a gusto.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">__declspec</span>(<span style="color:#66d9ef">naked</span>) <span style="color:#66d9ef">void</span> shellcode()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">__declspec</span>(<span style="color:#66d9ef">naked</span>) <span style="color:#66d9ef">void</span> shellcode()
 {
     <span style="color:#75715e">// rax -&gt; jmpBackAddress
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// rax+8 -&gt; camera pointer location

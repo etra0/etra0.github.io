@@ -213,7 +213,7 @@ aprendizaje. Este programa es independiente de la inyección ya que el <code>.dl
 en sí tiene su propio <code>entry point</code> que el sistema operativo se encargará de
 ejecutar.</p>
 <p>Usando nuestro ya amado lenguaje, Rust, el <em>inyector</em> quedaría algo así:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inject_dll</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, name: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inject_dll</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, name: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
   <span style="color:#66d9ef">use</span> mem::transmute;
   
   <span style="color:#66d9ef">let</span> dll_dir <span style="color:#f92672">=</span> CString::new(name).unwrap();
@@ -280,7 +280,7 @@ con esto ya teníamos suficiente conocimiento para escribir nuestro <code>interc
 de compilación se vuelve mucho más relevante, ya que estamos en el mismo
 espacio de memoria que el proceso objetivo, por lo tanto
 podemos compartir variables usando las <strong>foreign function interface</strong> (FFI).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; interceptor.asm</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; interceptor.asm</span>
 <span style="color:#66d9ef">EXTERN</span> _end: <span style="color:#66d9ef">qword</span>
 <span style="color:#66d9ef">EXTERN</span> my_arr: <span style="color:#66d9ef">qword</span>
 
@@ -320,7 +320,7 @@ ti (hasta nunca Makefile).</p>
 manipular el arreglo y que además, será fácil conseguir la dirección
 de regreso del jump (<code>_end</code>).</p>
 <h2 id="manipulando-las-cosas-desde-rust">Manipulando las cosas desde Rust</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#e6db74">/// Handy macro para exportar las variables facilmente,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#e6db74">/// Handy macro para exportar las variables facilmente,
 </span><span style="color:#e6db74">/// es equivalente al extern pero para que Rust genere
 </span><span style="color:#e6db74">/// símbolos públicos en vez de leerlos
 </span><span style="color:#e6db74"></span>macro_rules<span style="color:#f92672">!</span> export_var {
@@ -346,7 +346,7 @@ el compilador haga el <code>linking</code>, le pase esas variables al código en
 como en el caso nuestro, generar una curva sinusoidal (probablemente
 se puede hacer desde assembly puro, pero para qué jaja)</p>
 <p>Sin más preámbulo, el código principal en Rust quedó algo así</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
 <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">intercept_input</span>(_: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">DWORD</span> {
     <span style="color:#66d9ef">use</span> winapi::um;
     <span style="color:#75715e">// El DLL encargado de generar los graficos para el taskmgr es 

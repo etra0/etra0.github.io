@@ -9,17 +9,37 @@
     <description>Recent content in Tags on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Dec 2020 23:19:23 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 07 Aug 2021 16:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://etra0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>assembly</title>
-      <link>https://etra0.github.io/tags/assembly/</link>
-      <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
+      <title>c&#43;&#43;</title>
+      <link>https://etra0.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
       
-      <guid>https://etra0.github.io/tags/assembly/</guid>
+      <guid>https://etra0.github.io/tags/c&#43;&#43;/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>https://etra0.github.io/tags/performance/</link>
+      <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
+      
+      <guid>https://etra0.github.io/tags/performance/</guid>
       <description>
         
           
@@ -37,9 +57,49 @@
     <item>
       <title>re</title>
       <link>https://etra0.github.io/tags/re/</link>
-      <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
+      <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
       
       <guid>https://etra0.github.io/tags/re/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>x86 assembly</title>
+      <link>https://etra0.github.io/tags/x86-assembly/</link>
+      <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
+      
+      <guid>https://etra0.github.io/tags/x86-assembly/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>assembly</title>
+      <link>https://etra0.github.io/tags/assembly/</link>
+      <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
+      
+      <guid>https://etra0.github.io/tags/assembly/</guid>
       <description>
         
           

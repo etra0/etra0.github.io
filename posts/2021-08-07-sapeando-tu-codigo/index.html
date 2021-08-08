@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>SapeAOB, _Andai&#39; puro sapeando mi código oe!_ :: Sebastián Aedo&#39;s blog — Aventuras de un estudiante cualquiera.</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274078-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108274078-4');
+</script>
+
+
+
+<link rel="stylesheet" href="https://etra0.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="https://etra0.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://etra0.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://etra0.github.io/img/favicon.png">
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SapeAOB, _Andai&#39; puro sapeando mi código oe!_"/>
+<meta name="twitter:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
+
+
+
+<meta property="og:title" content="SapeAOB, _Andai&#39; puro sapeando mi código oe!_" />
+<meta property="og:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-07T16:00:00-03:00" />
+<meta property="article:modified_time" content="2021-08-07T16:00:00-03:00" /><meta property="og:site_name" content="Sebastián Aedo&#39;s blog" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/">SapeAOB, <em>Andai' puro sapeando mi código oe!</em></a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-08-07
+        </span>
+
+        
+          
+        
+      
+
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://etra0.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/performance/">performance</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/x86-assembly/">x86 assembly</a>&nbsp;
+        
+          #<a href="https://etra0.github.io/tags/re/">re</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="https://etra0.github.io/assets/images/sapeaob/logo.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Finalmente era hora, era hora de retomar la práctica con C++ porque, <em>why
+not?</em> Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está
+dentro de las categorías de los lenguajes que también disfruto. Pero para
+volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así
+surgió <a href="https://github.com/etra0/sapeaob">sapeAOB</a>, (una mezcla entre <em>sapeao'</em> y AOB - Array of Bytes), una
+microlibrería que permite encontrar patrones de bytes escrita en C++17.</p>
+<h1 id="first-and-foremost-modern-c-is-nothing-like-uni-c">First and foremost: Modern C++ is nothing like Uni C++</h1>
+<p>Primero que todo, es <strong>necesario</strong> sacarse de la cabeza que C++ es <em>&ldquo;C con
+clases&rdquo;</em>. Quizás esto fue cierto hace un tiempo (probablemente en sus inicios),
+pero este lenguaje ha mutado demasiado (para bien o para mal) comparado con C,
+y estoy casi seguro que cualquier persona que siga creyendo tal aseveración,
+al segundo que vea un extracto de C++17 o posterior, se dará cuenta de esto
+también, porque existen <strong>un montón de tecnologías nuevas</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">it</span>, std<span style="color:#f92672">::</span>size_t... Indexes<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">bool</span>
+compare_(it arr, std<span style="color:#f92672">::</span>index_sequence<span style="color:#f92672">&lt;</span>Indexes...<span style="color:#f92672">&gt;</span>) <span style="color:#66d9ef">noexcept</span> {
+    <span style="color:#66d9ef">return</span> (... <span style="color:#f92672">&amp;&amp;</span> compare_one_(arr, Indexes, Pattern));
+}
+</code></pre></div><div style="text-align: center;">
+		<em>I mean look at this shit, does this looks like C to you?</em>
+</div>
+
+<p>Un par de profesores de la U <em>pecaron</em> diciendo esto al introducir el lenguaje
+al ramo, pero está bien, quizás no es su deber estar al día cuando ese no es el
+enfoque del curso <del>(en mi opinión si lo es pero who cares)</del>.</p>
+<h2 id="pero-qué-tiene-de-distinto-a-c-aparte-de-sus-clases">Pero, ¿qué tiene de distinto a C, aparte de sus clases?</h2>
+<p>Bueno, un montón, tantas que en un blogpost sería imposible enumerarlas. Al
+menos, lo que noté en mi estadía universitaria, principalmente se usaba C++99,
+<strong>el cual a estas alturas es más de 20 años viejo</strong>. En la actualidad, aún se
+ocupan bastante los punteros, pero el enfoque ha sido en intentar alejarse un
+poco del <code>new</code> y el <code>delete</code>, siendo emplazados por el enfoque
+<a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">RAII</a>
+usando estructuras tales como <code>std::unique_ptr&lt;T&gt;</code> o <code>std::shared_ptr&lt;T&gt;</code>, que
+facilitan mucho el manejo de memoria y evita cometer grandes errores usando
+contadores de referencia. También hay muchas adiciones como iteradores,
+<code>templates</code>, etc. Tantas que nisiquiera intentaré referenciarlas, pero te
+invito a darle una oportunidad nueva a este lenguaje si es que te interesa el
+performance, y <a href="https://cppreference.com">cppreference</a> es un gran sitio para
+comenzar.</p>
+<h2 id="ya-pero-y-en-qué-afecta-esto-al-boca-o-a-sapeaob">Ya pero, ¿Y en qué afecta esto al Boca (o a SapeAOB)?</h2>
+<p>Probablemente existan muchas librerías que se enfocan en buscar ciertos valores
+contiguos en un array, pero mi enfoque en particular estaba en funciones
+generadas a tiempo de compilación, de lo cuál hablaremos ahora.</p>
+<h1 id="rust--c-vs-the-interpreted-world">Rust &amp; C++ vs. the interpreted world</h1>
+<p>Lenguajes interpretados, a estas alturas has escuchado mucho de éstos, quizás
+no categorizados como tal, pero en el campo laboral son los lenguajes que más
+frecuentemente encuentras: Python, Javascript, Java (kinda), Shellscript
+(bash), etc. Todos estos lenguajes tienen una similitud, y es que existe un
+software que se encarga de procesar el código que uno escribe e interpretarlo
+al mismo tiempo, y sin la existencia de este software el código &ldquo;por si solo&rdquo;
+no podría funcionar.</p>
+<p>No hay nada malo en esto, esto ha permitido que el multiplataforma sea una
+garantía a estas alturas, son en general mucho más fáciles y rápido de iterar y
+son super cómodos, pero tienen 2 problemas esenciales que afectan en escenarios
+muy específicos: como ya se mencionó, dependen del software que los interpreta
+y por lo tanto la segunda, al tener una capa extra (y grande) de abstracción,
+son más lentos.</p>
+<p>Comenzar una holy war de que tipo de lenguaje es mejor tampoco es mi intención,
+soy un fiel creyente de que cada lenguaje tiene su utilidad <em>(Use the right
+tool for the job)</em>. Me encanta hacer
+análisis de datos en Python, y también me encanta escribir software bajo nivel
+en Rust, ¿Por qué no podría disfrutar de ambos?</p>
+<h2 id="entonces-por-qué-estamos-hablando-de-ésto">Entonces, ¿por qué estamos hablando de ésto?</h2>
+<p>Bueno, como ya se mencionó dos veces, estos lenguajes interpretados requieren
+de un software que los interprete, y por lo tanto, a grandes rasgos, tienen una
+sola fase: Runtime, o tiempo de ejecución. Es decir, este programa sólo existe
+cuando el intérprete lo <em>interpreta</em> valga la redundancia. Generalmente estos
+lenguajes son muy dinámicos, permiten hacer cosas muy locas con la manipulación
+de objetos para incrementar sus habilidades a Runtime, y por lo menos en mi
+mente, me hacía pensar <strong>que solo existe una fase en la etapa de
+programación</strong>, lo cual es muy relevante para el tópico siguiente.</p>
+<h2 id="compile-time-escribiendo-los-bytes-que-tu-cpu-va-a-leer">Compile time, escribiendo los bytes que tu CPU va a leer.</h2>
+<p>C, C++, Rust, Go son algunos de los lenguajes que se me vienen a la cabeza.
+Estos son lenguajes <strong>compilados</strong>. ¿Qué quiere decir esto? Bueno, que para que
+tu computador pueda ejecutarlos, después de que tú como programador termine de
+escribirlo, tienen que pasar por un proceso de <em>traducción</em>, este proceso es el
+que se llama <strong>compilar</strong> (Bieeeen a grandes rasgos, hay muchos detalles que
+no valen la pena escribirlos acá). ¿En qué consiste este proceso? Bueno,
+primero el <strong>compilador</strong> lee tu código, lo convierte a un formato que él
+entienda (sí, el código es para que los humanos lo entiendan, no tu
+computador), y luego genera el código ensamblado que es el que finalmente leerá
+tu computador para ser ejecutado. Una vez tu compilaste tu programa, se obtiene
+lo que se llama un <em>binario</em>, que es básicamente a lo que tu haces doble click
+para abrir un programa. Este <em>binario</em>, contiene toda la información necesaria
+para que tu sistema operativo y tu CPU pueda ejecutarlo, es decir, <strong>no
+depende de un tercer software para poder ejecutarlo (no es interpretado)</strong> y por
+lo tanto posee dos fases: Compilación y Ejecución (Runtime). Es
+más, es aquí donde se pone interesante y la razón por la cuál SapeAOB fue escrito
+(<em>mansa' intro</em>).</p>
+<h1 id="sapeando-tu-código">Sapeando tu código.</h1>
+<p>Los binarios contienen toda la información necesaria para ser ejecutados, y por
+lo tanto, no necesitas mantener el código fuente para ejecutar el programa a
+diferencia de los lenguajes interpretados. (<strong>pero si lo quieres seguir
+mejorando, obvio que lo necesitarás lol</strong>).</p>
+<p>Estos binarios pueden ser &ldquo;desensamblados&rdquo; de tal forma que puedas
+leer su <em>código</em>, pero a diferencia del código fuente, solo tendrás acceso a lo
+que el compilador escribió por ti, el cual corresponde al lenguaje
+<strong>assembly</strong>. Por lo menos, yo recuerdo que en la Universidad nos
+metían mucho miedo sobre este lenguaje, que necesitabas ser un verdadero <em>pro</em>
+para poder escribir en él, y probáblemente sea cierto si es que quieres
+escribir un programa desde cero (lo cuál es bastante poco práctico hoy en
+día a no ser que quieras extraer hasta la última gota de performance que puedas
+desde tu CPU, lo cual no solo requiere conocer el lenguaje si no que las
+capacidades específicas de tu procesador), pero para leerlo e interpretarlo no
+necesitas ser un real <em>pro</em>, solo necesitas estudiarlo un poco (y para escribir
+shellcodes también).</p>
+<p>El objetivo de SapeAOB es encontrar un patrón de bytes en un arreglo. Los
+binarios pueden ser leídos como un montón de bytes (que a la vez contiene
+las instrucciones necesarias para ser ejecutado). Cuando hacemos modificaciones
+a los binarios, estos en general se hacen a un conjunto de instrucciones
+específicas (por ejemplo, que deje de decrementar la vida del jugador). Estas
+instrucciones se pueden ir moviendo cada vez que compilamos nuevamente el
+programa original y por lo tanto, sus offsets varían. Es por esto que es mejor
+usar patrones de bytes (informalmente array of bytes) para encontrar estas
+instrucciones específicas independiente de los futuros cambios que se hagan en
+otras secciones del código (y por eso, sapeamos el código 😅).</p>
+<p>En el contexto del game hacking, como mencioné en un
+<a href="https://etra0.github.io/posts/2020-12-06-memory-rs-internal/#haciendo-todo-update-proof-scan_aob">blogpost</a>
+pasado, es importante tener la habilidad de usar
+AoB&rsquo;s para que las inyecciones sean update-proof.</p>
+<h2 id="detalles-de-la-implementación">Detalles de la implementación.</h2>
+<p>Hasta ahora hemos hablado mucho sobre el contexto y poco sobre la intención y
+la forma en la que está escrita SapeAOB. Como se mencionó en la sección donde
+se definían los lenguajes interpretados, los lenguajes compilados poseen 2
+fases esenciales durante su vida: Fase de compilación, y fase de ejecución.
+Como en la actualidad estamos mucho más acostumbrado a los lenguajes
+intepretados que a los lenguajes compilados, como ya mencioné, cuesta pensar en
+estas dos fases como algo separado, por lo menos en mi cabeza el proceso de
+&ldquo;compilar&rdquo; tu software era una tarea más que un proceso por sí solo.</p>
+<h2 id="the-fun-stuff-generating-code-at-compile-time">The fun stuff: Generating code at compile time</h2>
+<p>Los <code>templates</code> llevan bastante tiempo en C++, cada vez que usabas algo como
+<code>std::vector&lt;int&gt;</code> estabas usando un template donde el tipo que reemplazabas
+eras <code>int</code>. ¿Qué significaba esto para el compilador? Bueno, cuando tu escribes
+una función que usa templates, lo que le indicas al compilador es que por cada
+aparición de un tipo nuevo que ocupa esta clase, función o estructura, debe
+generar el código específico para ser usado por ese tipo. Todo este código se
+genera en el tiempo de compilación y una de las grandes ventajas es que permite
+al compilador usar optimizaciones específicas para cada tipo de forma más
+inteligente.</p>
+<h3 id="ejemplo">Ejemplo</h3>
+
+  <img src="/assets/images/sapeaob/disassembly.png"  class="left"  />
+
+
+<p>Bear with me, el código generado no es complejo. Si te fijas en el lado derecho
+existen 3 funciones (o labels), <code>main</code> que corresponde de forma homóloga a la
+del código de la izquierda, <code>unsigned short sum_one(unsigned short)</code> y otra
+<code>unsigned int sum_one(unsigned int)</code>. Como te puedes fijar, el compilador creó
+<strong>2</strong> funciones <code>sum_one</code> en vez de una como nosotros escribimos. Fijándonos en
+lo esencial, en main primero se hace un <code>mov</code> al registro (algo así como
+variable) <code>edi</code> del valor 1 y luego se llama a la versión <code>unsigned short</code>, y
+como se puede apreciar en la función en sí, se guarda un entero de tamaño 2 con
+la operación <code>mov word ptr [rbp - 2], ax</code>, ya que <code>word</code> corresponde a variables
+de tamaño 2, en cambio en la de <code>unsigned int</code>, se utiliza <code>mov dword ptr [rbp - 4], edi</code>, donde <code>dword</code> corresponde a una variable de tamaño 4. Es decir, el
+compilador generó código específico para cada uno de los tipos por nosotros lo
+que *en general* genera un mejor rendimiento. Esto es el equivalente a que
+nosotros hubiésemos escrito ambas versiones a mano en C.</p>
+<h2 id="back-to-the-details">Back to the details.</h2>
+<p>Sabiendo sobre estas fases de compilación, y como funcionan <strong>a nivel bien
+básico</strong> los templates, es que comencé a escribir SapeAOB. Durante el
+desarrollo seguí dos approach:</p>
+<ul>
+<li>Corta fuego</li>
+<li>Bitwise operations</li>
+</ul>
+<p>La versión cortafuegos básicamente consistía en una larga concatenación de <code>&amp;&amp;</code>
+para verificar que un arreglo siguiera un patrón. Por ejemplo, si tenemos el
+patrón <code>0xAA, 0xBB, 0xCC</code>, lo que hacía era generar un &ldquo;if&rdquo; bien largo que se
+escribe como <code>if (arr[offset] == 0xAA &amp;&amp; arr[offset+1] == 0xBB &amp;&amp; arr[offset+2] == 0xCC)</code>. La gran ventaja de este approach, es que al igual que en varios
+lenguajes, este tipo de <code>&amp;&amp;</code> concatenados generan un &ldquo;cortafuegos&rdquo;, en el
+sentido de que a penas uno sea falso, se corta la verificación de todo el
+resto.</p>
+<p>El otro approach, fue generando operaciones binarias usando <code>xor</code> y <code>and</code>. Los
+detalles no son tan importantes, pero básicamente se verificaba que al hacer
+<code>xor</code> estos bits se anularan y si es que era 0, significaba que son iguales.</p>
+<p>En un principio pensé que hacer este cambio provocaría mejoras, pero sucedió lo
+contrario. Desde mi perspectiva creo que esto provocaba un peor rendimiento
+debido a que sí o sí verificaba todo el patrón antes de decidir si era
+realmente un match o no, a diferencia del primer approach que simplemente
+cortaba la verificación a penas el primer byte distinto se identificara.</p>
+<p>
+  <img src="/assets/images/sapeaob/logical-bitwise.png"  class="left"  />
+
+
+<div style="text-align: center;">
+		<em>Disassembly de los dos distintos métodos en un patrón específico. Como se
+puede apreciar en el primero, en el caso de que sea falso, saltaba
+inmediatamente al final del código (jne = jump if not equal), en cambio en el
+otro caso, no existe ningún jump mas que el del final.</em>
+</div>
+</p>
+<p>Habiendo escrito la función esencial encargada de ser generada a tiempo de
+compilación, después bastó con generar la capa de abstracción que finalmente
+ocupará el usuario al hacer uso de esta librería. Todo este estudio, para
+finalmente escribir algo tan simple como:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span><span style="color:#66d9ef">uint8_t</span> test_arr2[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0xCC</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xAA</span>, <span style="color:#ae81ff">0xEE</span>, <span style="color:#ae81ff">0xCC</span>};
+sapeaob<span style="color:#f92672">::</span>pattern<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0xAA</span>, sapeaob<span style="color:#f92672">::</span>ANY, <span style="color:#ae81ff">0xCC</span><span style="color:#f92672">&gt;</span> p{};
+result <span style="color:#f92672">=</span> p.scan_match(test_arr2, <span style="color:#66d9ef">sizeof</span>(test_arr2));
+CHECK(result <span style="color:#f92672">==</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>uintptr_t<span style="color:#f92672">&gt;</span>(test_arr2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>));
+</code></pre></div><div style="text-align: center;">
+		<em><code>sapeaob::ANY</code> corresponde a la keyword que actua como wildcard, es decir, el
+segundo byte puede ser cualquier byte.</em>
+</div>
+
+<p>Como se puede apreciar en el ejemplo, el constructor de <code>sapeaob::pattern</code> no
+recibe ningún parámetro en sí, estos parámetros son pasados a través de la
+especificación del <code>template</code>, por lo que esta información es guardada <strong>a
+tiempo de compilación</strong>, y por lo tanto las funciones para comparar el arreglo
+con un patrón son generadas por tí. <em>Pretty nice huh?</em>.</p>
+<h1 id="oye-y-valió-la-pena-experimentar-con-esto">Oye y, ¿valió la pena experimentar con esto?</h1>
+<p>Pero por supuesto! Siempre hay una buena razón para aprender de algo, hacer
+experimentos y profundizar conocimientos. Además, resultó que <code>sapeaob</code> es
+<a href="https://github.com/etra0/sapeaob-bench">bastante rápido!</a></p>
+<p><a href="https://twitter.com/FransBouma">Frans Bouma</a>, un conocido modder de freecameras (al
+cual respeto mucho) fue lo suficientemente amable como para prestarme su
+implementación para así poder hacer benchmarks. Además, también lo comparé con
+la librería open source de <a href="https://twitter.com/__silent_">Silent</a> &mdash; <em>un
+conocido modder de la escena de GTA que ha hecho importantes parches</em> &mdash;
+<a href="https://github.com/CookiePLMonster/ModUtils/">ModUtils</a> y resulta que sapeAOB
+es más rápida en la mayoría de los casos comparados con estas librerías!</p>
+
+  <img src="/assets/images/sapeaob/benchmark.png"  class="left"  />
+
+
+<p>En fin, este post fue bastante extenso y bastante técnico, pero espero que como
+lector hayas podido llegar hasta el final, y si no, no importa, también me
+gusta escribir estos posts para mi mismo, quizás en el futuro lo leeré
+nuevamente y me re-encantaré con la programación una vez más.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Sebastián Aedo&#39;s blog</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://etra0.github.io/assets/main.js"></script>
+<script src="https://etra0.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -9,10 +9,29 @@
     <description>Recent content in re on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Dec 2020 23:19:23 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 07 Aug 2021 16:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://etra0.github.io/tags/re/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SapeAOB, _Andai&#39; puro sapeando mi código oe!_</title>
+      <link>https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/</link>
+      <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
+      
+      <guid>https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://etra0.github.io/assets/images/sapeaob/logo.png&#34;/&gt;
+          
+        
+        
+        
+          Finalmente era hora, era hora de retomar la práctica con C++ porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C++17.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</title>
