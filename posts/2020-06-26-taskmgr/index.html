@@ -213,54 +213,54 @@ aprendizaje. Este programa es independiente de la inyección ya que el <code>.dl
 en sí tiene su propio <code>entry point</code> que el sistema operativo se encargará de
 ejecutar.</p>
 <p>Usando nuestro ya amado lenguaje, Rust, el <em>inyector</em> quedaría algo así:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inject_dll</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, name: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
-  <span style="color:#66d9ef">use</span> mem::transmute;
-  
-  <span style="color:#66d9ef">let</span> dll_dir <span style="color:#f92672">=</span> CString::new(name).unwrap();
-  <span style="color:#66d9ef">let</span> dll_dir_s <span style="color:#f92672">=</span> dll_dir.as_bytes_with_nul().len();
-
-  <span style="color:#75715e">// Se carga la libreria Kernel32, libreria que contiene LoadLibraryA,
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// quien se encargara finalmente de cargar nuestro DLL.
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> s_module_handle <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;Kernel32&#34;</span>).unwrap();
-  <span style="color:#66d9ef">let</span> module_handle <span style="color:#f92672">=</span> GetModuleHandleA(s_module_handle.as_ptr());
-
-  <span style="color:#75715e">// Se obtiene un puntero de la funcion LoadLibraryA
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a_loadlib <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;LoadLibraryA&#34;</span>).unwrap();
-  <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> GetProcAddress(module_handle, a_loadlib.as_ptr());
-
-  <span style="color:#75715e">// Se castea el puntero a una funcion para que se pueda pasar a
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// CreateRemoteThread
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> casted_function: <span style="color:#a6e22e">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span>(LPVOID) -&gt; <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> transmute(result);
-
-  <span style="color:#75715e">// Se asigna espacio en el proceso externo donde se escribira
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// la direccion donde nuestro DLL esta ubicado en el disco
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> addr <span style="color:#f92672">=</span> VirtualAllocEx(
-      process.h_process,
-      ptr::null_mut(),
-      dll_dir_s,
-      MEM_COMMIT,
-      PAGE_READWRITE,
-  ) <span style="color:#66d9ef">as</span> DWORD_PTR;
-
-  <span style="color:#66d9ef">let</span> _dll_dir <span style="color:#f92672">=</span> dll_dir.into_bytes_with_nul();
-  process.write_aob(addr, <span style="color:#f92672">&amp;</span>_dll_dir, <span style="color:#66d9ef">true</span>);
-
-  <span style="color:#75715e">// Se ejecuta un thread en el proceso externo que solo consiste
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// en ejecutar la funcion LoadLibraryA usando la direccion de nuestro
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// DLL como argumento
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> CreateRemoteThread(
-      process.h_process,
-      ptr::null_mut(),
-      <span style="color:#ae81ff">0</span>,
-      Some(casted_function),
-      addr <span style="color:#66d9ef">as</span> LPVOID,
-      <span style="color:#ae81ff">0</span>,
-      ptr::null_mut(),
-  );
-
-  FreeLibrary(module_handle);
-}
-</code></pre></div><p>Leerlo y entenderlo no es tan complejo, y con ese simple segmento de código,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">inject_dll</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, name: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">use</span> mem::transmute;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> dll_dir <span style="color:#f92672">=</span> CString::new(name).unwrap();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> dll_dir_s <span style="color:#f92672">=</span> dll_dir.as_bytes_with_nul().len();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Se carga la libreria Kernel32, libreria que contiene LoadLibraryA,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// quien se encargara finalmente de cargar nuestro DLL.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> s_module_handle <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;Kernel32&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> module_handle <span style="color:#f92672">=</span> GetModuleHandleA(s_module_handle.as_ptr());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Se obtiene un puntero de la funcion LoadLibraryA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a_loadlib <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;LoadLibraryA&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> GetProcAddress(module_handle, a_loadlib.as_ptr());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Se castea el puntero a una funcion para que se pueda pasar a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// CreateRemoteThread
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> casted_function: <span style="color:#a6e22e">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span>(LPVOID) -&gt; <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> transmute(result);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Se asigna espacio en el proceso externo donde se escribira
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// la direccion donde nuestro DLL esta ubicado en el disco
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> addr <span style="color:#f92672">=</span> VirtualAllocEx(
+</span></span><span style="display:flex;"><span>      process.h_process,
+</span></span><span style="display:flex;"><span>      ptr::null_mut(),
+</span></span><span style="display:flex;"><span>      dll_dir_s,
+</span></span><span style="display:flex;"><span>      MEM_COMMIT,
+</span></span><span style="display:flex;"><span>      PAGE_READWRITE,
+</span></span><span style="display:flex;"><span>  ) <span style="color:#66d9ef">as</span> DWORD_PTR;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> _dll_dir <span style="color:#f92672">=</span> dll_dir.into_bytes_with_nul();
+</span></span><span style="display:flex;"><span>  process.write_aob(addr, <span style="color:#f92672">&amp;</span>_dll_dir, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Se ejecuta un thread en el proceso externo que solo consiste
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// en ejecutar la funcion LoadLibraryA usando la direccion de nuestro
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// DLL como argumento
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> CreateRemoteThread(
+</span></span><span style="display:flex;"><span>      process.h_process,
+</span></span><span style="display:flex;"><span>      ptr::null_mut(),
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      Some(casted_function),
+</span></span><span style="display:flex;"><span>      addr <span style="color:#66d9ef">as</span> LPVOID,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      ptr::null_mut(),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  FreeLibrary(module_handle);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Leerlo y entenderlo no es tan complejo, y con ese simple segmento de código,
 ya estamos listos para comenzar a escribir nuestro <code>DLL</code>.</p>
 <h1 id="parte-dos-la-_inyección_">Parte dos: la <em>inyección</em></h1>
 <h2 id="cheat-engine-is-a-debugger-too">Cheat Engine is a debugger too</h2>
@@ -280,29 +280,29 @@ con esto ya teníamos suficiente conocimiento para escribir nuestro <code>interc
 de compilación se vuelve mucho más relevante, ya que estamos en el mismo
 espacio de memoria que el proceso objetivo, por lo tanto
 podemos compartir variables usando las <strong>foreign function interface</strong> (FFI).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#75715e">; interceptor.asm</span>
-<span style="color:#66d9ef">EXTERN</span> _end: <span style="color:#66d9ef">qword</span>
-<span style="color:#66d9ef">EXTERN</span> my_arr: <span style="color:#66d9ef">qword</span>
-
-<span style="color:#a6e22e">PUBLIC</span> get_values
-
-<span style="color:#a6e22e">.code</span>
-<span style="color:#a6e22e">get_values</span> PROC
-  <span style="color:#a6e22e">lea</span> rax,[my_arr]
-  <span style="color:#75715e">; rdx contiene el indice del arreglo, y rax es el puntero base</span>
-  <span style="color:#75715e">; de nuestro propio arreglo en este caso, luego</span>
-  <span style="color:#75715e">; es reemplazado por el valor correspondiente del arreglo</span>
-  <span style="color:#a6e22e">mov</span> rax,[rax <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>]
-
-  <span style="color:#75715e">; original code</span>
-  <span style="color:#75715e">; pero ahora rax contiene nuestro propio valor</span>
-  <span style="color:#a6e22e">mov</span> [rcx <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>],rax 
-
-  <span style="color:#a6e22e">jmp</span> [_end]
-<span style="color:#a6e22e">get_values</span> ENDP
-
-<span style="color:#a6e22e">END</span>
-</code></pre></div><p>El interceptor en este caso es bastante cortito, pero hay algo que no había
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#75715e">; interceptor.asm</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXTERN</span> _end: <span style="color:#66d9ef">qword</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXTERN</span> my_arr: <span style="color:#66d9ef">qword</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">PUBLIC</span> get_values
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">.code</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">get_values</span> PROC
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">lea</span> rax,[my_arr]
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; rdx contiene el indice del arreglo, y rax es el puntero base</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; de nuestro propio arreglo en este caso, luego</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; es reemplazado por el valor correspondiente del arreglo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mov</span> rax,[rax <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; original code</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; pero ahora rax contiene nuestro propio valor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mov</span> [rcx <span style="color:#f92672">+</span> rdx<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">08</span>],rax 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">jmp</span> [_end]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">get_values</span> ENDP
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">END</span>
+</span></span></code></pre></div><p>El interceptor en este caso es bastante cortito, pero hay algo que no había
 usado previamente, el keyword <code>EXTERN</code>.</p>
 <p>En el caso del hacking externo, el <code>interceptor</code> se inyectaba en el espacio
 de memoria del objetivo a través de las llamadas de la API del sistema operativo
@@ -320,95 +320,94 @@ ti (hasta nunca Makefile).</p>
 manipular el arreglo y que además, será fácil conseguir la dirección
 de regreso del jump (<code>_end</code>).</p>
 <h2 id="manipulando-las-cosas-desde-rust">Manipulando las cosas desde Rust</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#e6db74">/// Handy macro para exportar las variables facilmente,
-</span><span style="color:#e6db74">/// es equivalente al extern pero para que Rust genere
-</span><span style="color:#e6db74">/// símbolos públicos en vez de leerlos
-</span><span style="color:#e6db74"></span>macro_rules<span style="color:#f92672">!</span> export_var {
-    (<span style="color:#75715e">$($name</span>:<span style="color:#a6e22e">ident</span>: <span style="color:#75715e">$v</span>:<span style="color:#a6e22e">ty</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>:<span style="color:#a6e22e">expr</span>),<span style="color:#f92672">*</span>) <span style="color:#f92672">=&gt;</span> {
-        <span style="color:#75715e">$(#[no_mangle]</span> <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">mut</span> <span style="color:#75715e">$name</span>: <span style="color:#75715e">$v</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>;)<span style="color:#f92672">*</span>
-    }
-}
-
-export_var<span style="color:#f92672">!</span>{
-    _end: <span style="color:#66d9ef">usize</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
-    my_arr: [<span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>]
-}
-
-<span style="color:#75715e">// Dirección de la función en assembly para ser inyectada
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
-    <span style="color:#66d9ef">static</span> get_values: <span style="color:#66d9ef">u8</span>;
-}
-
-</code></pre></div><p>Como se puede ver, a diferencia del Photo Mode, aquí también estamos
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#e6db74">/// Handy macro para exportar las variables facilmente,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/// es equivalente al extern pero para que Rust genere
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/// símbolos públicos en vez de leerlos
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span>macro_rules! export_var {
+</span></span><span style="display:flex;"><span>    (<span style="color:#75715e">$($name</span>:<span style="color:#a6e22e">ident</span>: <span style="color:#75715e">$v</span>:<span style="color:#a6e22e">ty</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>:<span style="color:#a6e22e">expr</span>),<span style="color:#f92672">*</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">$(#[no_mangle]</span> <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">mut</span> <span style="color:#75715e">$name</span>: <span style="color:#75715e">$v</span> <span style="color:#f92672">=</span> <span style="color:#75715e">$val</span>;)<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export_var<span style="color:#f92672">!</span>{
+</span></span><span style="display:flex;"><span>    _end: <span style="color:#66d9ef">usize</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    my_arr: [<span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>; <span style="color:#ae81ff">120</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Dirección de la función en assembly para ser inyectada
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> get_values: <span style="color:#66d9ef">u8</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Como se puede ver, a diferencia del Photo Mode, aquí también estamos
 exportando variables (con la macro creada) para que en el momento en que
 el compilador haga el <code>linking</code>, le pase esas variables al código en assembly.</p>
 <p>Con esto, será mucho más fácil manipular el arreglo para hacer cosas bonitas,
 como en el caso nuestro, generar una curva sinusoidal (probablemente
 se puede hacer desde assembly puro, pero para qué jaja)</p>
 <p>Sin más preámbulo, el código principal en Rust quedó algo así</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
-<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">intercept_input</span>(_: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">DWORD</span> {
-    <span style="color:#66d9ef">use</span> winapi::um;
-    <span style="color:#75715e">// El DLL encargado de generar los graficos para el taskmgr es 
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// chartv.dll
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> _name <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;CHARTV.dll&#34;</span>).unwrap();
-    <span style="color:#66d9ef">let</span> mba <span style="color:#f92672">=</span> um::libloaderapi::GetModuleHandleA(_name.as_ptr()) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>;
-    
-    <span style="color:#75715e">// Offset especifico donde haremos nuestra inyeccion
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> target_addr <span style="color:#f92672">=</span> mba <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x312E</span>;
-
-    <span style="color:#66d9ef">unsafe</span> {
-        <span style="color:#75715e">// actualizamos _end para que nuestro codigo en assembly
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// sepa donde retornar despues de la inyección
-</span><span style="color:#75715e"></span>        _end <span style="color:#f92672">=</span> target_addr <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
-
-        <span style="color:#75715e">// inyectamos en nuestro offset la instruccion en assembly,
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// notar que hook_fun ya no necesita obtener los valores
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// de la funcion como arreglo de bytes ya que esta esta
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// en el mismo espacio de memoria
-</span><span style="color:#75715e"></span>        hook_fun(target_addr, <span style="color:#f92672">&amp;</span>get_values <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>, <span style="color:#ae81ff">5</span>);
-    }
-
-    <span style="color:#75715e">// Dirty math para crear la sinusoidal 
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
-    <span style="color:#66d9ef">loop</span> {
-            <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span>..my_arr.len() {
-                <span style="color:#66d9ef">let</span> _i <span style="color:#f92672">=</span> (i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">f64</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span><span style="color:#66d9ef">f64</span>;
-                my_arr[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">f64</span><span style="color:#f92672">*</span>(<span style="color:#ae81ff">1</span><span style="color:#66d9ef">f64</span> <span style="color:#f92672">+</span> (t <span style="color:#f92672">+</span> _i).sin())
-            }
-            t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1e-5</span>;
-            <span style="color:#66d9ef">if</span> t <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3.14</span> {
-                t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
-            }
-    }
-    
-
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
-}
-
-<span style="color:#75715e">// Boilerplate que necesita Windows para instanciar nuestro DLL
-</span><span style="color:#75715e"></span><span style="color:#75715e">#[no_mangle]</span>
-<span style="color:#75715e">#[allow(non_snake_case)]</span>
-<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">DllMain</span>(_: <span style="color:#a6e22e">HINSTANCE</span>, reason: <span style="color:#a6e22e">DWORD</span>, _: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">BOOL</span> {
-    <span style="color:#66d9ef">unsafe</span> {
-        <span style="color:#66d9ef">match</span> reason {
-            winapi::um::winnt::DLL_PROCESS_ATTACH <span style="color:#f92672">=&gt;</span> {
-                winapi::um::processthreadsapi::CreateThread(
-                    ptr::null_mut(),
-                    <span style="color:#ae81ff">0</span>,
-                    Some(intercept_input),
-                    ptr::null_mut(),
-                    <span style="color:#ae81ff">0</span>,
-                    ptr::null_mut(),
-                );
-            }
-            _ <span style="color:#f92672">=&gt;</span> (),
-        };
-    }
-
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">as</span> BOOL;
-}
-</code></pre></div><h1 id="conclusión">Conclusión</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[no_mangle]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">unsafe</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">intercept_input</span>(_: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">DWORD</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">use</span> winapi::um;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// El DLL encargado de generar los graficos para el taskmgr es 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// chartv.dll
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> _name <span style="color:#f92672">=</span> CString::new(<span style="color:#e6db74">&#34;CHARTV.dll&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> mba <span style="color:#f92672">=</span> um::libloaderapi::GetModuleHandleA(_name.as_ptr()) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Offset especifico donde haremos nuestra inyeccion
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> target_addr <span style="color:#f92672">=</span> mba <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x312E</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">unsafe</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// actualizamos _end para que nuestro codigo en assembly
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// sepa donde retornar despues de la inyección
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        _end <span style="color:#f92672">=</span> target_addr <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// inyectamos en nuestro offset la instruccion en assembly,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// notar que hook_fun ya no necesita obtener los valores
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// de la funcion como arreglo de bytes ya que esta esta
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// en el mismo espacio de memoria
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        hook_fun(target_addr, <span style="color:#f92672">&amp;</span>get_values <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>, <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Dirty math para crear la sinusoidal 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">loop</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">..</span>my_arr.len() {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> _i <span style="color:#f92672">=</span> (i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">f64</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span><span style="color:#66d9ef">f64</span>;
+</span></span><span style="display:flex;"><span>                my_arr[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">f64</span><span style="color:#f92672">*</span>(<span style="color:#ae81ff">1</span><span style="color:#66d9ef">f64</span> <span style="color:#f92672">+</span> (t <span style="color:#f92672">+</span> _i).sin())
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1e-5</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> t <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3.14</span> {
+</span></span><span style="display:flex;"><span>                t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">f64</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Boilerplate que necesita Windows para instanciar nuestro DLL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#[no_mangle]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[allow(non_snake_case)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;system&#34;</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">DllMain</span>(_: <span style="color:#a6e22e">HINSTANCE</span>, reason: <span style="color:#a6e22e">DWORD</span>, _: <span style="color:#a6e22e">LPVOID</span>) -&gt; <span style="color:#a6e22e">BOOL</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">unsafe</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> reason {
+</span></span><span style="display:flex;"><span>            winapi::um::winnt::DLL_PROCESS_ATTACH <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                winapi::um::processthreadsapi::CreateThread(
+</span></span><span style="display:flex;"><span>                    ptr::null_mut(),
+</span></span><span style="display:flex;"><span>                    <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>                    Some(intercept_input),
+</span></span><span style="display:flex;"><span>                    ptr::null_mut(),
+</span></span><span style="display:flex;"><span>                    <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>                    ptr::null_mut(),
+</span></span><span style="display:flex;"><span>                );
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            _ <span style="color:#f92672">=&gt;</span> (),
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">as</span> BOOL;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="conclusión">Conclusión</h1>
 <p>Existen demasiadas ventajas al hacer hacking interno, tantas que
 probablemente de ahora en adelante me enfoque en hacer este tipo de hacking
 para mis futuros <code>Photo Mode</code> en distintos juegos. Fue un ejercicio entretenido
@@ -451,8 +450,8 @@ dejar un feedback de la escritura del post.</p>
 </a>
 
       <div class="copyright">
-        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+        <span>© 2022 -- <a rel="me" href="https://fosstodon.org/@etra">@etra@fosstodon.org</a></span>
+        <span>Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     
   </div>

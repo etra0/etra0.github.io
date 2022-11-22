@@ -158,61 +158,60 @@ de la página donde están los top <em>n</em> shows.</p>
 de series qué jamás había escuchado (probablemente caían dentro de la categoría
 de documental).</p>
 <p>Lo primero que hice obviamente, es inicializar el entorno</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
-<span style="color:#f92672">from</span> scipy.interpolate <span style="color:#f92672">import</span> spline
-<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
-<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
-<span style="color:#f92672">import</span> matplotlib
-<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
-plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
-<span style="color:#75715e"># Ideal para mostrar información más bonita :)</span>
-
-dataset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data2.csv&#34;</span>, encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;utf8&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;;&#34;</span>)
-</code></pre></div><p>Por ahí había escuchado de <code>pandas</code> cuando era mechón, y como todo novato,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.interpolate <span style="color:#f92672">import</span> spline
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ideal para mostrar información más bonita :)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data2.csv&#34;</span>, encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;utf8&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;;&#34;</span>)
+</span></span></code></pre></div><p>Por ahí había escuchado de <code>pandas</code> cuando era mechón, y como todo novato,
 con mucho temor lo dejé en el olvido. Como ahora me picó el bicho
 de la <code>data visualization</code>, aprendí a ocuparlo, y realmente es muy amigable.</p>
 <p>Lo siguiente fue agrupar por <em>score</em>, debido a que el objetivo final
 es ver la concentración de <strong>capítulos buenos</strong> de cada serie:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;score&#34;</span>])<span style="color:#f92672">.</span>count()
-<span style="color:#66d9ef">del</span> df[<span style="color:#e6db74">&#39;name_chapter&#39;</span>]
-df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;count&#34;</span>]
-
-<span style="color:#75715e"># Además, debemos normalizar para que se pueda comparar con mayor facilidad</span>
-df[<span style="color:#e6db74">&#34;distribution&#34;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;count&#39;</span>] <span style="color:#f92672">/</span> dataset<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#34;show&#34;</span>)<span style="color:#f92672">.</span>count()[<span style="color:#e6db74">&#39;chapter&#39;</span>]
-</code></pre></div><p>Luego, por cosas <em>&ldquo;pythonescas&rdquo;</em>, debemos rellenar las notas que faltan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;score&#34;</span>])<span style="color:#f92672">.</span>count()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> df[<span style="color:#e6db74">&#39;name_chapter&#39;</span>]
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;count&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Además, debemos normalizar para que se pueda comparar con mayor facilidad</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#34;distribution&#34;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;count&#39;</span>] <span style="color:#f92672">/</span> dataset<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#34;show&#34;</span>)<span style="color:#f92672">.</span>count()[<span style="color:#e6db74">&#39;chapter&#39;</span>]
+</span></span></code></pre></div><p>Luego, por cosas <em>&ldquo;pythonescas&rdquo;</em>, debemos rellenar las notas que faltan
 en la escala del 0 al 10 con cantidad
 0 para plotear el área bien</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_index <span style="color:#f92672">=</span> [(show, score) <span style="color:#66d9ef">for</span> show <span style="color:#f92672">in</span> shows <span style="color:#66d9ef">for</span> score <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.1</span>)]
-df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reindex(new_index, fill_value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-</code></pre></div><p>Finalmente, incluímos unos <code>colormaps</code> para que quede más bonito, y se plotea:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># obtenemos todos los shows</span>
-shows <span style="color:#f92672">=</span> list(set(map(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>], df<span style="color:#f92672">.</span>index)))
-
-<span style="color:#75715e"># colormaps!</span>
-cmap <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;Set1&#39;</span>)
-colors <span style="color:#f92672">=</span> [cmap(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, len(shows))]
-colors <span style="color:#f92672">=</span> zip(shows, colors)
-colors <span style="color:#f92672">=</span> dict(colors)
-
-plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.figsize&#39;</span>] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">10</span>)
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax_1 <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-<span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> shows:
-    <span style="color:#75715e"># Se ordenan por score</span>
-    show <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[key]<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>sort_values(by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;score&#34;</span>)
-
-    <span style="color:#75715e"># smoothing the curve because reasons</span>
-    x_smooth <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(show<span style="color:#f92672">.</span>min()[<span style="color:#e6db74">&#39;score&#39;</span>], show<span style="color:#f92672">.</span>max()[<span style="color:#e6db74">&#39;score&#39;</span>], <span style="color:#ae81ff">500</span>)
-    y_smooth <span style="color:#f92672">=</span> spline(show[<span style="color:#e6db74">&#39;score&#39;</span>], show[<span style="color:#e6db74">&#39;distribution&#39;</span>], x_smooth)
-
-    <span style="color:#75715e"># al hacer el smooth de la curva, se generan valores negativos, lo que</span>
-    <span style="color:#75715e"># es claramente erróneo.</span>
-    y_smooth <span style="color:#f92672">=</span> [y <span style="color:#66d9ef">if</span> y <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> y_smooth]
-    ax_1<span style="color:#f92672">.</span>plot(x_smooth, y_smooth, label<span style="color:#f92672">=</span>key, color<span style="color:#f92672">=</span>colors[key])
-    ax_1<span style="color:#f92672">.</span>fill_between(x_smooth, y_smooth, color<span style="color:#f92672">=</span>colors[key], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
-
-</code></pre></div><p>Finalmente, al ejecutar todo, se obtiene el plot:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>new_index <span style="color:#f92672">=</span> [(show, score) <span style="color:#66d9ef">for</span> show <span style="color:#f92672">in</span> shows <span style="color:#66d9ef">for</span> score <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0.1</span>)]
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reindex(new_index, fill_value<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>Finalmente, incluímos unos <code>colormaps</code> para que quede más bonito, y se plotea:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># obtenemos todos los shows</span>
+</span></span><span style="display:flex;"><span>shows <span style="color:#f92672">=</span> list(set(map(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>], df<span style="color:#f92672">.</span>index)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># colormaps!</span>
+</span></span><span style="display:flex;"><span>cmap <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;Set1&#39;</span>)
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> [cmap(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, len(shows))]
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> zip(shows, colors)
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> dict(colors)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.figsize&#39;</span>] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+</span></span><span style="display:flex;"><span>ax_1 <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> shows:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Se ordenan por score</span>
+</span></span><span style="display:flex;"><span>    show <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[key]<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>sort_values(by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;score&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># smoothing the curve because reasons</span>
+</span></span><span style="display:flex;"><span>    x_smooth <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(show<span style="color:#f92672">.</span>min()[<span style="color:#e6db74">&#39;score&#39;</span>], show<span style="color:#f92672">.</span>max()[<span style="color:#e6db74">&#39;score&#39;</span>], <span style="color:#ae81ff">500</span>)
+</span></span><span style="display:flex;"><span>    y_smooth <span style="color:#f92672">=</span> spline(show[<span style="color:#e6db74">&#39;score&#39;</span>], show[<span style="color:#e6db74">&#39;distribution&#39;</span>], x_smooth)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># al hacer el smooth de la curva, se generan valores negativos, lo que</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># es claramente erróneo.</span>
+</span></span><span style="display:flex;"><span>    y_smooth <span style="color:#f92672">=</span> [y <span style="color:#66d9ef">if</span> y <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> y_smooth]
+</span></span><span style="display:flex;"><span>    ax_1<span style="color:#f92672">.</span>plot(x_smooth, y_smooth, label<span style="color:#f92672">=</span>key, color<span style="color:#f92672">=</span>colors[key])
+</span></span><span style="display:flex;"><span>    ax_1<span style="color:#f92672">.</span>fill_between(x_smooth, y_smooth, color<span style="color:#f92672">=</span>colors[key], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+</span></span></code></pre></div><p>Finalmente, al ejecutar todo, se obtiene el plot:
 
   <img src="/assets/images/imdb/top_tv_all.png"  class="center"  />
 
@@ -263,8 +262,8 @@ son <em>Rick and Morty</em>, <em>Game of Thrones</em> y <em>Breaking Bad</em>.</
 </a>
 
       <div class="copyright">
-        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+        <span>© 2022 -- <a rel="me" href="https://fosstodon.org/@etra">@etra@fosstodon.org</a></span>
+        <span>Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     
   </div>

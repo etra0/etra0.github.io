@@ -6,7 +6,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
+<meta name="description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&amp;rsquo; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/" />
@@ -66,12 +66,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SapeAOB, _Andai&#39; puro sapeando mi código oe!_"/>
-<meta name="twitter:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
+<meta name="twitter:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&rsquo; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17."/>
 
 
 
 <meta property="og:title" content="SapeAOB, _Andai&#39; puro sapeando mi código oe!_" />
-<meta property="og:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&#39; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17." />
+<meta property="og:description" content="Finalmente era hora, era hora de retomar la práctica con C&#43;&#43; porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C&#43;&#43; está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&rsquo; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C&#43;&#43;17." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-07T16:00:00-03:00" />
@@ -120,7 +120,7 @@
   
 
   <div class="post">
-    <h1 class="post-title"><a href="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/">SapeAOB, <em>Andai' puro sapeando mi código oe!</em></a></h1>
+    <h1 class="post-title"><a href="https://etra0.github.io/posts/2021-08-07-sapeando-tu-codigo/">SapeAOB, <em>Andai&rsquo; puro sapeando mi código oe!</em></a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -162,7 +162,7 @@
 not?</em> Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está
 dentro de las categorías de los lenguajes que también disfruto. Pero para
 volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así
-surgió <a href="https://github.com/etra0/sapeaob">sapeAOB</a>, (una mezcla entre <em>sapeao'</em> y AOB - Array of Bytes), una
+surgió <a href="https://github.com/etra0/sapeaob">sapeAOB</a>, (una mezcla entre <em>sapeao&rsquo;</em> y AOB - Array of Bytes), una
 microlibrería que permite encontrar patrones de bytes escrita en C++17.</p>
 <h1 id="first-and-foremost-modern-c-is-nothing-like-uni-c">First and foremost: Modern C++ is nothing like Uni* C++</h1>
 <p>Primero que todo, es <strong>necesario</strong> sacarse de la cabeza que C++ es <em>&ldquo;C con
@@ -172,12 +172,12 @@ y estoy casi seguro que cualquier persona que siga creyendo tal aseveración,
 al segundo que vea un extracto de C++17 o posterior, se dará cuenta de esto
 también, porque existen <strong>un montón de tecnologías nuevas</strong>.</p>
 <p>* con Uni C++ me refiero al C++ enseñado en la universidad.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">it</span>, std<span style="color:#f92672">::</span>size_t... Indexes<span style="color:#f92672">&gt;</span>
-<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">bool</span>
-compare_(it arr, std<span style="color:#f92672">::</span>index_sequence<span style="color:#f92672">&lt;</span>Indexes...<span style="color:#f92672">&gt;</span>) <span style="color:#66d9ef">noexcept</span> {
-    <span style="color:#66d9ef">return</span> (... <span style="color:#f92672">&amp;&amp;</span> compare_one_(arr, Indexes, Pattern));
-}
-</code></pre></div><div style="text-align: center;">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">it</span>, std<span style="color:#f92672">::</span>size_t... Indexes<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">bool</span>
+</span></span><span style="display:flex;"><span>compare_(it arr, std<span style="color:#f92672">::</span>index_sequence<span style="color:#f92672">&lt;</span>Indexes...<span style="color:#f92672">&gt;</span>) <span style="color:#66d9ef">noexcept</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (... <span style="color:#f92672">&amp;&amp;</span> compare_one_(arr, Indexes, Pattern));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div style="text-align: center;">
 		<em>I mean look at this shit, does this looks like C to you?</em>
 </div>
 
@@ -247,7 +247,7 @@ para que tu sistema operativo y tu CPU pueda ejecutarlo, es decir, <strong>no
 depende de un tercer software para poder ejecutarlo (no es interpretado)</strong> y por
 lo tanto posee dos fases: Compilación y Ejecución (Runtime). Es
 más, es aquí donde se pone interesante y la razón por la cuál SapeAOB fue escrito
-(<em>mansa' intro</em>).</p>
+(<em>mansa&rsquo; intro</em>).</p>
 <h1 id="sapeando-tu-código">Sapeando tu código.</h1>
 <p>Los binarios contienen toda la información necesaria para ser ejecutados, y por
 lo tanto, no necesitas mantener el código fuente para ejecutar el programa a
@@ -354,11 +354,11 @@ otro caso, no existe ningún jump mas que el del final.</em>
 compilación, después bastó con generar la capa de abstracción que finalmente
 ocupará el usuario al hacer uso de esta librería. Todo este estudio, para
 finalmente escribir algo tan simple como:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span><span style="color:#66d9ef">uint8_t</span> test_arr2[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0xCC</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xAA</span>, <span style="color:#ae81ff">0xEE</span>, <span style="color:#ae81ff">0xCC</span>};
-sapeaob<span style="color:#f92672">::</span>pattern<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0xAA</span>, sapeaob<span style="color:#f92672">::</span>ANY, <span style="color:#ae81ff">0xCC</span><span style="color:#f92672">&gt;</span> p{};
-result <span style="color:#f92672">=</span> p.scan_match(test_arr2, <span style="color:#66d9ef">sizeof</span>(test_arr2));
-CHECK(result <span style="color:#f92672">==</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>uintptr_t<span style="color:#f92672">&gt;</span>(test_arr2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>));
-</code></pre></div><div style="text-align: center;">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span><span style="color:#66d9ef">uint8_t</span> test_arr2[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0xCC</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xAA</span>, <span style="color:#ae81ff">0xEE</span>, <span style="color:#ae81ff">0xCC</span>};
+</span></span><span style="display:flex;"><span>sapeaob<span style="color:#f92672">::</span>pattern<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0xAA</span>, sapeaob<span style="color:#f92672">::</span>ANY, <span style="color:#ae81ff">0xCC</span><span style="color:#f92672">&gt;</span> p{};
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> p.scan_match(test_arr2, <span style="color:#66d9ef">sizeof</span>(test_arr2));
+</span></span><span style="display:flex;"><span>CHECK(result <span style="color:#f92672">==</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>uintptr_t<span style="color:#f92672">&gt;</span>(test_arr2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>));
+</span></span></code></pre></div><div style="text-align: center;">
 		<em><code>sapeaob::ANY</code> corresponde a la keyword que actua como wildcard, es decir, el
 segundo byte puede ser cualquier byte.</em>
 </div>
@@ -416,8 +416,8 @@ nuevamente y me re-encantaré con la programación una vez más.</p>
 </a>
 
       <div class="copyright">
-        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+        <span>© 2022 -- <a rel="me" href="https://fosstodon.org/@etra">@etra@fosstodon.org</a></span>
+        <span>Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     
   </div>

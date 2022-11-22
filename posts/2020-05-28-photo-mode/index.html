@@ -9,7 +9,7 @@
 <meta name="description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
 Now the Freecam for K2 automatically removes the UI for a proper &amp;quot;photo mode&amp;quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&amp;#39;t remove that).
 As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
-&amp;mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
+&amp;mdash; etra (@etra0) May 23, 2020 Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://etra0.github.io/posts/2020-05-28-photo-mode/" />
@@ -72,7 +72,7 @@ As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.
 <meta name="twitter:description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
 Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).
 As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
-&mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
+&mdash; etra (@etra0) May 23, 2020 Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2."/>
 
 
 
@@ -80,7 +80,7 @@ As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.
 <meta property="og:description" content="Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
 Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).
 As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
-&mdash; Sebastián Aedo (@etra0) May 23, 2020   Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2." />
+&mdash; etra (@etra0) May 23, 2020 Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://etra0.github.io/posts/2020-05-28-photo-mode/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-05-28T14:08:01-04:00" />
@@ -171,7 +171,7 @@ implementado en Rust.</p>
 
 <div style="display:flex;justify-content:center;">
 		
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).<br><br>As always, you can get the latest release @ <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> <a href="https://t.co/Fp1kJBnAt7">pic.twitter.com/Fp1kJBnAt7</a></p>&mdash; Sebastián Aedo (@etra0) <a href="https://twitter.com/etra0/status/1264050436031623169?ref_src=twsrc%5Etfw">May 23, 2020</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Now the Freecam for K2 automatically removes the UI for a proper &quot;photo mode&quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&#39;t remove that).<br><br>As always, you can get the latest release @ <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> <a href="https://t.co/Fp1kJBnAt7">pic.twitter.com/Fp1kJBnAt7</a></p>&mdash; etra (@etra0) <a href="https://twitter.com/etra0/status/1264050436031623169?ref_src=twsrc%5Etfw">May 23, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
@@ -227,66 +227,66 @@ a utilizar, y además, implementar un par de métodos de cosas que se hacen
 frecuentemente para reducir la redundancia.</p>
 <p>Bajo esta necesidad, el primer paso fue crear la librería <a href="https://github.com/etra0/memory-rs">memory-rs</a>,
 la cual me permite hacer algunas cosas de forma bastante más cómoda:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">let</span> process <span style="color:#f92672">=</span> Process::new(<span style="color:#e6db74">&#34;YakuzaKiwami2.exe&#34;</span>)
-	.expect(<span style="color:#e6db74">&#34;El proceso no se pudo abrir&#34;</span>);
-
-<span style="color:#75715e">// autocasteo de variable segun el tamaño
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> x_pos <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">f32</span><span style="color:#f92672">&gt;</span>(addr);
-
-<span style="color:#75715e">// Se puede escribir un array directamente a la memoria
-</span><span style="color:#75715e"></span>process.write_value::<span style="color:#f92672">&lt;</span>[<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">2</span>]<span style="color:#f92672">&gt;</span>(addr, [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>]);
-
-<span style="color:#75715e">// Escribir array of bytes
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> aob: Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> vec<span style="color:#f92672">!</span>[<span style="color:#ae81ff">0xC0</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xEE</span>];
-process.write_aob(addr, <span style="color:#f92672">&amp;</span>aob);
-</code></pre></div><p>Sin embargo, la función más interesante, es la que me permite inyectar <em>shellcodes</em>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> process <span style="color:#f92672">=</span> Process::new(<span style="color:#e6db74">&#34;YakuzaKiwami2.exe&#34;</span>)
+</span></span><span style="display:flex;"><span>	.expect(<span style="color:#e6db74">&#34;El proceso no se pudo abrir&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// autocasteo de variable segun el tamaño
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> x_pos <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">f32</span><span style="color:#f92672">&gt;</span>(addr);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Se puede escribir un array directamente a la memoria
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>process.write_value::<span style="color:#f92672">&lt;</span>[<span style="color:#66d9ef">f32</span>; <span style="color:#ae81ff">2</span>]<span style="color:#f92672">&gt;</span>(addr, [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Escribir array of bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> aob: Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> vec![<span style="color:#ae81ff">0xC0</span>, <span style="color:#ae81ff">0xFF</span>, <span style="color:#ae81ff">0xEE</span>];
+</span></span><span style="display:flex;"><span>process.write_aob(addr, <span style="color:#f92672">&amp;</span>aob);
+</span></span></code></pre></div><p>Sin embargo, la función más interesante, es la que me permite inyectar <em>shellcodes</em>
 a los procesos, por ejemplo, tengo el siguiente código:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm"><span style="color:#a6e22e">.data</span>
-
-<span style="color:#a6e22e">PUBLIC</span> get_controller_input
-<span style="color:#a6e22e">PUBLIC</span> get_controller_input_end
-
-<span style="color:#75715e">;; Intercept the controller input</span>
-<span style="color:#a6e22e">get_controller_input</span> PROC
-  <span style="color:#a6e22e">push</span> rax
-  <span style="color:#75715e">; the pointer to the controller structure is stored in the head</span>
-  <span style="color:#75715e">; of the stack, but since we pushed rax and the return address,</span>
-  <span style="color:#75715e">; we need to add 0x8 + 0x8 to the RSP</span>
-  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">10h</span>] 
-  <span style="color:#a6e22e">push</span> rbx
-  <span style="color:#a6e22e">lea</span> rbx,[get_controller_input <span style="color:#f92672">+</span> <span style="color:#ae81ff">200h</span>]
-  <span style="color:#a6e22e">mov</span> [rbx],rax
-  <span style="color:#a6e22e">pop</span> rbx
-  <span style="color:#a6e22e">pop</span> rax
-
-  <span style="color:#75715e">; original code</span>
-  <span style="color:#a6e22e">test</span> eax,eax
-  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">108h</span><span style="color:#f92672">+</span><span style="color:#ae81ff">8h</span>] <span style="color:#75715e">; adjusted stack offset</span>
-  <span style="color:#a6e22e">ret</span>
-get_controller_input_end:<span style="color:#960050;background-color:#1e0010">:</span>
-<span style="color:#a6e22e">get_controller_input</span> ENDP
-</code></pre></div><p>Que intercepta el puntero de la estructura del control (o joystick) y
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#a6e22e">.data</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">PUBLIC</span> get_controller_input
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">PUBLIC</span> get_controller_input_end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Intercept the controller input</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">get_controller_input</span> PROC
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">push</span> rax
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; the pointer to the controller structure is stored in the head</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; of the stack, but since we pushed rax and the return address,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; we need to add 0x8 + 0x8 to the RSP</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">10h</span>] 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">push</span> rbx
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">lea</span> rbx,[get_controller_input <span style="color:#f92672">+</span> <span style="color:#ae81ff">200h</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mov</span> [rbx],rax
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pop</span> rbx
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pop</span> rax
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">; original code</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">test</span> eax,eax
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mov</span> rax,[rsp<span style="color:#f92672">+</span><span style="color:#ae81ff">108h</span><span style="color:#f92672">+</span><span style="color:#ae81ff">8h</span>] <span style="color:#75715e">; adjusted stack offset</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ret</span>
+</span></span><span style="display:flex;"><span>get_controller_input_end:<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">get_controller_input</span> ENDP
+</span></span></code></pre></div><p>Que intercepta el puntero de la estructura del control (o joystick) y
 lo guarda en <code>pos_injection + 0x200</code>, en Rust puedo facilmente inyectarlo con</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
-<span style="color:#66d9ef">extern</span> {
-	<span style="color:#66d9ef">static</span> get_controller_input: <span style="color:#66d9ef">u8</span>;
-	<span style="color:#66d9ef">static</span> get_controller_input_end: <span style="color:#66d9ef">u8</span>;
-}
-
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
-	...
-	<span style="color:#75715e">// guardo la direccion de inyeccion, para despues poder acceder al
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// valor interceptado
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
-		process.inject_shellcode(entry_point, size_origin_addr,
-			<span style="color:#f92672">&amp;</span>get_controller_input <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>,
-			<span style="color:#f92672">&amp;</span>get_controller_input_end <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span>cosnt <span style="color:#66d9ef">u8</span>)
-	};
-
-	<span style="color:#75715e">// guardo el puntero al control
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_controller <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">usize</span><span style="color:#f92672">&gt;</span>(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x200</span>);
-}
-</code></pre></div><p>Y por lo tanto, como se puede notar, esta librería me facilita bastante
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">static</span> get_controller_input: <span style="color:#66d9ef">u8</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">static</span> get_controller_input_end: <span style="color:#66d9ef">u8</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// guardo la direccion de inyeccion, para despues poder acceder al
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// valor interceptado
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
+</span></span><span style="display:flex;"><span>		process.inject_shellcode(entry_point, size_origin_addr,
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&amp;</span>get_controller_input <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&amp;</span>get_controller_input_end <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span>cosnt <span style="color:#66d9ef">u8</span>)
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// guardo el puntero al control
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">let</span> p_controller <span style="color:#f92672">=</span> process.read_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">usize</span><span style="color:#f92672">&gt;</span>(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x200</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Y por lo tanto, como se puede notar, esta librería me facilita bastante
 la escritura de scripts en assembly, lo cual se hace con bastante frecuencia.</p>
 <h2 id="mejorando-lo-que-ya-se-tenía-freecam-anteriores">Mejorando lo que ya se tenía: freecam anteriores</h2>
 <p>Para el caso de Yakuza 0 y Yakuza Kiwami, las herramientas de freecam eran
@@ -331,43 +331,43 @@ $$</p>
 <p>Luego, el vector $\overrightarrow{R}_n$ se cambia a coordenadas cartesianas
 para obtener un nuevo $F$ y $P$ de tal manera que:</p>
 <p>$$
-F_n = P + \overrightarrow{R}_n + \Delta p \cdot \overrightarrow{R} \\<br>
+F_n = P + \overrightarrow{R}_n + \Delta p \cdot \overrightarrow{R} \\
 P_n = P + \Delta p \cdot \overrightarrow{R}
 $$</p>
 <p>donde $\Delta p$ corresponde al movimiento del jugador con <code>WS</code>. Listo,
 con eso tenemos una manera de manipular las coordenadas de forma intuitiva!
 El código se ve algo así como:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calc_new_focus_point</span>(cam_x: <span style="color:#66d9ef">f32</span>, cam_z: <span style="color:#66d9ef">f32</span>,
-		cam_y: <span style="color:#66d9ef">f32</span>, speed_x: <span style="color:#66d9ef">f32</span>, speed_y: <span style="color:#66d9ef">f32</span>) -&gt; (<span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>) {
-
-		<span style="color:#75715e">// use spherical coordinates to add speed
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">let</span> theta <span style="color:#f92672">=</span> cam_z.atan2(cam_x) <span style="color:#f92672">+</span> speed_x;
-
-		<span style="color:#66d9ef">let</span> phi <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt().atan2(cam_y) <span style="color:#f92672">+</span>
-				speed_y;
-
-		<span style="color:#66d9ef">let</span> r <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_y.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt();
-
-		<span style="color:#66d9ef">let</span> r_cam_x <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.cos()<span style="color:#f92672">*</span>phi.sin();
-		<span style="color:#66d9ef">let</span> r_cam_z <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.sin()<span style="color:#f92672">*</span>phi.sin();
-		<span style="color:#66d9ef">let</span> r_cam_y <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>phi.cos();
-
-		(r_cam_x, r_cam_z, r_cam_y)
-}
-
-...
-
-self.f_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> r_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span>
-	dp_sides<span style="color:#f92672">*</span>r_cam_z;
-self.f_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> r_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span>
-	dp_sides<span style="color:#f92672">*</span>r_cam_x;
-self.f_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> r_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span>
-	dp_up<span style="color:#f92672">*</span>r_cam_y;
-
-self.p_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span> dp_sides<span style="color:#f92672">*</span>r_cam_z;
-self.p_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span> dp_sides<span style="color:#f92672">*</span>r_cam_x;
-self.p_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span> dp_up<span style="color:#f92672">*</span>r_cam_y;
-</code></pre></div><p>Cabe destacar que se sumaron unos deltas extras para el movimiento lateral
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calc_new_focus_point</span>(cam_x: <span style="color:#66d9ef">f32</span>, cam_z: <span style="color:#66d9ef">f32</span>,
+</span></span><span style="display:flex;"><span>		cam_y: <span style="color:#66d9ef">f32</span>, speed_x: <span style="color:#66d9ef">f32</span>, speed_y: <span style="color:#66d9ef">f32</span>) -&gt; (<span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>, <span style="color:#66d9ef">f32</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// use spherical coordinates to add speed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">let</span> theta <span style="color:#f92672">=</span> cam_z.atan2(cam_x) <span style="color:#f92672">+</span> speed_x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> phi <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt().atan2(cam_y) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>				speed_y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> r <span style="color:#f92672">=</span> (cam_x.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_y.powi(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cam_z.powi(<span style="color:#ae81ff">2</span>)).sqrt();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> r_cam_x <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.cos()<span style="color:#f92672">*</span>phi.sin();
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> r_cam_z <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>theta.sin()<span style="color:#f92672">*</span>phi.sin();
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> r_cam_y <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>phi.cos();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		(r_cam_x, r_cam_z, r_cam_y)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self.f_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> r_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>	dp_sides<span style="color:#f92672">*</span>r_cam_z;
+</span></span><span style="display:flex;"><span>self.f_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> r_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span>
+</span></span><span style="display:flex;"><span>	dp_sides<span style="color:#f92672">*</span>r_cam_x;
+</span></span><span style="display:flex;"><span>self.f_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> r_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>	dp_up<span style="color:#f92672">*</span>r_cam_y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self.p_cam_x <span style="color:#f92672">=</span> self.p_cam_x <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_x <span style="color:#f92672">+</span> dp_sides<span style="color:#f92672">*</span>r_cam_z;
+</span></span><span style="display:flex;"><span>self.p_cam_z <span style="color:#f92672">=</span> self.p_cam_z <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_z <span style="color:#f92672">-</span> dp_sides<span style="color:#f92672">*</span>r_cam_x;
+</span></span><span style="display:flex;"><span>self.p_cam_y <span style="color:#f92672">=</span> self.p_cam_y <span style="color:#f92672">+</span> dp_forward<span style="color:#f92672">*</span>r_cam_y <span style="color:#f92672">+</span> dp_up<span style="color:#f92672">*</span>r_cam_y;
+</span></span></code></pre></div><p>Cabe destacar que se sumaron unos deltas extras para el movimiento lateral
 y el movimiento en el eje y.</p>
 <h3 id="devuelta-al-código">Devuelta al código</h3>
 <p>Después de haber hecho esa matemagia (quizás es básica, pero hey, I&rsquo;m proud)
@@ -377,7 +377,7 @@ la primera versión del freecam</p>
 
 <div style="display:flex;justify-content:center;">
 		
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Aaaand the freecam tool for K2 is working as intended! feel free to take a peek at  <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> in releases! <a href="https://twitter.com/hashtag/rustlang?src=hash&amp;ref_src=twsrc%5Etfw">#rustlang</a> <a href="https://twitter.com/hashtag/modding?src=hash&amp;ref_src=twsrc%5Etfw">#modding</a> <a href="https://t.co/Swk6B73H9J">pic.twitter.com/Swk6B73H9J</a></p>&mdash; Sebastián Aedo (@etra0) <a href="https://twitter.com/etra0/status/1258165590101024768?ref_src=twsrc%5Etfw">May 6, 2020</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Aaaand the freecam tool for K2 is working as intended! feel free to take a peek at  <a href="https://t.co/mLpG5p53ds">https://t.co/mLpG5p53ds</a> in releases! <a href="https://twitter.com/hashtag/rustlang?src=hash&amp;ref_src=twsrc%5Etfw">#rustlang</a> <a href="https://twitter.com/hashtag/modding?src=hash&amp;ref_src=twsrc%5Etfw">#modding</a> <a href="https://t.co/Swk6B73H9J">pic.twitter.com/Swk6B73H9J</a></p>&mdash; etra (@etra0) <a href="https://twitter.com/etra0/status/1258165590101024768?ref_src=twsrc%5Etfw">May 6, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
@@ -401,13 +401,13 @@ que verificaba si el juego estaba en primer plano, y <strong>por pura suerte</st
 cuando esa flag cambiaba el juego se pausaba y volvía a otorgar control, por
 lo tanto la solución fue forzar esa flag a cambiar por un pequeño delta
 de tiempo para que el juego volviese a forzar la pausa y aceptara input:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">trigger_pause</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, addr: <span style="color:#66d9ef">usize</span>) {
-    <span style="color:#66d9ef">if</span> addr <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x0</span> { <span style="color:#66d9ef">return</span>; }
-    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x1</span>);
-    thread::sleep(Duration::from_millis(<span style="color:#ae81ff">20</span>));
-    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x0</span>);
-}
-</code></pre></div><p>Bastante <em>hacker</em> si me preguntan a mi :P</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">trigger_pause</span>(process: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Process</span>, addr: <span style="color:#66d9ef">usize</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> addr <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x0</span> { <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x1</span>);
+</span></span><span style="display:flex;"><span>    thread::sleep(Duration::from_millis(<span style="color:#ae81ff">20</span>));
+</span></span><span style="display:flex;"><span>    process.write_value::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>(addr, <span style="color:#ae81ff">0x0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Bastante <em>hacker</em> si me preguntan a mi :P</p>
 <p>Como toque final, había que ocultar la UI del juego, que básicamente
 se reducía a <code>nopear</code> instrucciones, así que nada tan complejo.</p>
 <h3 id="retoques-finales">Retoques finales</h3>
@@ -507,8 +507,8 @@ hermoso.</p>
 </a>
 
       <div class="copyright">
-        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+        <span>© 2022 -- <a rel="me" href="https://fosstodon.org/@etra">@etra@fosstodon.org</a></span>
+        <span>Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     
   </div>

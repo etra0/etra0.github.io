@@ -313,69 +313,69 @@ que pase por esa parte del código</li>
 <p>Con esto, básicamente me aseguro de obtener siempre el puntero correcto
 de la cámara ya que es el mismo que está ocupando el juego, y así, puedo
 manipular la cámara a gusto.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">__declspec</span>(<span style="color:#66d9ef">naked</span>) <span style="color:#66d9ef">void</span> shellcode()
-{
-    <span style="color:#75715e">// rax -&gt; jmpBackAddress
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// rax+8 -&gt; camera pointer location
-</span><span style="color:#75715e"></span>     __asm__ <span style="color:#66d9ef">volatile</span> (
-         <span style="color:#e6db74">&#34;.intel_syntax noprefix;&#34;</span>
-         <span style="color:#e6db74">&#34;lea r11,[rip+0x200];&#34;</span>
-         <span style="color:#e6db74">&#34;push rbx;&#34;</span>
-         <span style="color:#e6db74">&#34;mov rbx,rcx;&#34;</span>
-         <span style="color:#e6db74">&#34;mov [r11+8],rbx;&#34;</span>
-         <span style="color:#e6db74">&#34;pop rbx;&#34;</span>
-         <span style="color:#e6db74">&#34;movaps xmm1,[rcx+0x00000320];&#34;</span>
-         <span style="color:#e6db74">&#34;jmp [r11];&#34;</span>
-         <span style="color:#e6db74">&#34;nop;nop;nop;nop;&#34;</span> <span style="color:#75715e">// ending function signature
-</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;.att_syntax;&#34;</span>
-     );
-
-}
-
-<span style="color:#66d9ef">void</span> Camera<span style="color:#f92672">::</span>resolve_camera_pointers() {
-
-    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_func <span style="color:#f92672">=</span> (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)shellcode;
-    <span style="color:#66d9ef">int</span> f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#75715e">// calc the size of the function
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-	    <span style="color:#f92672">*</span>((UINT32 <span style="color:#f92672">*</span>)(<span style="color:#f92672">&amp;</span>((<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)p_func)[f_size])) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0x90909090</span>;
-	    <span style="color:#f92672">++</span>f_size);
-
-    <span style="color:#75715e">// try allocate near module
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
-    <span style="color:#66d9ef">int</span> instruction_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; p_shellcode <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">++</span>)
-        p_shellcode <span style="color:#f92672">=</span> VirtualAllocEx(process,
-	(BYTE<span style="color:#f92672">*</span>)(moduleAddress <span style="color:#f92672">-</span> (<span style="color:#ae81ff">0x1000</span> <span style="color:#f92672">*</span> i)),
-	f_size,
-	MEM_RESERVE <span style="color:#f92672">|</span> MEM_COMMIT, PAGE_EXECUTE_READWRITE);
-
-    <span style="color:#75715e">// absolute jmp
-</span><span style="color:#75715e"></span>    uintptr_t moduleInjectionAddress <span style="color:#f92672">=</span> (moduleAddress <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>jumpOffset);
-    uintptr_t jmpBackAddress <span style="color:#f92672">=</span> moduleInjectionAddress <span style="color:#f92672">+</span> instruction_size;
-
-    <span style="color:#75715e">// inject the shellcode
-</span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode, (LPCVOID)shellcode, f_size,
-	    <span style="color:#66d9ef">nullptr</span>);
-
-    <span style="color:#75715e">// 0x207 -&gt; jmp back address
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 0x207 + 0x8 -&gt; camera address
-</span><span style="color:#75715e"></span>  
-    <span style="color:#75715e">// inject the jmp 
-</span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span>, <span style="color:#f92672">&amp;</span>jmpBackAddress, <span style="color:#ae81ff">8</span>,
-	    <span style="color:#66d9ef">nullptr</span>);
-  
-    <span style="color:#75715e">// read the camera pointer
-</span><span style="color:#75715e"></span>    pCamera <span style="color:#f92672">=</span> (uintptr_t)(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x8</span>);
-    
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pCamera &#34;</span> <span style="color:#f92672">&lt;&lt;</span> pCamera;
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; Assigned address &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>hex <span style="color:#f92672">&lt;&lt;</span> p_shellcode <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-
-    <span style="color:#75715e">// this function hooks with the process the jump.
-</span><span style="color:#75715e"></span>    hookFunction(process, moduleInjectionAddress, (uintptr_t)p_shellcode,
-	    instruction_size);
-}
-</code></pre></div><p>Ya contento con lo logrado, grabé un video para demostrar su
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">__declspec</span>(<span style="color:#66d9ef">naked</span>) <span style="color:#66d9ef">void</span> shellcode()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// rax -&gt; jmpBackAddress
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// rax+8 -&gt; camera pointer location
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     __asm__ <span style="color:#66d9ef">volatile</span> (
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;.intel_syntax noprefix;&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;lea r11,[rip+0x200];&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;push rbx;&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;mov rbx,rcx;&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;mov [r11+8],rbx;&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;pop rbx;&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;movaps xmm1,[rcx+0x00000320];&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;jmp [r11];&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;nop;nop;nop;nop;&#34;</span> <span style="color:#75715e">// ending function signature
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;.att_syntax;&#34;</span>
+</span></span><span style="display:flex;"><span>     );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Camera<span style="color:#f92672">::</span>resolve_camera_pointers() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_func <span style="color:#f92672">=</span> (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)shellcode;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// calc the size of the function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(f_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">*</span>((UINT32 <span style="color:#f92672">*</span>)(<span style="color:#f92672">&amp;</span>((<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)p_func)[f_size])) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0x90909090</span>;
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">++</span>f_size);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// try allocate near module
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_shellcode <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> instruction_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; p_shellcode <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        p_shellcode <span style="color:#f92672">=</span> VirtualAllocEx(process,
+</span></span><span style="display:flex;"><span>	(BYTE<span style="color:#f92672">*</span>)(moduleAddress <span style="color:#f92672">-</span> (<span style="color:#ae81ff">0x1000</span> <span style="color:#f92672">*</span> i)),
+</span></span><span style="display:flex;"><span>	f_size,
+</span></span><span style="display:flex;"><span>	MEM_RESERVE <span style="color:#f92672">|</span> MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// absolute jmp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    uintptr_t moduleInjectionAddress <span style="color:#f92672">=</span> (moduleAddress <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>jumpOffset);
+</span></span><span style="display:flex;"><span>    uintptr_t jmpBackAddress <span style="color:#f92672">=</span> moduleInjectionAddress <span style="color:#f92672">+</span> instruction_size;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// inject the shellcode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode, (LPCVOID)shellcode, f_size,
+</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 0x207 -&gt; jmp back address
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 0x207 + 0x8 -&gt; camera address
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// inject the jmp 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    WriteProcessMemory(process, p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span>, <span style="color:#f92672">&amp;</span>jmpBackAddress, <span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// read the camera pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pCamera <span style="color:#f92672">=</span> (uintptr_t)(p_shellcode <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x207</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x8</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pCamera &#34;</span> <span style="color:#f92672">&lt;&lt;</span> pCamera;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; Assigned address &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>hex <span style="color:#f92672">&lt;&lt;</span> p_shellcode <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// this function hooks with the process the jump.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    hookFunction(process, moduleInjectionAddress, (uintptr_t)p_shellcode,
+</span></span><span style="display:flex;"><span>	    instruction_size);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Ya contento con lo logrado, grabé un video para demostrar su
 funcionamiento, y lo subí a la comunidad del juego, con una super buena
 recepción (Al menos en reacciones jaja).</p>
 <p><style>
@@ -448,8 +448,8 @@ y es una parte interesante del hacking.</p>
 </a>
 
       <div class="copyright">
-        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+        <span>© 2022 -- <a rel="me" href="https://fosstodon.org/@etra">@etra@fosstodon.org</a></span>
+        <span>Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     
   </div>
