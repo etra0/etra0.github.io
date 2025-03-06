@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>assembly on Sebastián Aedo&#39;s blog</title>
+    <title>Assembly on Sebastián Aedo&#39;s blog</title>
     
     
     
     <link>https://blog.etra0.lat/tags/assembly/</link>
-    <description>Recent content in assembly on Sebastián Aedo&#39;s blog</description>
+    <description>Recent content in Assembly on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 06 Dec 2020 23:19:23 -0300</lastBuildDate>
     
 	<atom:link href="https://blog.etra0.lat/tags/assembly/index.xml" rel="self" type="application/rss+xml" />
@@ -27,8 +27,18 @@
         
         
         
-          Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
-Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones.
+          &lt;p&gt;Habiendo comenzado a experimentar con hacking interno  a través de inyección de
+DLLs, y mientras esperaba la salida del juego &lt;em&gt;Yakuza: Like A Dragon&lt;/em&gt;,
+aproveché de comenzar a preparar mi librería &lt;code&gt;memory-rs&lt;/code&gt; para por fin comenzar
+a utilizar hacking interno, que por lo general conllevaba más trabajo preparar
+el boilerplate pero al final traía muchos más beneficios.&lt;/p&gt;
+&lt;h1 id=&#34;evolución-de-memory-rs&#34;&gt;Evolución de &lt;em&gt;memory-rs&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/etra0/memory-rs/commit/d9c9521907bd9bb5ce35447b12a27830e8dbf9d1&#34;&gt;A partir del 27 de
+octubre&lt;/a&gt;,
+comencé a trabajar casi todos los días en esta librería, porque cada vez me
+fascinaba más las posibles técnicas que se pueden utilizar al estar dentro
+del mismo espacio de memoria que el proceso objetivo, por lo que era necesario
+construir un toolkit para evitar ser redundante en futuras ocasiones.&lt;/p&gt;
           
         
         </description>
@@ -47,8 +57,17 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
         
         
         
-          El fin justifica los medios (?) Obviamente mi objetivo no era simplemente dibujar senos en el Administrador de Tareas aunque fue entretenido, si no que este fue el medio para concretar mi fin: Aprender sobre hacking interno inyectando DLLs
-Hacking interno: Sharing the space Como comenté en un blog previo, el hacking externo es entre comillas &amp;ldquo;fácil de concretar&amp;rdquo;, ya que requiere mucho menos boilerplate, y la WinAPI provee las funciones necesarias para leer y modificar la memoria de un proceso externo sin mayor problemas, así que para cosas rápidas a veces es más fácil ir por este camino, pero lo que yo no sabía eran todas las ventajas que se tenían al hacer las cosas de forma interna.
+          &lt;h2 id=&#34;el-fin-justifica-los-medios-&#34;&gt;El fin justifica los medios (?)&lt;/h2&gt;
+&lt;p&gt;Obviamente mi objetivo no era simplemente dibujar senos en el Administrador
+de Tareas &lt;del&gt;aunque fue entretenido&lt;/del&gt;, si no que este fue el &lt;em&gt;medio&lt;/em&gt; para
+concretar mi fin: &lt;strong&gt;Aprender sobre hacking interno inyectando DLLs&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;hacking-interno-sharing-the-space&#34;&gt;Hacking interno: Sharing the space&lt;/h1&gt;
+&lt;p&gt;Como comenté en un blog previo, el hacking externo es entre comillas
+&lt;em&gt;&amp;ldquo;fácil de concretar&amp;rdquo;&lt;/em&gt;, ya que requiere mucho menos boilerplate, y la
+WinAPI provee las funciones necesarias para leer y modificar la memoria
+de un proceso externo sin mayor problemas, así que para cosas rápidas
+a veces es más fácil ir por este camino, pero lo que yo no sabía eran
+todas las ventajas que se tenían al hacer las cosas de forma &lt;em&gt;interna&lt;/em&gt;.&lt;/p&gt;
           
         
         </description>
@@ -67,10 +86,31 @@ Hacking interno: Sharing the space Como comenté en un blog previo, el hacking e
         
         
         
-          Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
-Now the Freecam for K2 automatically removes the UI for a proper &amp;quot;photo mode&amp;quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&amp;#39;t remove that).
-As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
-&amp;mdash; etra (@etra0) May 23, 2020 Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2.
+          &lt;h1 id=&#34;resultados&#34;&gt;Resultados&lt;/h1&gt;
+&lt;p&gt;Para captar tu atención, acá están los resultados de un Photo Mode
+implementado en Rust.&lt;/p&gt;
+&lt;style&gt;
+.video-container {
+    text-align: center;
+
+}
+&lt;/style&gt;
+&lt;div class=&#34;video-container&#34;&gt;
+	&lt;video  width=&#34;100%&#34; 
+		 controls  loop&gt;
+		&lt;source src=&#34;https://blog.etra0.lat/assets/images/photomode/freecam_0.mp4&#34;&gt;
+	&lt;/video&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Habiendo terminado el Yakuza 0 &lt;em&gt;(what a great game)&lt;/em&gt; y el Yakuza Kiwami
+&lt;em&gt;(not so great tbh)&lt;/em&gt;, naturalmente, el siguiente juego era Yakuza Kiwami 2.&lt;/p&gt;
+&lt;p&gt;Yakuza Kiwami 2 es conocido por tener un rendimiento no muy bueno, incluso
+un modder por el nombre de &lt;a href=&#34;https://cookieplmonster.github.io/2020/01/18/silentpatch-yakuza-kiwami-2/&#34;&gt;Silent&lt;/a&gt;
+hizo un parche para mejorar el &lt;em&gt;frame pacing&lt;/em&gt;, donde se dio cuenta que para
+limitar el framerate usaron un &lt;code&gt;sleep&lt;/code&gt; (&lt;code&gt;sleep&lt;/code&gt; &lt;strong&gt;nunca&lt;/strong&gt; es confiable debido
+a que depende del scheduler de Windows), sin embargo, a pesar de estos
+problemas, el juego se ve increible. Quedé inmediatamente impresionado por los
+gráficos, tiene un &lt;em&gt;look&lt;/em&gt; que a mi por lo menos me atrae bastante.&lt;/p&gt;
           
         
         </description>

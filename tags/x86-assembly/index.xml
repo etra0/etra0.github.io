@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>x86 assembly on Sebastián Aedo&#39;s blog</title>
+    <title>X86 Assembly on Sebastián Aedo&#39;s blog</title>
     
     
     
     <link>https://blog.etra0.lat/tags/x86-assembly/</link>
-    <description>Recent content in x86 assembly on Sebastián Aedo&#39;s blog</description>
+    <description>Recent content in X86 Assembly on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sat, 07 Aug 2021 16:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://blog.etra0.lat/tags/x86-assembly/index.xml" rel="self" type="application/rss+xml" />
@@ -27,7 +27,12 @@
         
         
         
-          Finalmente era hora, era hora de retomar la práctica con C++ porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&amp;rsquo; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C++17.
+          &lt;p&gt;Finalmente era hora, era hora de retomar la práctica con C++ porque, &lt;em&gt;why
+not?&lt;/em&gt; Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está
+dentro de las categorías de los lenguajes que también disfruto. Pero para
+volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así
+surgió &lt;a href=&#34;https://github.com/etra0/sapeaob&#34;&gt;sapeAOB&lt;/a&gt;, (una mezcla entre &lt;em&gt;sapeao&amp;rsquo;&lt;/em&gt; y AOB - Array of Bytes), una
+microlibrería que permite encontrar patrones de bytes escrita en C++17.&lt;/p&gt;
           
         
         </description>

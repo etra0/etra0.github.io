@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javascript dataviz python altair on Sebastián Aedo&#39;s blog</title>
+    <title>Javascript Dataviz Python Altair on Sebastián Aedo&#39;s blog</title>
     
     
     
     <link>https://blog.etra0.lat/categories/javascript-dataviz-python-altair/</link>
-    <description>Recent content in javascript dataviz python altair on Sebastián Aedo&#39;s blog</description>
+    <description>Recent content in Javascript Dataviz Python Altair on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 13 Jun 2018 12:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://blog.etra0.lat/categories/javascript-dataviz-python-altair/index.xml" rel="self" type="application/rss+xml" />
@@ -28,8 +28,14 @@
         
         
         
-          Datacampfire hace poco hizo una Hackathon para crear visualizaciones sobre los gastos fiscales, otorgando los datos de éstos (ergo, Datathon). Junto a unos amigos, decidimos participar en ésta, ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.
-El equipo se llamaba DMCTeam, y estaba compuesto por dos Data Scientist y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con ganas de haberle dedicado muchísimo más tiempo.
+          &lt;p&gt;&lt;a href=&#34;https://www.datacampfire.com/&#34;&gt;Datacampfire&lt;/a&gt; hace poco hizo una Hackathon
+para crear visualizaciones sobre los gastos fiscales, otorgando los datos de
+éstos (ergo, &lt;em&gt;Datathon&lt;/em&gt;). Junto a unos amigos, decidimos participar en ésta,
+ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma
+con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.&lt;/p&gt;
+&lt;p&gt;El equipo se llamaba &lt;strong&gt;DMCTeam&lt;/strong&gt;, y estaba compuesto por dos &lt;em&gt;Data Scientist&lt;/em&gt;
+y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con
+ganas de haberle dedicado muchísimo más tiempo.&lt;/p&gt;
           
         
         </description>

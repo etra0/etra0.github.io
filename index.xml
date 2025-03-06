@@ -8,11 +8,40 @@
     <link>https://blog.etra0.lat/</link>
     <description>Recent content on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 07 Aug 2021 16:00:00 -0300</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Mar 2025 16:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://blog.etra0.lat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gaming in the desert</title>
+      <link>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</link>
+      <pubDate>Wed, 05 Mar 2025 16:00:00 -0300</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/frame5.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;If you ever ask yourself, where can you see the most pristine dark skies in the
+world? Well, I&amp;rsquo;m lucky enough to work in one of those places; in the middle
+of the desert, where humidity levels on average are less than 20%, and no
+civilization is in sight.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/ut4.jpg&#34;  class=&#34;center&#34;  style=&#34;height:500px&#34;  /&gt;
+
+
+&lt;p&gt;I work as a Software Engineer over there, since the workplace is &lt;em&gt;literally&lt;/em&gt; in
+the middle of the desert, we usually work in shifts, I arrive on a Tuesday, and
+stay until the next Tuesday, over +1.000km away from my home.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>SapeAOB, _Andai&#39; puro sapeando mi código oe!_</title>
@@ -27,7 +56,12 @@
         
         
         
-          Finalmente era hora, era hora de retomar la práctica con C++ porque, why not? Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está dentro de las categorías de los lenguajes que también disfruto. Pero para volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así surgió sapeAOB, (una mezcla entre sapeao&amp;rsquo; y AOB - Array of Bytes), una microlibrería que permite encontrar patrones de bytes escrita en C++17.
+          &lt;p&gt;Finalmente era hora, era hora de retomar la práctica con C++ porque, &lt;em&gt;why
+not?&lt;/em&gt; Rust para mi sigue siendo el lenguaje que más prefiero, pero C++ está
+dentro de las categorías de los lenguajes que también disfruto. Pero para
+volver a tomarlo en serio, era necesario crear un proyecto nuevo, y así
+surgió &lt;a href=&#34;https://github.com/etra0/sapeaob&#34;&gt;sapeAOB&lt;/a&gt;, (una mezcla entre &lt;em&gt;sapeao&amp;rsquo;&lt;/em&gt; y AOB - Array of Bytes), una
+microlibrería que permite encontrar patrones de bytes escrita en C++17.&lt;/p&gt;
           
         
         </description>
@@ -46,8 +80,18 @@
         
         
         
-          Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
-Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi todos los días en esta librería, porque cada vez me fascinaba más las posibles técnicas que se pueden utilizar al estar dentro del mismo espacio de memoria que el proceso objetivo, por lo que era necesario construir un toolkit para evitar ser redundante en futuras ocasiones.
+          &lt;p&gt;Habiendo comenzado a experimentar con hacking interno  a través de inyección de
+DLLs, y mientras esperaba la salida del juego &lt;em&gt;Yakuza: Like A Dragon&lt;/em&gt;,
+aproveché de comenzar a preparar mi librería &lt;code&gt;memory-rs&lt;/code&gt; para por fin comenzar
+a utilizar hacking interno, que por lo general conllevaba más trabajo preparar
+el boilerplate pero al final traía muchos más beneficios.&lt;/p&gt;
+&lt;h1 id=&#34;evolución-de-memory-rs&#34;&gt;Evolución de &lt;em&gt;memory-rs&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/etra0/memory-rs/commit/d9c9521907bd9bb5ce35447b12a27830e8dbf9d1&#34;&gt;A partir del 27 de
+octubre&lt;/a&gt;,
+comencé a trabajar casi todos los días en esta librería, porque cada vez me
+fascinaba más las posibles técnicas que se pueden utilizar al estar dentro
+del mismo espacio de memoria que el proceso objetivo, por lo que era necesario
+construir un toolkit para evitar ser redundante en futuras ocasiones.&lt;/p&gt;
           
         
         </description>
@@ -66,8 +110,17 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
         
         
         
-          El fin justifica los medios (?) Obviamente mi objetivo no era simplemente dibujar senos en el Administrador de Tareas aunque fue entretenido, si no que este fue el medio para concretar mi fin: Aprender sobre hacking interno inyectando DLLs
-Hacking interno: Sharing the space Como comenté en un blog previo, el hacking externo es entre comillas &amp;ldquo;fácil de concretar&amp;rdquo;, ya que requiere mucho menos boilerplate, y la WinAPI provee las funciones necesarias para leer y modificar la memoria de un proceso externo sin mayor problemas, así que para cosas rápidas a veces es más fácil ir por este camino, pero lo que yo no sabía eran todas las ventajas que se tenían al hacer las cosas de forma interna.
+          &lt;h2 id=&#34;el-fin-justifica-los-medios-&#34;&gt;El fin justifica los medios (?)&lt;/h2&gt;
+&lt;p&gt;Obviamente mi objetivo no era simplemente dibujar senos en el Administrador
+de Tareas &lt;del&gt;aunque fue entretenido&lt;/del&gt;, si no que este fue el &lt;em&gt;medio&lt;/em&gt; para
+concretar mi fin: &lt;strong&gt;Aprender sobre hacking interno inyectando DLLs&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;hacking-interno-sharing-the-space&#34;&gt;Hacking interno: Sharing the space&lt;/h1&gt;
+&lt;p&gt;Como comenté en un blog previo, el hacking externo es entre comillas
+&lt;em&gt;&amp;ldquo;fácil de concretar&amp;rdquo;&lt;/em&gt;, ya que requiere mucho menos boilerplate, y la
+WinAPI provee las funciones necesarias para leer y modificar la memoria
+de un proceso externo sin mayor problemas, así que para cosas rápidas
+a veces es más fácil ir por este camino, pero lo que yo no sabía eran
+todas las ventajas que se tenían al hacer las cosas de forma &lt;em&gt;interna&lt;/em&gt;.&lt;/p&gt;
           
         
         </description>
@@ -86,10 +139,31 @@ Hacking interno: Sharing the space Como comenté en un blog previo, el hacking e
         
         
         
-          Resultados Para captar tu atención, acá están los resultados de un Photo Mode implementado en Rust.
-Now the Freecam for K2 automatically removes the UI for a proper &amp;quot;photo mode&amp;quot;. It even removes the health of the enemies in heat actions! (Hide UI doesn&amp;#39;t remove that).
-As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.com/Fp1kJBnAt7
-&amp;mdash; etra (@etra0) May 23, 2020 Habiendo terminado el Yakuza 0 (what a great game) y el Yakuza Kiwami (not so great tbh), naturalmente, el siguiente juego era Yakuza Kiwami 2.
+          &lt;h1 id=&#34;resultados&#34;&gt;Resultados&lt;/h1&gt;
+&lt;p&gt;Para captar tu atención, acá están los resultados de un Photo Mode
+implementado en Rust.&lt;/p&gt;
+&lt;style&gt;
+.video-container {
+    text-align: center;
+
+}
+&lt;/style&gt;
+&lt;div class=&#34;video-container&#34;&gt;
+	&lt;video  width=&#34;100%&#34; 
+		 controls  loop&gt;
+		&lt;source src=&#34;https://blog.etra0.lat/assets/images/photomode/freecam_0.mp4&#34;&gt;
+	&lt;/video&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Habiendo terminado el Yakuza 0 &lt;em&gt;(what a great game)&lt;/em&gt; y el Yakuza Kiwami
+&lt;em&gt;(not so great tbh)&lt;/em&gt;, naturalmente, el siguiente juego era Yakuza Kiwami 2.&lt;/p&gt;
+&lt;p&gt;Yakuza Kiwami 2 es conocido por tener un rendimiento no muy bueno, incluso
+un modder por el nombre de &lt;a href=&#34;https://cookieplmonster.github.io/2020/01/18/silentpatch-yakuza-kiwami-2/&#34;&gt;Silent&lt;/a&gt;
+hizo un parche para mejorar el &lt;em&gt;frame pacing&lt;/em&gt;, donde se dio cuenta que para
+limitar el framerate usaron un &lt;code&gt;sleep&lt;/code&gt; (&lt;code&gt;sleep&lt;/code&gt; &lt;strong&gt;nunca&lt;/strong&gt; es confiable debido
+a que depende del scheduler de Windows), sin embargo, a pesar de estos
+problemas, el juego se ve increible. Quedé inmediatamente impresionado por los
+gráficos, tiene un &lt;em&gt;look&lt;/em&gt; que a mi por lo menos me atrae bastante.&lt;/p&gt;
           
         
         </description>
@@ -108,8 +182,17 @@ As always, you can get the latest release @ https://t.co/mLpG5p53ds pic.twitter.
         
         
         
-          Prólogo Casi Hacker Al momento de hablar de hacking, casi todo el mundo se imagina el clásico hacking ético, intentando vulnerar redes, sus MITM, típico que salta Kali Linux, claves de facebook, etc&amp;hellip; Esa es la primera imagen que se le viene a la gente, un hacking, que en verdad, a mi poco y nada me interesaba.
-Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas en algún motor como google, abunda el contenido donde se enseña a usar este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin encontrar lo que siempre estuve buscando.
+          &lt;h1 id=&#34;prólogo&#34;&gt;Prólogo&lt;/h1&gt;
+&lt;h2 id=&#34;casi-hacker&#34;&gt;Casi Hacker&lt;/h2&gt;
+&lt;p&gt;Al momento de hablar de hacking, casi todo el mundo se imagina el clásico
+&lt;em&gt;hacking ético&lt;/em&gt;, intentando vulnerar redes, sus &lt;em&gt;MITM&lt;/em&gt;, típico que salta
+&lt;em&gt;Kali Linux&lt;/em&gt;, &lt;em&gt;claves de facebook&lt;/em&gt;, etc&amp;hellip; Esa es la primera imagen que se le
+viene a la gente, un hacking, que en verdad, a mi poco y nada me
+interesaba.&lt;/p&gt;
+&lt;p&gt;Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas
+en algún motor como google, abunda el contenido donde se enseña a usar
+este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin
+encontrar lo que siempre estuve buscando.&lt;/p&gt;
           
         
         </description>
@@ -129,8 +212,15 @@ Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas
         
         
         
-          Dentro de mi universidad, existe un sistema de gestión académica llamado SIGA, el cual posee una interfaz bastante&amp;hellip; obsoleta por así decirlo, si bien hace la pega, hay muchas cosas que se podrían hacer mejor. Una de ellas, es el avance académico, ya que al solicitarlo, se entrega una lista con los ramos aprobados y sus notas, pero no hay manera rápida de visualizar el avance.
-Dado que uno como alumno, siempre quiere saber en qué posición de la carrera se encuentra, y dándome cuenta que año tras año pensaba qué ramos puedo tomar para progresar mejor (porque, por lo menos para mí, la malla es solo una referencia) con el fin de no sufrir en el intento, decidí crear una Malla Interactiva que me facilite este trabajo.
+          &lt;p&gt;Dentro de mi universidad, existe un sistema de gestión académica llamado SIGA, el cual
+posee una interfaz bastante&amp;hellip; &lt;em&gt;obsoleta&lt;/em&gt; por así decirlo, si bien hace la pega,
+hay muchas cosas que se podrían hacer mejor. Una de ellas, es el avance académico, ya
+que al solicitarlo, se entrega una lista con los ramos aprobados y sus notas, pero no
+hay manera rápida de visualizar el avance.&lt;/p&gt;
+&lt;p&gt;Dado que uno como alumno, siempre quiere saber en qué posición de la carrera se encuentra,
+y dándome cuenta que año tras año pensaba qué ramos puedo tomar para progresar mejor (porque,
+por lo menos para mí, la malla es solo una referencia) con el fin de no sufrir en el intento,
+decidí crear una &lt;strong&gt;&lt;a href=&#34;https://mallas.labcomp.cl&#34;&gt;Malla Interactiva&lt;/a&gt;&lt;/strong&gt; que me facilite este trabajo.&lt;/p&gt;
           
         
         </description>
@@ -150,8 +240,14 @@ Dado que uno como alumno, siempre quiere saber en qué posición de la carrera s
         
         
         
-          Datacampfire hace poco hizo una Hackathon para crear visualizaciones sobre los gastos fiscales, otorgando los datos de éstos (ergo, Datathon). Junto a unos amigos, decidimos participar en ésta, ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.
-El equipo se llamaba DMCTeam, y estaba compuesto por dos Data Scientist y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con ganas de haberle dedicado muchísimo más tiempo.
+          &lt;p&gt;&lt;a href=&#34;https://www.datacampfire.com/&#34;&gt;Datacampfire&lt;/a&gt; hace poco hizo una Hackathon
+para crear visualizaciones sobre los gastos fiscales, otorgando los datos de
+éstos (ergo, &lt;em&gt;Datathon&lt;/em&gt;). Junto a unos amigos, decidimos participar en ésta,
+ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma
+con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.&lt;/p&gt;
+&lt;p&gt;El equipo se llamaba &lt;strong&gt;DMCTeam&lt;/strong&gt;, y estaba compuesto por dos &lt;em&gt;Data Scientist&lt;/em&gt;
+y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con
+ganas de haberle dedicado muchísimo más tiempo.&lt;/p&gt;
           
         
         </description>
@@ -171,8 +267,18 @@ El equipo se llamaba DMCTeam, y estaba compuesto por dos Data Scientist y yo, un
         
         
         
-          Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
-Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!
+          &lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/real_programmers.png&#34; alt=&#34;Real Programmers&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hace aproximadamente &lt;strong&gt;dos años&lt;/strong&gt; atrás, era un usuario frecuente de Sublime Text,
+me encantaba el tema Monokai, y aún más la velocidad con que abría archivos.
+Era bonito, eficiente, minimal, satisfacía todas mis necesidades como &lt;code&gt;newbie&lt;/code&gt;
+en el mundo de la programación, pero todo cambió cuando conocí VIM.&lt;/p&gt;
+&lt;h3 id=&#34;backstory&#34;&gt;Backstory&lt;/h3&gt;
+&lt;p&gt;Debo confesar que primero partí con EMACS, y como todo &lt;em&gt;hackerman&lt;/em&gt;, me creía
+bacán por abrir un editor desde la terminal, porque, mientras más avanzaba
+en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!).
+Luego, al navegar por las turbias aguas del internet, descubrí la eterna
+discusión de VIM vs EMACS (ó EMACS vs VIM, para no ofender a nadie), así que
+empecé a mirar para el lado, y abrí VIM por primera vez.&lt;/p&gt;
           
         
         </description>
@@ -192,8 +298,19 @@ Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me 
         
         
         
-          Dada la famosa festividad del 14 de febrero, curiosamente busqué por internet como crear datasets con formas predefinidas. Como la búsqueda no fue exitosa, decidí implementarla para crear un lindo scatter plot con forma de corazón.
-Implementación import numpy as np import matplotlib.pyplot as plt from scipy.misc import imread from sklearn.metrics import r2_score numpy &amp;amp; matplotlib fueron las herramientas fundamentales, y la gracia de imread es que te permite cargar una imagen como un numpy.
+          &lt;p&gt;Dada la famosa festividad del 14 de febrero, curiosamente
+busqué por internet como crear datasets con &lt;em&gt;formas
+predefinidas&lt;/em&gt;. Como la búsqueda no fue exitosa, decidí
+implementarla para crear un lindo &lt;code&gt;scatter plot&lt;/code&gt; con
+forma de corazón.&lt;/p&gt;
+&lt;h2 id=&#34;implementación&#34;&gt;Implementación&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; numpy &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; np
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; scipy.misc &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; imread
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.metrics &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; r2_score
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;numpy&lt;/code&gt; &amp;amp; &lt;code&gt;matplotlib&lt;/code&gt; fueron las herramientas fundamentales,
+y la gracia de &lt;code&gt;imread&lt;/code&gt; es que te permite cargar una imagen
+como un &lt;code&gt;numpy.array&lt;/code&gt; de inmediato.&lt;/p&gt;
           
         
         </description>
@@ -213,9 +330,16 @@ Implementación import numpy as np import matplotlib.pyplot as plt from scipy.mi
         
         
         
-          Habiendo finalizado el semestre (bueno, casi (el 29 termina (oh god~))), se me ocurrió hacer una mini exploración a los datos almacenados en mi usuario de GitHub. La principal pregunta que surgió es ¿En qué momento soy más productivo?
-Preámbulo La API de GitHub es bastante amigable, debido a esto, no hubo dificultad alguna en la obtención de los datos.
-La forma en que se trabajó la data está documentada en el repositorio; para trabajar se ocupó jupyter notebook.
+          &lt;p&gt;Habiendo finalizado el semestre (bueno, casi (el 29 termina (&lt;em&gt;oh god~&lt;/em&gt;))),
+se me ocurrió hacer una mini exploración a los datos almacenados en mi usuario
+de GitHub. La principal pregunta que surgió es
+&lt;strong&gt;¿En qué momento soy más productivo?&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;preámbulo&#34;&gt;Preámbulo&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;La API de GitHub&lt;/a&gt; es bastante amigable,
+debido a esto, no hubo dificultad alguna en la obtención de los datos.&lt;/p&gt;
+&lt;p&gt;La forma en que se trabajó la data está documentada en el
+&lt;a href=&#34;https://github.com/etra0/github-plot&#34;&gt;repositorio&lt;/a&gt;;
+para trabajar se ocupó &lt;code&gt;jupyter notebook&lt;/code&gt;.&lt;/p&gt;
           
         
         </description>
@@ -235,8 +359,13 @@ La forma en que se trabajó la data está documentada en el repositorio; para tr
         
         
         
-          Por esas curiosidades de la vida (o benditas coincidencias), en un correo me llegó quizás más información de la que necesitaba acerca de un test de inglés en ese entonces. Al curosear, descubrí que era un archivo donde estaban contenidos los alumnos matriculados en el período 2016-1.
-El ocio Como el ocio es infinito, y siempre hay tiempo para perder el tiempo, decidí hacer un pequeño análisis descriptivo respecto a los géneros en la USM.
+          &lt;p&gt;Por esas curiosidades de la vida (o &lt;em&gt;benditas coincidencias&lt;/em&gt;), en un correo
+me llegó quizás más información de la que necesitaba acerca de un &lt;em&gt;test de
+inglés&lt;/em&gt; en ese entonces. Al curosear, descubrí que era un archivo
+donde estaban contenidos los &lt;strong&gt;alumnos matriculados en el período 2016-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;el-ocio&#34;&gt;El ocio&lt;/h1&gt;
+&lt;p&gt;Como el ocio es infinito, y &lt;em&gt;siempre hay tiempo para perder el tiempo&lt;/em&gt;, decidí
+hacer un pequeño análisis descriptivo respecto a los géneros en la USM.&lt;/p&gt;
           
         
         </description>
@@ -256,9 +385,14 @@ El ocio Como el ocio es infinito, y siempre hay tiempo para perder el tiempo, de
         
         
         
-          Durante las vacaciones de invierno (es decir, durante el paro), me dediqué a hacer un pequeño script que me permitía descargar mis estados de facebook. Luego, intenté buscar qué cosas analizar que podrían ser interesante y llegué a algunas ideas.
-Todo el código que se utilizó se encuentra en mi GitHub. Source
-El amor Quería ver qué tan amoroso anduve los años ya pasados contando la cantidad de corazones que colocaba en cada estado
+          &lt;p&gt;Durante las vacaciones de invierno &lt;em&gt;(es decir, durante el paro)&lt;/em&gt;, me dediqué
+a hacer un pequeño script que me permitía descargar mis estados de facebook.
+Luego, intenté buscar qué cosas analizar que podrían ser interesante y llegué
+a algunas ideas.&lt;/p&gt;
+&lt;p&gt;Todo el código que se utilizó se encuentra en mi GitHub. &lt;a href=&#34;https://github.com/etra0/my-facebook-analysis&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;el-amor&#34;&gt;El amor&lt;/h2&gt;
+&lt;p&gt;Quería ver &lt;em&gt;qué tan amoroso&lt;/em&gt; anduve los años ya pasados contando la cantidad
+de corazones que colocaba en cada estado&lt;/p&gt;
           
         
         </description>
@@ -278,9 +412,18 @@ El amor Quería ver qué tan amoroso anduve los años ya pasados contando la can
         
         
         
-          Update Hice un post actualizado en reddit que alcanzó a la frontpage (nuevo logro 😃)
-Me motivo a escribir esta entrada sabiendo que queda poco para el estreno mundial de Game Of Thrones. Hace un tiempito atrás, cuando ya estaba viendo la serie por segunda vez, me preguntaba si es que realmente existía un protagonista dentro de esta serie.
-Para responder esta pregunta, lo primero que hice fue buscar el tiempo en pantalla de cada personaje.
+          &lt;h1 id=&#34;update&#34;&gt;Update&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/dataisbeautiful/comments/6n150e/oc_screen_time_of_got_characters_fixed/?utm_content=title&amp;amp;utm_medium=user&amp;amp;utm_source=reddit&amp;amp;utm_name=u_EtraStyle&#34;&gt;Hice un post&lt;/a&gt;
+actualizado en reddit que alcanzó a la frontpage (nuevo logro 😃)&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Me motivo a escribir esta entrada sabiendo que queda poco para el estreno
+mundial de &lt;strong&gt;Game Of Thrones&lt;/strong&gt;. Hace un tiempito atrás, cuando ya estaba viendo
+la serie por segunda vez, me preguntaba si es que realmente existía un
+protagonista dentro de esta serie.&lt;/p&gt;
+&lt;p&gt;Para responder esta pregunta, lo primero que hice fue buscar el tiempo
+en pantalla de cada personaje. Lamentablemente, solo encontré información un
+poco antigua (cubría hasta la Season 3), pero de todas formas, decidí
+hacerlo igual.&lt;/p&gt;
           
         
         </description>
@@ -300,8 +443,22 @@ Para responder esta pregunta, lo primero que hice fue buscar el tiempo en pantal
         
         
         
-          Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que WhatsApp no tiene API) el cuál actualmente puede otorgar la minuta ó el clima en Valparaíso. El mini proyecto ya llegó a una versión &amp;ldquo;estable&amp;rdquo;, y se encuentra en mi GitHub.
-Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido que la gente lo utilice.
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
+ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que
+&lt;strong&gt;WhatsApp no tiene API&lt;/strong&gt;) el cuál actualmente puede otorgar la minuta ó
+el clima en Valparaíso. El mini proyecto ya llegó a una versión &lt;em&gt;&amp;ldquo;estable&amp;rdquo;&lt;/em&gt;,
+y se encuentra en mi &lt;a href=&#34;https://github.com/etrastyle/sansanobot&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido
+que la gente lo utilice. Al principio el bot tenía como intención solo ser
+útil para mi, ya que soy &lt;em&gt;medianamente&lt;/em&gt; mañoso con el almuerzo, entonces,
+con éste podría evitar hacer filas para encontrarme con algo que finalmente
+no me guste. Al ver que igual había gente que lo usaba, se me ocurrió hacer
+un par de scripts para visualizar su uso diario, e igual me agradó tener
+un promedio de 12 usuarios en días hábiles &lt;del&gt;considerando que casi ningún usuario
+promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
           
         
         </description>
@@ -321,8 +478,15 @@ Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido que l
         
         
         
-          Hace mucho tiempo atrás, me habían recomendado Breaking Bad, y yo para variar, rechacé verla porque dije &amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;, y, cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores series de la TV, decidí explorar qué otro tipo de maravillas me había estado perdiendo por ser prejuicioso.
-Obviamente, hablando desde una perspectiva de programador, lo primero que hice es programar un parser de IMDb, específicamente de la página donde están los top n shows.
+          &lt;p&gt;Hace mucho tiempo atrás, me habían recomendado
+&lt;a href=&#34;http://www.imdb.com/title/tt0903747/&#34;&gt;Breaking Bad&lt;/a&gt;, y yo para variar,
+rechacé verla porque dije &lt;em&gt;&amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;&lt;/em&gt;, y,
+cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores
+series de la TV, decidí explorar qué otro tipo de maravillas me había
+estado perdiendo por ser &lt;strong&gt;prejuicioso&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Obviamente, hablando desde una perspectiva de programador, lo primero
+que hice es programar un parser de &lt;a href=&#34;http://www.imdb.com&#34;&gt;IMDb&lt;/a&gt;, específicamente
+de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
           
         
         </description>
@@ -342,9 +506,23 @@ Obviamente, hablando desde una perspectiva de programador, lo primero que hice e
         
         
         
-          Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar si existe alguna relación entre la cilindrada de estos vehículos y el precio.
-La información fue sacada de la página para cotizar el permiso de circulación de los vehículos chilenos.
-Se puede notar, que existe una tendencia casi lineal respecto al precio, pero lo que más me llamó la atención, fue el outlier, que era una Ducati que cuesta 54 millones de pesos chilenos (el modelo se llama Ducati Superleggera, 2017): Lo último que hice, fue sacar un promedio de CC y promedio de precio por marca, y curiosamente, las grandes 4 (Kawasaki, Honda, Suzuki y Yamaha) estaban casi al centro, separando a las baratelis con las más caritas, lo cual puede ser principalmente a dos razones:
+          &lt;p&gt;Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar
+si existe alguna relación entre la cilindrada de estos vehículos y el precio.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;La información fue sacada de la página para cotizar el permiso de circulación
+de los vehículos chilenos.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Se puede notar, que existe una tendencia casi lineal respecto al precio, pero
+lo que más me llamó la atención, fue el
+&lt;a href=&#34;https://es.wikipedia.org/wiki/Valor_at%C3%ADpico&#34;&gt;&lt;em&gt;outlier&lt;/em&gt;&lt;/a&gt;, que era
+una Ducati que cuesta &lt;strong&gt;54 millones de pesos chilenos&lt;/strong&gt; (el modelo se llama Ducati Superleggera, 2017):
+&lt;img src=&#34;http://motorcycle.com.vsassets.comwp-content/uploads/2016/02/020316-2015-1199-Ducati-Superleggera-action-3756.jpg&#34; alt=&#34;ducati cara&#34;&gt;&lt;/p&gt;
           
         
         </description>

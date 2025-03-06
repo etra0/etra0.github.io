@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vim bash linux on Sebastián Aedo&#39;s blog</title>
+    <title>Vim Bash Linux on Sebastián Aedo&#39;s blog</title>
     
     
     
     <link>https://blog.etra0.lat/categories/vim-bash-linux/</link>
-    <description>Recent content in vim bash linux on Sebastián Aedo&#39;s blog</description>
+    <description>Recent content in Vim Bash Linux on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 13 Jun 2018 12:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://blog.etra0.lat/categories/vim-bash-linux/index.xml" rel="self" type="application/rss+xml" />
@@ -28,8 +28,18 @@
         
         
         
-          Hace aproximadamente dos años atrás, era un usuario frecuente de Sublime Text, me encantaba el tema Monokai, y aún más la velocidad con que abría archivos. Era bonito, eficiente, minimal, satisfacía todas mis necesidades como newbie en el mundo de la programación, pero todo cambió cuando conocí VIM.
-Backstory Debo confesar que primero partí con EMACS, y como todo hackerman, me creía bacán por abrir un editor desde la terminal, porque, mientras más avanzaba en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!
+          &lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/real_programmers.png&#34; alt=&#34;Real Programmers&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hace aproximadamente &lt;strong&gt;dos años&lt;/strong&gt; atrás, era un usuario frecuente de Sublime Text,
+me encantaba el tema Monokai, y aún más la velocidad con que abría archivos.
+Era bonito, eficiente, minimal, satisfacía todas mis necesidades como &lt;code&gt;newbie&lt;/code&gt;
+en el mundo de la programación, pero todo cambió cuando conocí VIM.&lt;/p&gt;
+&lt;h3 id=&#34;backstory&#34;&gt;Backstory&lt;/h3&gt;
+&lt;p&gt;Debo confesar que primero partí con EMACS, y como todo &lt;em&gt;hackerman&lt;/em&gt;, me creía
+bacán por abrir un editor desde la terminal, porque, mientras más avanzaba
+en mi carrera, más frecuentemente pasaba en esta (¡aguanten los sistemas *NIX!).
+Luego, al navegar por las turbias aguas del internet, descubrí la eterna
+discusión de VIM vs EMACS (ó EMACS vs VIM, para no ofender a nadie), así que
+empecé a mirar para el lado, y abrí VIM por primera vez.&lt;/p&gt;
           
         
         </description>

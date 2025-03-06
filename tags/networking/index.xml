@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/tags/networking/</link>
+    <description>Recent content in Networking on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Mar 2025 16:00:00 -0300</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gaming in the desert</title>
+      <link>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</link>
+      <pubDate>Wed, 05 Mar 2025 16:00:00 -0300</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/frame5.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;If you ever ask yourself, where can you see the most pristine dark skies in the
+world? Well, I&amp;rsquo;m lucky enough to work in one of those places; in the middle
+of the desert, where humidity levels on average are less than 20%, and no
+civilization is in sight.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/ut4.jpg&#34;  class=&#34;center&#34;  style=&#34;height:500px&#34;  /&gt;
+
+
+&lt;p&gt;I work as a Software Engineer over there, since the workplace is &lt;em&gt;literally&lt;/em&gt; in
+the middle of the desert, we usually work in shifts, I arrive on a Tuesday, and
+stay until the next Tuesday, over +1.000km away from my home.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
