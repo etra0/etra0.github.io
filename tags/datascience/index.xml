@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Datascience on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/tags/datascience/</link>
+    <description>Recent content in Datascience on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Dec 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/tags/datascience/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Los hábitos de programación de un estudiante cualquiera</title>
+      <link>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</link>
+      <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/habitos/commit_hours.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Habiendo finalizado el semestre (bueno, casi (el 29 termina (&lt;em&gt;oh god~&lt;/em&gt;))),
+se me ocurrió hacer una mini exploración a los datos almacenados en mi usuario
+de GitHub. La principal pregunta que surgió es
+&lt;strong&gt;¿En qué momento soy más productivo?&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;preámbulo&#34;&gt;Preámbulo&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;La API de GitHub&lt;/a&gt; es bastante amigable,
+debido a esto, no hubo dificultad alguna en la obtención de los datos.&lt;/p&gt;
+&lt;p&gt;La forma en que se trabajó la data está documentada en el
+&lt;a href=&#34;https://github.com/etra0/github-plot&#34;&gt;repositorio&lt;/a&gt;;
+para trabajar se ocupó &lt;code&gt;jupyter notebook&lt;/code&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Pequeño análisis descriptivo de los géneros en la USM</title>
+      <link>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</link>
+      <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/generos_usm/percentage.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Por esas curiosidades de la vida (o &lt;em&gt;benditas coincidencias&lt;/em&gt;), en un correo
+me llegó quizás más información de la que necesitaba acerca de un &lt;em&gt;test de
+inglés&lt;/em&gt; en ese entonces. Al curosear, descubrí que era un archivo
+donde estaban contenidos los &lt;strong&gt;alumnos matriculados en el período 2016-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;el-ocio&#34;&gt;El ocio&lt;/h1&gt;
+&lt;p&gt;Como el ocio es infinito, y &lt;em&gt;siempre hay tiempo para perder el tiempo&lt;/em&gt;, decidí
+hacer un pequeño análisis descriptivo respecto a los géneros en la USM.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explorando mi Facebook</title>
+      <link>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</link>
+      <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/fb/most_loved_year.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Durante las vacaciones de invierno &lt;em&gt;(es decir, durante el paro)&lt;/em&gt;, me dediqué
+a hacer un pequeño script que me permitía descargar mis estados de facebook.
+Luego, intenté buscar qué cosas analizar que podrían ser interesante y llegué
+a algunas ideas.&lt;/p&gt;
+&lt;p&gt;Todo el código que se utilizó se encuentra en mi GitHub. &lt;a href=&#34;https://github.com/etra0/my-facebook-analysis&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;el-amor&#34;&gt;El amor&lt;/h2&gt;
+&lt;p&gt;Quería ver &lt;em&gt;qué tan amoroso&lt;/em&gt; anduve los años ya pasados contando la cantidad
+de corazones que colocaba en cada estado&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>La previa a GOT</title>
+      <link>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</link>
+      <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;h1 id=&#34;update&#34;&gt;Update&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/dataisbeautiful/comments/6n150e/oc_screen_time_of_got_characters_fixed/?utm_content=title&amp;amp;utm_medium=user&amp;amp;utm_source=reddit&amp;amp;utm_name=u_EtraStyle&#34;&gt;Hice un post&lt;/a&gt;
+actualizado en reddit que alcanzó a la frontpage (nuevo logro 😃)&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Me motivo a escribir esta entrada sabiendo que queda poco para el estreno
+mundial de &lt;strong&gt;Game Of Thrones&lt;/strong&gt;. Hace un tiempito atrás, cuando ya estaba viendo
+la serie por segunda vez, me preguntaba si es que realmente existía un
+protagonista dentro de esta serie.&lt;/p&gt;
+&lt;p&gt;Para responder esta pregunta, lo primero que hice fue buscar el tiempo
+en pantalla de cada personaje. Lamentablemente, solo encontré información un
+poco antigua (cubría hasta la Season 3), pero de todas formas, decidí
+hacerlo igual.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mi pequeño Bot</title>
+      <link>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</link>
+      <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
+ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que
+&lt;strong&gt;WhatsApp no tiene API&lt;/strong&gt;) el cuál actualmente puede otorgar la minuta ó
+el clima en Valparaíso. El mini proyecto ya llegó a una versión &lt;em&gt;&amp;ldquo;estable&amp;rdquo;&lt;/em&gt;,
+y se encuentra en mi &lt;a href=&#34;https://github.com/etrastyle/sansanobot&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido
+que la gente lo utilice. Al principio el bot tenía como intención solo ser
+útil para mi, ya que soy &lt;em&gt;medianamente&lt;/em&gt; mañoso con el almuerzo, entonces,
+con éste podría evitar hacer filas para encontrarme con algo que finalmente
+no me guste. Al ver que igual había gente que lo usaba, se me ocurrió hacer
+un par de scripts para visualizar su uso diario, e igual me agradó tener
+un promedio de 12 usuarios en días hábiles &lt;del&gt;considerando que casi ningún usuario
+promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Explorando las mejores series según IMDB</title>
+      <link>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;p&gt;Hace mucho tiempo atrás, me habían recomendado
+&lt;a href=&#34;http://www.imdb.com/title/tt0903747/&#34;&gt;Breaking Bad&lt;/a&gt;, y yo para variar,
+rechacé verla porque dije &lt;em&gt;&amp;ldquo;Debe ser la típica serie acerca de drogas&amp;rdquo;&lt;/em&gt;, y,
+cláramente, estaba equivocado. Luego de darme cuenta que es una de las mejores
+series de la TV, decidí explorar qué otro tipo de maravillas me había
+estado perdiendo por ser &lt;strong&gt;prejuicioso&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Obviamente, hablando desde una perspectiva de programador, lo primero
+que hice es programar un parser de &lt;a href=&#34;http://www.imdb.com&#34;&gt;IMDb&lt;/a&gt;, específicamente
+de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Motos en Chile</title>
+      <link>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</link>
+      <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;p&gt;Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar
+si existe alguna relación entre la cilindrada de estos vehículos y el precio.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;La información fue sacada de la página para cotizar el permiso de circulación
+de los vehículos chilenos.&lt;/p&gt;
+
+  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Se puede notar, que existe una tendencia casi lineal respecto al precio, pero
+lo que más me llamó la atención, fue el
+&lt;a href=&#34;https://es.wikipedia.org/wiki/Valor_at%C3%ADpico&#34;&gt;&lt;em&gt;outlier&lt;/em&gt;&lt;/a&gt;, que era
+una Ducati que cuesta &lt;strong&gt;54 millones de pesos chilenos&lt;/strong&gt; (el modelo se llama Ducati Superleggera, 2017):
+&lt;img src=&#34;http://motorcycle.com.vsassets.comwp-content/uploads/2016/02/020316-2015-1199-Ducati-Superleggera-action-3756.jpg&#34; alt=&#34;ducati cara&#34;&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

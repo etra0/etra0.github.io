@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Usm on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/tags/usm/</link>
+    <description>Recent content in Usm on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Feb 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/tags/usm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generando datos con figuras</title>
+      <link>https://blog.etra0.lat/posts/2018-02-14-valentin/</link>
+      <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2018-02-14-valentin/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/valentin/thumbnail.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dada la famosa festividad del 14 de febrero, curiosamente
+busqué por internet como crear datasets con &lt;em&gt;formas
+predefinidas&lt;/em&gt;. Como la búsqueda no fue exitosa, decidí
+implementarla para crear un lindo &lt;code&gt;scatter plot&lt;/code&gt; con
+forma de corazón.&lt;/p&gt;
+&lt;h2 id=&#34;implementación&#34;&gt;Implementación&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; numpy &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; np
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; scipy.misc &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; imread
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.metrics &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; r2_score
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;numpy&lt;/code&gt; &amp;amp; &lt;code&gt;matplotlib&lt;/code&gt; fueron las herramientas fundamentales,
+y la gracia de &lt;code&gt;imread&lt;/code&gt; es que te permite cargar una imagen
+como un &lt;code&gt;numpy.array&lt;/code&gt; de inmediato.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mi pequeño Bot</title>
+      <link>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</link>
+      <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
+ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que
+&lt;strong&gt;WhatsApp no tiene API&lt;/strong&gt;) el cuál actualmente puede otorgar la minuta ó
+el clima en Valparaíso. El mini proyecto ya llegó a una versión &lt;em&gt;&amp;ldquo;estable&amp;rdquo;&lt;/em&gt;,
+y se encuentra en mi &lt;a href=&#34;https://github.com/etrastyle/sansanobot&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido
+que la gente lo utilice. Al principio el bot tenía como intención solo ser
+útil para mi, ya que soy &lt;em&gt;medianamente&lt;/em&gt; mañoso con el almuerzo, entonces,
+con éste podría evitar hacer filas para encontrarme con algo que finalmente
+no me guste. Al ver que igual había gente que lo usaba, se me ocurrió hacer
+un par de scripts para visualizar su uso diario, e igual me agradó tener
+un promedio de 12 usuarios en días hábiles &lt;del&gt;considerando que casi ningún usuario
+promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Telegram on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/tags/telegram/</link>
+    <description>Recent content in Telegram on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Jun 2017 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/tags/telegram/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mi pequeño Bot</title>
+      <link>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</link>
+      <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+
+
+&lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
+ayuda a la comunidad sansana. Este bot está solo para Telegram (debido a que
+&lt;strong&gt;WhatsApp no tiene API&lt;/strong&gt;) el cuál actualmente puede otorgar la minuta ó
+el clima en Valparaíso. El mini proyecto ya llegó a una versión &lt;em&gt;&amp;ldquo;estable&amp;rdquo;&lt;/em&gt;,
+y se encuentra en mi &lt;a href=&#34;https://github.com/etrastyle/sansanobot&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Después de casi 3 meses que el bot ha estado corriendo, me he sorprendido
+que la gente lo utilice. Al principio el bot tenía como intención solo ser
+útil para mi, ya que soy &lt;em&gt;medianamente&lt;/em&gt; mañoso con el almuerzo, entonces,
+con éste podría evitar hacer filas para encontrarme con algo que finalmente
+no me guste. Al ver que igual había gente que lo usaba, se me ocurrió hacer
+un par de scripts para visualizar su uso diario, e igual me agradó tener
+un promedio de 12 usuarios en días hábiles &lt;del&gt;considerando que casi ningún usuario
+promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
