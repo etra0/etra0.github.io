@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dataviz on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/categories/dataviz/</link>
+    <description>Recent content in Dataviz on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/categories/dataviz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Datacampfire Datathon</title>
+      <link>https://blog.etra0.lat/posts/2018-06-13-datacamp/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2018-06-13-datacamp/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/datacamp/thumbnail.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://www.datacampfire.com/&#34;&gt;Datacampfire&lt;/a&gt; hace poco hizo una Hackathon
+para crear visualizaciones sobre los gastos fiscales, otorgando los datos de
+éstos (ergo, &lt;em&gt;Datathon&lt;/em&gt;). Junto a unos amigos, decidimos participar en ésta,
+ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma
+con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.&lt;/p&gt;
+&lt;p&gt;El equipo se llamaba &lt;strong&gt;DMCTeam&lt;/strong&gt;, y estaba compuesto por dos &lt;em&gt;Data Scientist&lt;/em&gt;
+y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con
+ganas de haberle dedicado muchísimo más tiempo.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Generando datos con figuras</title>
+      <link>https://blog.etra0.lat/posts/2018-02-14-valentin/</link>
+      <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2018-02-14-valentin/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/valentin/thumbnail.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dada la famosa festividad del 14 de febrero, curiosamente
+busqué por internet como crear datasets con &lt;em&gt;formas
+predefinidas&lt;/em&gt;. Como la búsqueda no fue exitosa, decidí
+implementarla para crear un lindo &lt;code&gt;scatter plot&lt;/code&gt; con
+forma de corazón.&lt;/p&gt;
+&lt;h2 id=&#34;implementación&#34;&gt;Implementación&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; numpy &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; np
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; scipy.misc &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; imread
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.metrics &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; r2_score
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;numpy&lt;/code&gt; &amp;amp; &lt;code&gt;matplotlib&lt;/code&gt; fueron las herramientas fundamentales,
+y la gracia de &lt;code&gt;imread&lt;/code&gt; es que te permite cargar una imagen
+como un &lt;code&gt;numpy.array&lt;/code&gt; de inmediato.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

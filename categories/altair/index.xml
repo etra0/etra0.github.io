@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Altair on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/categories/altair/</link>
+    <description>Recent content in Altair on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/categories/altair/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Datacampfire Datathon</title>
+      <link>https://blog.etra0.lat/posts/2018-06-13-datacamp/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2018-06-13-datacamp/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/datacamp/thumbnail.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://www.datacampfire.com/&#34;&gt;Datacampfire&lt;/a&gt; hace poco hizo una Hackathon
+para crear visualizaciones sobre los gastos fiscales, otorgando los datos de
+éstos (ergo, &lt;em&gt;Datathon&lt;/em&gt;). Junto a unos amigos, decidimos participar en ésta,
+ocupando nuestra pequeña disponibilidad de tiempo para construir una plataforma
+con el fin de utilizar herramientas nuevas tales como Altair + vega-lite.&lt;/p&gt;
+&lt;p&gt;El equipo se llamaba &lt;strong&gt;DMCTeam&lt;/strong&gt;, y estaba compuesto por dos &lt;em&gt;Data Scientist&lt;/em&gt;
+y yo, un informático. Fue un entretenido trabajo, pero todos quedamos con
+ganas de haberle dedicado muchísimo más tiempo.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

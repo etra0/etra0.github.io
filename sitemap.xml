@@ -50,37 +50,64 @@
     <loc>https://blog.etra0.lat/posts/2020-05-28-photo-mode/</loc>
     <lastmod>2020-05-28T14:08:01-04:00</lastmod>
   </url><url>
+    <loc>https://blog.etra0.lat/categories/asm/</loc>
+    <lastmod>2020-03-23T12:00:00-04:00</lastmod>
+  </url><url>
     <loc>https://blog.etra0.lat/categories/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2020-03-23-hacking-the-beginning/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/re-hack-asm/</loc>
+    <loc>https://blog.etra0.lat/categories/hack/</loc>
     <lastmod>2020-03-23T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/re/</loc>
+    <lastmod>2020-03-23T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/crowdsourcing/</loc>
+    <lastmod>2018-10-06T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2018-10-06-crowdsourcing-milestone/</loc>
     <lastmod>2018-10-06T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/js-opensource-crowdsourcing/</loc>
+    <loc>https://blog.etra0.lat/categories/js/</loc>
     <lastmod>2018-10-06T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/opensource/</loc>
+    <lastmod>2018-10-06T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/altair/</loc>
+    <lastmod>2018-06-13T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/bash/</loc>
+    <lastmod>2018-06-13T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2018-06-13-datacamp/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/javascript-dataviz-python-altair/</loc>
+    <loc>https://blog.etra0.lat/categories/dataviz/</loc>
+    <lastmod>2018-06-13T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/javascript/</loc>
+    <lastmod>2018-06-13T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/linux/</loc>
+    <lastmod>2018-06-13T12:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.etra0.lat/categories/python/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2018-06-13-vim/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/vim-bash-linux/</loc>
+    <loc>https://blog.etra0.lat/categories/vim/</loc>
     <lastmod>2018-06-13T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2018-02-14-valentin/</loc>
     <lastmod>2018-02-14T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/javascript-dataviz-usm/</loc>
+    <loc>https://blog.etra0.lat/categories/usm/</loc>
     <lastmod>2018-02-14T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/categories/datascience/</loc>
@@ -89,25 +116,22 @@
     <loc>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</loc>
     <lastmod>2017-12-24T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/datascience-python/</loc>
-    <lastmod>2017-11-04T12:00:00-04:00</lastmod>
-  </url><url>
     <loc>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</loc>
     <lastmod>2017-11-04T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/datascience-facebook-python/</loc>
+    <loc>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</loc>
     <lastmod>2017-10-01T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</loc>
+    <loc>https://blog.etra0.lat/categories/facebook/</loc>
     <lastmod>2017-10-01T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</loc>
     <lastmod>2017-07-07T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/categories/datascience-telegram-usm/</loc>
+    <loc>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</loc>
     <lastmod>2017-06-25T12:00:00-04:00</lastmod>
   </url><url>
-    <loc>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</loc>
+    <loc>https://blog.etra0.lat/categories/telegram/</loc>
     <lastmod>2017-06-25T12:00:00-04:00</lastmod>
   </url><url>
     <loc>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</loc>

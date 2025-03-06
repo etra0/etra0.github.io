@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Re on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/categories/re/</link>
+    <description>Recent content in Re on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Mar 2020 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/categories/re/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
+      <link>https://blog.etra0.lat/posts/2020-03-23-hacking-the-beginning/</link>
+      <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2020-03-23-hacking-the-beginning/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/hacking_beginning/head.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;h1 id=&#34;prólogo&#34;&gt;Prólogo&lt;/h1&gt;
+&lt;h2 id=&#34;casi-hacker&#34;&gt;Casi Hacker&lt;/h2&gt;
+&lt;p&gt;Al momento de hablar de hacking, casi todo el mundo se imagina el clásico
+&lt;em&gt;hacking ético&lt;/em&gt;, intentando vulnerar redes, sus &lt;em&gt;MITM&lt;/em&gt;, típico que salta
+&lt;em&gt;Kali Linux&lt;/em&gt;, &lt;em&gt;claves de facebook&lt;/em&gt;, etc&amp;hellip; Esa es la primera imagen que se le
+viene a la gente, un hacking, que en verdad, a mi poco y nada me
+interesaba.&lt;/p&gt;
+&lt;p&gt;Y esto se puede evidenciar aún más, al momento de hacer ese tipo de búsquedas
+en algún motor como google, abunda el contenido donde se enseña a usar
+este tipo de técnicas y herramientas, lo que hizo que me tardase en por fin
+encontrar lo que siempre estuve buscando.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

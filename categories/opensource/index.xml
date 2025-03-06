@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opensource on Sebastián Aedo&#39;s blog</title>
+    
+    
+    
+    <link>https://blog.etra0.lat/categories/opensource/</link>
+    <description>Recent content in Opensource on Sebastián Aedo&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Oct 2018 12:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.etra0.lat/categories/opensource/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Crowdsourcing y Opensource: Ayudando a la comunidad sansana</title>
+      <link>https://blog.etra0.lat/posts/2018-10-06-crowdsourcing-milestone/</link>
+      <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/posts/2018-10-06-crowdsourcing-milestone/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://blog.etra0.lat/assets/images/crowdsourcing/malla.png&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dentro de mi universidad, existe un sistema de gestión académica llamado SIGA, el cual
+posee una interfaz bastante&amp;hellip; &lt;em&gt;obsoleta&lt;/em&gt; por así decirlo, si bien hace la pega,
+hay muchas cosas que se podrían hacer mejor. Una de ellas, es el avance académico, ya
+que al solicitarlo, se entrega una lista con los ramos aprobados y sus notas, pero no
+hay manera rápida de visualizar el avance.&lt;/p&gt;
+&lt;p&gt;Dado que uno como alumno, siempre quiere saber en qué posición de la carrera se encuentra,
+y dándome cuenta que año tras año pensaba qué ramos puedo tomar para progresar mejor (porque,
+por lo menos para mí, la malla es solo una referencia) con el fin de no sufrir en el intento,
+decidí crear una &lt;strong&gt;&lt;a href=&#34;https://mallas.labcomp.cl&#34;&gt;Malla Interactiva&lt;/a&gt;&lt;/strong&gt; que me facilite este trabajo.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -15,11 +15,11 @@
     
     
     <item>
-      <title>Re Hack Asm</title>
-      <link>https://blog.etra0.lat/categories/re-hack-asm/</link>
+      <title>Asm</title>
+      <link>https://blog.etra0.lat/categories/asm/</link>
       <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/re-hack-asm/</guid>
+      <guid>https://blog.etra0.lat/categories/asm/</guid>
       <description>
         
           
@@ -35,11 +35,51 @@
     </item>
     
     <item>
-      <title>Js Opensource Crowdsourcing</title>
-      <link>https://blog.etra0.lat/categories/js-opensource-crowdsourcing/</link>
+      <title>Hack</title>
+      <link>https://blog.etra0.lat/categories/hack/</link>
+      <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/hack/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Re</title>
+      <link>https://blog.etra0.lat/categories/re/</link>
+      <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/re/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Crowdsourcing</title>
+      <link>https://blog.etra0.lat/categories/crowdsourcing/</link>
       <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/js-opensource-crowdsourcing/</guid>
+      <guid>https://blog.etra0.lat/categories/crowdsourcing/</guid>
       <description>
         
           
@@ -55,11 +95,51 @@
     </item>
     
     <item>
-      <title>Javascript Dataviz Python Altair</title>
-      <link>https://blog.etra0.lat/categories/javascript-dataviz-python-altair/</link>
+      <title>Js</title>
+      <link>https://blog.etra0.lat/categories/js/</link>
+      <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/js/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Opensource</title>
+      <link>https://blog.etra0.lat/categories/opensource/</link>
+      <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/opensource/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Altair</title>
+      <link>https://blog.etra0.lat/categories/altair/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/javascript-dataviz-python-altair/</guid>
+      <guid>https://blog.etra0.lat/categories/altair/</guid>
       <description>
         
           
@@ -75,11 +155,11 @@
     </item>
     
     <item>
-      <title>Vim Bash Linux</title>
-      <link>https://blog.etra0.lat/categories/vim-bash-linux/</link>
+      <title>Bash</title>
+      <link>https://blog.etra0.lat/categories/bash/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/vim-bash-linux/</guid>
+      <guid>https://blog.etra0.lat/categories/bash/</guid>
       <description>
         
           
@@ -95,11 +175,111 @@
     </item>
     
     <item>
-      <title>Javascript Dataviz Usm</title>
-      <link>https://blog.etra0.lat/categories/javascript-dataviz-usm/</link>
+      <title>Dataviz</title>
+      <link>https://blog.etra0.lat/categories/dataviz/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/dataviz/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://blog.etra0.lat/categories/javascript/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/javascript/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://blog.etra0.lat/categories/linux/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/linux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://blog.etra0.lat/categories/python/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/python/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://blog.etra0.lat/categories/vim/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://blog.etra0.lat/categories/vim/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Usm</title>
+      <link>https://blog.etra0.lat/categories/usm/</link>
       <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/javascript-dataviz-usm/</guid>
+      <guid>https://blog.etra0.lat/categories/usm/</guid>
       <description>
         
           
@@ -135,31 +315,11 @@
     </item>
     
     <item>
-      <title>Datascience Python</title>
-      <link>https://blog.etra0.lat/categories/datascience-python/</link>
-      <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
-      
-      <guid>https://blog.etra0.lat/categories/datascience-python/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Datascience Facebook Python</title>
-      <link>https://blog.etra0.lat/categories/datascience-facebook-python/</link>
+      <title>Facebook</title>
+      <link>https://blog.etra0.lat/categories/facebook/</link>
       <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/datascience-facebook-python/</guid>
+      <guid>https://blog.etra0.lat/categories/facebook/</guid>
       <description>
         
           
@@ -175,11 +335,11 @@
     </item>
     
     <item>
-      <title>Datascience Telegram Usm</title>
-      <link>https://blog.etra0.lat/categories/datascience-telegram-usm/</link>
+      <title>Telegram</title>
+      <link>https://blog.etra0.lat/categories/telegram/</link>
       <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/categories/datascience-telegram-usm/</guid>
+      <guid>https://blog.etra0.lat/categories/telegram/</guid>
       <description>
         
           
