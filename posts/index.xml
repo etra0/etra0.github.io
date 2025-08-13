@@ -5,24 +5,24 @@
     
     
     
-    <link>https://blog.etra0.lat/posts/</link>
+    <link>https://blog.etra0.cl/posts/</link>
     <description>Recent content in Posts on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 05 Mar 2025 16:00:00 -0300</lastBuildDate>
     
-	<atom:link href="https://blog.etra0.lat/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.etra0.cl/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gaming in the desert</title>
-      <link>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</link>
+      <link>https://blog.etra0.cl/posts/2025-03-05-remote-gaming/</link>
       <pubDate>Wed, 05 Mar 2025 16:00:00 -0300</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2025-03-05-remote-gaming/</guid>
+      <guid>https://blog.etra0.cl/posts/2025-03-05-remote-gaming/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/frame5.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/tailscale/frame5.png&#34;/&gt;
           
         
         
@@ -32,7 +32,7 @@ world? Well, I&amp;rsquo;m lucky enough to work in one of those places; in the m
 of the desert, where humidity levels on average are less than 20%, and no
 civilization is in sight.&lt;/p&gt;
 
-  &lt;img src=&#34;https://blog.etra0.lat/assets/images/tailscale/ut4.jpg&#34;  class=&#34;center&#34;  style=&#34;height:500px&#34;  /&gt;
+  &lt;img src=&#34;https://blog.etra0.cl/assets/images/tailscale/ut4.jpg&#34;  class=&#34;center&#34;  style=&#34;height:500px&#34;  /&gt;
 
 
 &lt;p&gt;I work as a Software Engineer over there, since the workplace is &lt;em&gt;literally&lt;/em&gt; in
@@ -45,13 +45,13 @@ stay until the next Tuesday, over +1.000km away from my home.&lt;/p&gt;
     
     <item>
       <title>SapeAOB, _Andai&#39; puro sapeando mi código oe!_</title>
-      <link>https://blog.etra0.lat/posts/2021-08-07-sapeando-tu-codigo/</link>
+      <link>https://blog.etra0.cl/posts/2021-08-07-sapeando-tu-codigo/</link>
       <pubDate>Sat, 07 Aug 2021 16:00:00 -0300</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2021-08-07-sapeando-tu-codigo/</guid>
+      <guid>https://blog.etra0.cl/posts/2021-08-07-sapeando-tu-codigo/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/sapeaob/logo.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/sapeaob/logo.png&#34;/&gt;
           
         
         
@@ -69,13 +69,13 @@ microlibrería que permite encontrar patrones de bytes escrita en C++17.&lt;/p&g
     
     <item>
       <title>memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</title>
-      <link>https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/</link>
+      <link>https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/</link>
       <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/memory-rs/cover.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/memory-rs/cover.png&#34;/&gt;
           
         
         
@@ -99,13 +99,13 @@ construir un toolkit para evitar ser redundante en futuras ocasiones.&lt;/p&gt;
     
     <item>
       <title>Quién necesita Matplotlib si tenemos el Administrador de Tareas</title>
-      <link>https://blog.etra0.lat/posts/2020-06-26-taskmgr/</link>
+      <link>https://blog.etra0.cl/posts/2020-06-26-taskmgr/</link>
       <pubDate>Fri, 26 Jun 2020 15:40:55 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-06-26-taskmgr/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-06-26-taskmgr/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/taskmgr/out.gif&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/taskmgr/out.gif&#34;/&gt;
           
         
         
@@ -128,13 +128,13 @@ todas las ventajas que se tenían al hacer las cosas de forma &lt;em&gt;interna&
     
     <item>
       <title>Creando mi propio Photo Mode para Yakuza Kiwami 2</title>
-      <link>https://blog.etra0.lat/posts/2020-05-28-photo-mode/</link>
+      <link>https://blog.etra0.cl/posts/2020-05-28-photo-mode/</link>
       <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-05-28-photo-mode/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-05-28-photo-mode/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/photomode/kiryu.jpg&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/photomode/kiryu.jpg&#34;/&gt;
           
         
         
@@ -151,7 +151,7 @@ implementado en Rust.&lt;/p&gt;
 &lt;div class=&#34;video-container&#34;&gt;
 	&lt;video  width=&#34;100%&#34; 
 		 controls  loop&gt;
-		&lt;source src=&#34;https://blog.etra0.lat/assets/images/photomode/freecam_0.mp4&#34;&gt;
+		&lt;source src=&#34;https://blog.etra0.cl/assets/images/photomode/freecam_0.mp4&#34;&gt;
 	&lt;/video&gt;
 &lt;/div&gt;
 
@@ -171,13 +171,13 @@ gráficos, tiene un &lt;em&gt;look&lt;/em&gt; que a mi por lo menos me atrae bas
     
     <item>
       <title>Game Hacking: the beginning. El hermoso mundo del Reverse Engineering</title>
-      <link>https://blog.etra0.lat/posts/2020-03-23-hacking-the-beginning/</link>
+      <link>https://blog.etra0.cl/posts/2020-03-23-hacking-the-beginning/</link>
       <pubDate>Mon, 23 Mar 2020 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-03-23-hacking-the-beginning/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-03-23-hacking-the-beginning/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/hacking_beginning/head.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/hacking_beginning/head.png&#34;/&gt;
           
         
         
@@ -200,13 +200,13 @@ encontrar lo que siempre estuve buscando.&lt;/p&gt;
     
     <item>
       <title>Crowdsourcing y Opensource: Ayudando a la comunidad sansana</title>
-      <link>https://blog.etra0.lat/posts/2018-10-06-crowdsourcing-milestone/</link>
+      <link>https://blog.etra0.cl/posts/2018-10-06-crowdsourcing-milestone/</link>
       <pubDate>Sat, 06 Oct 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2018-10-06-crowdsourcing-milestone/</guid>
+      <guid>https://blog.etra0.cl/posts/2018-10-06-crowdsourcing-milestone/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/crowdsourcing/malla.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/crowdsourcing/malla.png&#34;/&gt;
           
         
         
@@ -227,13 +227,13 @@ decidí crear una &lt;strong&gt;&lt;a href=&#34;https://mallas.labcomp.cl&#34;&g
     
     <item>
       <title>Datacampfire Datathon</title>
-      <link>https://blog.etra0.lat/posts/2018-06-13-datacamp/</link>
+      <link>https://blog.etra0.cl/posts/2018-06-13-datacamp/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2018-06-13-datacamp/</guid>
+      <guid>https://blog.etra0.cl/posts/2018-06-13-datacamp/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/datacamp/thumbnail.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/datacamp/thumbnail.png&#34;/&gt;
           
         
         
@@ -253,10 +253,10 @@ ganas de haberle dedicado muchísimo más tiempo.&lt;/p&gt;
     
     <item>
       <title>Real programmers use VIM</title>
-      <link>https://blog.etra0.lat/posts/2018-06-13-vim/</link>
+      <link>https://blog.etra0.cl/posts/2018-06-13-vim/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2018-06-13-vim/</guid>
+      <guid>https://blog.etra0.cl/posts/2018-06-13-vim/</guid>
       <description>
         
           
@@ -284,13 +284,13 @@ empecé a mirar para el lado, y abrí VIM por primera vez.&lt;/p&gt;
     
     <item>
       <title>Generando datos con figuras</title>
-      <link>https://blog.etra0.lat/posts/2018-02-14-valentin/</link>
+      <link>https://blog.etra0.cl/posts/2018-02-14-valentin/</link>
       <pubDate>Wed, 14 Feb 2018 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2018-02-14-valentin/</guid>
+      <guid>https://blog.etra0.cl/posts/2018-02-14-valentin/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/valentin/thumbnail.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/valentin/thumbnail.png&#34;/&gt;
           
         
         
@@ -315,13 +315,13 @@ como un &lt;code&gt;numpy.array&lt;/code&gt; de inmediato.&lt;/p&gt;
     
     <item>
       <title>Los hábitos de programación de un estudiante cualquiera</title>
-      <link>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</link>
+      <link>https://blog.etra0.cl/posts/2017-12-24-habitos-programacion/</link>
       <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-12-24-habitos-programacion/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/habitos/commit_hours.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/habitos/commit_hours.png&#34;/&gt;
           
         
         
@@ -343,13 +343,13 @@ para trabajar se ocupó &lt;code&gt;jupyter notebook&lt;/code&gt;.&lt;/p&gt;
     
     <item>
       <title>Pequeño análisis descriptivo de los géneros en la USM</title>
-      <link>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</link>
+      <link>https://blog.etra0.cl/posts/2017-11-04-descripcion-usm/</link>
       <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-11-04-descripcion-usm/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/generos_usm/percentage.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/generos_usm/percentage.png&#34;/&gt;
           
         
         
@@ -368,13 +368,13 @@ hacer un pequeño análisis descriptivo respecto a los géneros en la USM.&lt;/p
     
     <item>
       <title>Explorando mi Facebook</title>
-      <link>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</link>
+      <link>https://blog.etra0.cl/posts/2017-10-01-analisis-facebook/</link>
       <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-10-01-analisis-facebook/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/fb/most_loved_year.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/fb/most_loved_year.png&#34;/&gt;
           
         
         
@@ -394,10 +394,10 @@ de corazones que colocaba en cada estado&lt;/p&gt;
     
     <item>
       <title>La previa a GOT</title>
-      <link>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</link>
+      <link>https://blog.etra0.cl/posts/2017-07-07-la-previa-a-got/</link>
       <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-07-07-la-previa-a-got/</guid>
       <description>
         
           
@@ -425,10 +425,10 @@ hacerlo igual.&lt;/p&gt;
     
     <item>
       <title>Mi pequeño Bot</title>
-      <link>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-25-mi-pequenno-bot/</link>
       <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-25-mi-pequenno-bot/</guid>
       <description>
         
           
@@ -437,7 +437,7 @@ hacerlo igual.&lt;/p&gt;
         
         
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
@@ -460,10 +460,10 @@ promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
     
     <item>
       <title>Explorando las mejores series según IMDB</title>
-      <link>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
       <description>
         
           
@@ -488,10 +488,10 @@ de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
     
     <item>
       <title>Motos en Chile</title>
-      <link>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-05-motos-en-chile/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-05-motos-en-chile/</guid>
       <description>
         
           
@@ -503,13 +503,13 @@ de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
           &lt;p&gt;Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar
 si existe alguna relación entre la cilindrada de estos vehículos y el precio.&lt;/p&gt;
 
-  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
+  &lt;img src=&#34;https://blog.etra0.cl/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;La información fue sacada de la página para cotizar el permiso de circulación
 de los vehículos chilenos.&lt;/p&gt;
 
-  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
+  &lt;img src=&#34;https://blog.etra0.cl/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;Se puede notar, que existe una tendencia casi lineal respecto al precio, pero

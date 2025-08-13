@@ -11,7 +11,7 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
 "/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/" />
+<link rel="canonical" href="https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/" />
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108274078-4"></script>
@@ -25,14 +25,14 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
 
 
 
-<link rel="stylesheet" href="https://blog.etra0.lat/assets/style.css">
+<link rel="stylesheet" href="https://blog.etra0.cl/assets/style.css">
 
 
-<link rel="stylesheet" href="https://blog.etra0.lat/style.css">
+<link rel="stylesheet" href="https://blog.etra0.cl/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.etra0.lat/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://blog.etra0.lat/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.etra0.cl/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://blog.etra0.cl/img/favicon.png">
 
 
 <script type="text/javascript" async
@@ -74,7 +74,7 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
 
 
 
-<meta property="og:url" content="https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/">
+<meta property="og:url" content="https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/">
   <meta property="og:site_name" content="Sebastián Aedo&#39;s blog">
   <meta property="og:title" content="memory-rs: going internal & Yakuza Like A Dragon Photo Mode">
   <meta property="og:description" content="Habiendo comenzado a experimentar con hacking interno a través de inyección de DLLs, y mientras esperaba la salida del juego Yakuza: Like A Dragon, aproveché de comenzar a preparar mi librería memory-rs para por fin comenzar a utilizar hacking interno, que por lo general conllevaba más trabajo preparar el boilerplate pero al final traía muchos más beneficios.
@@ -130,7 +130,7 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
   
 
   <div class="post">
-    <h1 class="post-title"><a href="https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/">memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</a></h1>
+    <h1 class="post-title"><a href="https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/">memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -149,18 +149,18 @@ Evolución de memory-rs A partir del 27 de octubre, comencé a trabajar casi tod
     
       <span class="post-tags">
         
-          #<a href="https://blog.etra0.lat/tags/rust/">rust</a>&nbsp;
+          #<a href="https://blog.etra0.cl/tags/rust/">rust</a>&nbsp;
         
-          #<a href="https://blog.etra0.lat/tags/assembly/">assembly</a>&nbsp;
+          #<a href="https://blog.etra0.cl/tags/assembly/">assembly</a>&nbsp;
         
-          #<a href="https://blog.etra0.lat/tags/re/">re</a>&nbsp;
+          #<a href="https://blog.etra0.cl/tags/re/">re</a>&nbsp;
         
       </span>
     
 
     
       
-        <img src="https://blog.etra0.lat/assets/images/memory-rs/cover.png" class="post-cover" />
+        <img src="https://blog.etra0.cl/assets/images/memory-rs/cover.png" class="post-cover" />
       
     
 
@@ -233,7 +233,7 @@ compatibilidad entre versiones (La freecam de Yakuza Like A Dragon funciona
 para Steam y para Microsoft Store sin hacer cambio alguno gracias a esto!).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// snip
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> store_pref_detour <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> (size, func) <span style="color:#f92672">=</span> generate_aob_pattern![
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> (size, func) <span style="color:#f92672">=</span> <span style="color:#a6e22e">generate_aob_pattern!</span>[
 </span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">0x8B</span>, <span style="color:#ae81ff">0x41</span>, _, <span style="color:#ae81ff">0x89</span>, _, <span style="color:#ae81ff">0x8B</span>, <span style="color:#ae81ff">0x41</span>, <span style="color:#ae81ff">0x24</span>, <span style="color:#ae81ff">0x41</span>, <span style="color:#ae81ff">0x89</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0xC3</span>
 </span></span><span style="display:flex;"><span>	];
 </span></span><span style="display:flex;"><span>	Detour::new_from_aob(
@@ -242,7 +242,7 @@ para Steam y para Microsoft Store sin hacer cambio alguno gracias a esto!).</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#f92672">&amp;</span>proc_inf,
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// store_preferred_res es el puntero a mi shellcode, el cual está
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// escrito en assembly
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		auto_cast!(store_preferred_res),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">auto_cast!</span>(store_preferred_res),
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// En este caso el shellcode tiene un return, por lo cual no es
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// necesario inyectar un jmp back
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		None,
@@ -381,7 +381,7 @@ estoy demasiado orgulloso como quedó este approach. Esto se ve algo así:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fmt</span>(<span style="color:#f92672">&amp;</span>self, f: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> std::fmt::Formatter<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">std</span>::fmt::Result {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> ptr <span style="color:#f92672">=</span> self <span style="color:#66d9ef">as</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> GameCamera <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">usize</span>;
 </span></span><span style="display:flex;"><span>        f.debug_struct(<span style="color:#e6db74">&#34;GameCamera&#34;</span>)
-</span></span><span style="display:flex;"><span>            .field(<span style="color:#e6db74">&#34;self&#34;</span>, <span style="color:#f92672">&amp;</span>format_args!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:x}</span><span style="color:#e6db74">&#34;</span>, ptr))
+</span></span><span style="display:flex;"><span>            .field(<span style="color:#e6db74">&#34;self&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">format_args!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:x}</span><span style="color:#e6db74">&#34;</span>, ptr))
 </span></span><span style="display:flex;"><span>            .field(<span style="color:#e6db74">&#34;pos&#34;</span>, <span style="color:#f92672">&amp;</span>self.pos)
 </span></span><span style="display:flex;"><span>            .field(<span style="color:#e6db74">&#34;focus&#34;</span>, <span style="color:#f92672">&amp;</span>self.focus)
 </span></span><span style="display:flex;"><span>            .field(<span style="color:#e6db74">&#34;rot&#34;</span>, <span style="color:#f92672">&amp;</span>self.rot)
@@ -399,7 +399,7 @@ estoy demasiado orgulloso como quedó este approach. Esto se ve algo así:</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>gc).consume_input(<span style="color:#f92672">&amp;</span>input);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Podemos imprimir los valores de la GameCamera usando el trait Debug
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">*</span>gc);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">*</span>gc);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>¿Por qué es posible esto? Bueno, los arreglos en memoria no son nada más que
 valores contiguos en la RAM, y las struct son arreglos contiguos que
@@ -457,8 +457,8 @@ activo).</p>
   </div>
 </footer>
 
-<script src="https://blog.etra0.lat/assets/main.js"></script>
-<script src="https://blog.etra0.lat/assets/prism.js"></script>
+<script src="https://blog.etra0.cl/assets/main.js"></script>
+<script src="https://blog.etra0.cl/assets/prism.js"></script>
 
 
       

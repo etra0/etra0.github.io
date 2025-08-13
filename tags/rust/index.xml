@@ -5,24 +5,24 @@
     
     
     
-    <link>https://blog.etra0.lat/tags/rust/</link>
+    <link>https://blog.etra0.cl/tags/rust/</link>
     <description>Recent content in Rust on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 06 Dec 2020 23:19:23 -0300</lastBuildDate>
     
-	<atom:link href="https://blog.etra0.lat/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.etra0.cl/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>memory-rs: going internal &amp; Yakuza Like A Dragon Photo Mode</title>
-      <link>https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/</link>
+      <link>https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/</link>
       <pubDate>Sun, 06 Dec 2020 23:19:23 -0300</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-12-06-memory-rs-internal/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-12-06-memory-rs-internal/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/memory-rs/cover.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/memory-rs/cover.png&#34;/&gt;
           
         
         
@@ -46,13 +46,13 @@ construir un toolkit para evitar ser redundante en futuras ocasiones.&lt;/p&gt;
     
     <item>
       <title>Quién necesita Matplotlib si tenemos el Administrador de Tareas</title>
-      <link>https://blog.etra0.lat/posts/2020-06-26-taskmgr/</link>
+      <link>https://blog.etra0.cl/posts/2020-06-26-taskmgr/</link>
       <pubDate>Fri, 26 Jun 2020 15:40:55 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-06-26-taskmgr/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-06-26-taskmgr/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/taskmgr/out.gif&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/taskmgr/out.gif&#34;/&gt;
           
         
         
@@ -75,13 +75,13 @@ todas las ventajas que se tenían al hacer las cosas de forma &lt;em&gt;interna&
     
     <item>
       <title>Creando mi propio Photo Mode para Yakuza Kiwami 2</title>
-      <link>https://blog.etra0.lat/posts/2020-05-28-photo-mode/</link>
+      <link>https://blog.etra0.cl/posts/2020-05-28-photo-mode/</link>
       <pubDate>Thu, 28 May 2020 14:08:01 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2020-05-28-photo-mode/</guid>
+      <guid>https://blog.etra0.cl/posts/2020-05-28-photo-mode/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/photomode/kiryu.jpg&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/photomode/kiryu.jpg&#34;/&gt;
           
         
         
@@ -98,7 +98,7 @@ implementado en Rust.&lt;/p&gt;
 &lt;div class=&#34;video-container&#34;&gt;
 	&lt;video  width=&#34;100%&#34; 
 		 controls  loop&gt;
-		&lt;source src=&#34;https://blog.etra0.lat/assets/images/photomode/freecam_0.mp4&#34;&gt;
+		&lt;source src=&#34;https://blog.etra0.cl/assets/images/photomode/freecam_0.mp4&#34;&gt;
 	&lt;/video&gt;
 &lt;/div&gt;
 

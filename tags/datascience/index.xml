@@ -5,24 +5,24 @@
     
     
     
-    <link>https://blog.etra0.lat/tags/datascience/</link>
+    <link>https://blog.etra0.cl/tags/datascience/</link>
     <description>Recent content in Datascience on Sebastián Aedo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 24 Dec 2017 12:00:00 -0400</lastBuildDate>
     
-	<atom:link href="https://blog.etra0.lat/tags/datascience/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.etra0.cl/tags/datascience/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Los hábitos de programación de un estudiante cualquiera</title>
-      <link>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</link>
+      <link>https://blog.etra0.cl/posts/2017-12-24-habitos-programacion/</link>
       <pubDate>Sun, 24 Dec 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-12-24-habitos-programacion/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-12-24-habitos-programacion/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/habitos/commit_hours.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/habitos/commit_hours.png&#34;/&gt;
           
         
         
@@ -44,13 +44,13 @@ para trabajar se ocupó &lt;code&gt;jupyter notebook&lt;/code&gt;.&lt;/p&gt;
     
     <item>
       <title>Pequeño análisis descriptivo de los géneros en la USM</title>
-      <link>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</link>
+      <link>https://blog.etra0.cl/posts/2017-11-04-descripcion-usm/</link>
       <pubDate>Sat, 04 Nov 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-11-04-descripcion-usm/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-11-04-descripcion-usm/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/generos_usm/percentage.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/generos_usm/percentage.png&#34;/&gt;
           
         
         
@@ -69,13 +69,13 @@ hacer un pequeño análisis descriptivo respecto a los géneros en la USM.&lt;/p
     
     <item>
       <title>Explorando mi Facebook</title>
-      <link>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</link>
+      <link>https://blog.etra0.cl/posts/2017-10-01-analisis-facebook/</link>
       <pubDate>Sun, 01 Oct 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-10-01-analisis-facebook/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-10-01-analisis-facebook/</guid>
       <description>
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/fb/most_loved_year.png&#34;/&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/fb/most_loved_year.png&#34;/&gt;
           
         
         
@@ -95,10 +95,10 @@ de corazones que colocaba en cada estado&lt;/p&gt;
     
     <item>
       <title>La previa a GOT</title>
-      <link>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</link>
+      <link>https://blog.etra0.cl/posts/2017-07-07-la-previa-a-got/</link>
       <pubDate>Fri, 07 Jul 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-07-07-la-previa-a-got/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-07-07-la-previa-a-got/</guid>
       <description>
         
           
@@ -126,10 +126,10 @@ hacerlo igual.&lt;/p&gt;
     
     <item>
       <title>Mi pequeño Bot</title>
-      <link>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-25-mi-pequenno-bot/</link>
       <pubDate>Sun, 25 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-25-mi-pequenno-bot/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-25-mi-pequenno-bot/</guid>
       <description>
         
           
@@ -138,7 +138,7 @@ hacerlo igual.&lt;/p&gt;
         
         
         
-          &lt;img src=&#34;https://blog.etra0.lat/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
+          &lt;img src=&#34;https://blog.etra0.cl/assets/images/bot/botlogo.jpg&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;Durante mi tiempo libre, me dediqué a crear un bot para brindar una pequeña
@@ -161,10 +161,10 @@ promedio en Chile ocupa telegram&lt;/del&gt;.&lt;/p&gt;
     
     <item>
       <title>Explorando las mejores series según IMDB</title>
-      <link>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-05-explorando-las-mejores-series-segun-imdb/</guid>
       <description>
         
           
@@ -189,10 +189,10 @@ de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
     
     <item>
       <title>Motos en Chile</title>
-      <link>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</link>
+      <link>https://blog.etra0.cl/posts/2017-06-05-motos-en-chile/</link>
       <pubDate>Mon, 05 Jun 2017 12:00:00 -0400</pubDate>
       
-      <guid>https://blog.etra0.lat/posts/2017-06-05-motos-en-chile/</guid>
+      <guid>https://blog.etra0.cl/posts/2017-06-05-motos-en-chile/</guid>
       <description>
         
           
@@ -204,13 +204,13 @@ de la página donde están los top &lt;em&gt;n&lt;/em&gt; shows.&lt;/p&gt;
           &lt;p&gt;Luego de haberme comprado mi primera moto (♥), se me ocurrió analizar
 si existe alguna relación entre la cilindrada de estos vehículos y el precio.&lt;/p&gt;
 
-  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
+  &lt;img src=&#34;https://blog.etra0.cl/assets/images/motos/moto.jpg&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;La información fue sacada de la página para cotizar el permiso de circulación
 de los vehículos chilenos.&lt;/p&gt;
 
-  &lt;img src=&#34;https://blog.etra0.lat/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
+  &lt;img src=&#34;https://blog.etra0.cl/assets/images/motos/cc_precio.png&#34;  class=&#34;center&#34;  /&gt;
 
 
 &lt;p&gt;Se puede notar, que existe una tendencia casi lineal respecto al precio, pero
